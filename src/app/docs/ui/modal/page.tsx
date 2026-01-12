@@ -14,11 +14,17 @@ export default function ModalPage() {
 
       <div className="grid gap-10">
         <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Installation</h2>
+          <CodeBlock language="bash" code="npx canx-ui add modal" />
+        </section>
+
+        <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Usage</h2>
           <p className="text-zinc-400">
             You can trigger the modal using the built-in <code>triggerLabel</code> or by controlling the dialog element directly via ID.
           </p>
-          <CodeBlock language="tsx" code={`import { Modal, Button } from "canx-ui";
+          <CodeBlock language="tsx" code={`import { Modal } from "@/components/ui/modal";
+import { Button } from "@/components/ui/button";
 
 export default function Demo() {
   return (

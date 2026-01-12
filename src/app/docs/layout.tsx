@@ -32,7 +32,7 @@ export default function DocsLayout({
                 <Menu className="w-5 h-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-80 bg-zinc-950 border-white/[0.08] p-0">
+            <SheetContent side="left" className="w-80 bg-zinc-950 border-white/[0.08] p-0 overflow-y-auto">
               <SheetTitle className="sr-only">Documentation Menu</SheetTitle>
               <MobileDocsSidebar onClose={() => setOpen(false)} />
             </SheetContent>

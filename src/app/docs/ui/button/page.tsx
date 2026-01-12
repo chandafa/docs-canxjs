@@ -14,17 +14,23 @@ export default function ButtonPage() {
 
       <div className="grid gap-10">
         <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Installation</h2>
+          <CodeBlock language="bash" code="npx canx-ui add button" />
+        </section>
+
+        <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Usage</h2>
-          <CodeBlock language="tsx" code={`import { Button } from "canx-ui";
+          <CodeBlock language="tsx" code={`import { Button } from "@/components/ui/button";
 
 export default function Demo() {
   return (
     <div className="flex flex-wrap gap-4">
-      <Button variant="primary">Primary</Button>
+      <Button variant="default">Default</Button>
       <Button variant="secondary">Secondary</Button>
-      <Button variant="danger">Delete</Button>
-      <Button variant="ghost">Cancel</Button>
-      <Button size="lg" className="shadow-lg">Large with Shadow</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button variant="outline">Outline</Button>
+      <Button variant="ghost">Ghost</Button>
+      <Button variant="link">Link</Button>
     </div>
   );
 }`} />

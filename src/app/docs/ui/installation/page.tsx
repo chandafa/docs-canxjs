@@ -57,21 +57,28 @@ export default function UIInstallationPage() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">2. Configure Tailwind CSS</h2>
           <p className="text-zinc-400">
-            Since Canx UI components are styled with utility classes, you need to tell Tailwind to scan the package for class usage.
+            Canx UI is designed to be compatible with both Tailwind CSS v3 and v4. 
           </p>
           
-          <div className="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-200 text-sm">
-            <strong>Important:</strong> If you don't do this, the components will appear unstyled because Tailwind will purge the unused classes.
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-white">For Tailwind CSS v4</h3>
+             <p className="text-zinc-400">
+               Ensure your CSS variables are defined in your global CSS. When you run <code>init</code>, we provide the compatible CSS variables.
+            </p>
+            <p className="text-zinc-400">
+                You also need to ensure that your project is configured to scan the `src` directory for class names.
+            </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 pt-4">
             <h3 className="text-lg font-medium text-white">For Tailwind CSS v3</h3>
-            <p className="text-zinc-400">Update your <code>tailwind.config.js</code> file:</p>
+            <p className="text-zinc-400">Update your <code>tailwind.config.js</code> file to scan the component files if you are not using the modular CLI (copy-paste method):</p>
             <CodeBlock language="javascript" code={`/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./src/**/*.{ts,tsx}",
-    "./node_modules/canx-ui/dist/**/*.{js,ts,jsx,tsx}" // <--- Add this line
+    // If you installed the full package via npm:
+    "./node_modules/canx-ui/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
@@ -79,41 +86,30 @@ module.exports = {
   plugins: [],
 }`} />
           </div>
-
-          <div className="space-y-4 pt-4">
-            <h3 className="text-lg font-medium text-white">For Tailwind CSS v4</h3>
-            <p className="text-zinc-400">Import the package in your CSS entry point (if supported) or rely on source scanning configuration.</p>
-          </div>
         </section>
 
         {/* Utilities */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">3. Setup Utilities (Optional)</h2>
+          <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">3. Component Setup (Recommended)</h2>
           <p className="text-zinc-400">
-            If you want to override styles using <code>className</code> prop effectively, we recommend setting up a <code>cn</code> utility.
-            You can run our CLI to scaffold the folder structure and utils:
+             We recommend using the CLI to initialize your project. This will set up the necessary utilities (<code>cn</code> helper) and prepare your project for adding components.
           </p>
           <CodeBlock language="bash" code="npx canx-ui init" />
           <p className="text-zinc-400 text-sm">
-            This command creates <code>src/lib/utils.ts</code> and <code>src/components/ui</code>.
+            This command creates <code>src/lib/utils.ts</code>.
           </p>
         </section>
 
-        {/* Global Styles */}
+        {/* Adding Components */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">4. Global Styles</h2>
+          <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">4. Add Components</h2>
           <p className="text-zinc-400">
-            Add the following CSS variables to your global CSS if you want to use the default theme tokens (optional, Canx UI uses standard Tailwind colors by default but can use tokens):
+            You can now add individual components to your project. This will copy the component source code to your <code>src/components/ui</code> directory, allowing you to fully customize them.
           </p>
-          <CodeBlock language="css" code={`@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    /* ... other tokens */
-  }
-}`} />
+          <CodeBlock language="bash" code="npx canx-ui add button" />
+          <p className="text-zinc-400">
+            This method is favored over installing the full library as it gives you complete ownership of the code and reduces bundle size.
+          </p>
         </section>
       </div>
     </div>

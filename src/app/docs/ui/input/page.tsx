@@ -14,8 +14,13 @@ export default function InputPage() {
 
       <div className="grid gap-10">
         <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Installation</h2>
+          <CodeBlock language="bash" code="npx canx-ui add input" />
+        </section>
+
+        <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Usage</h2>
-          <CodeBlock language="tsx" code={`import { Input } from "canx-ui";
+          <CodeBlock language="tsx" code={`import { Input } from "@/components/ui/input";
 
 export default function Demo() {
   return (

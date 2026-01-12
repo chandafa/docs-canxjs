@@ -86,45 +86,43 @@ export function DocsSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden lg:block w-64 shrink-0">
-      <div className="sticky top-20 h-[calc(100vh-5rem)] overflow-y-auto pr-4 pb-12">
-        <nav className="space-y-8">
-          {sidebarItems.map((section) => (
-            <div key={section.title}>
-              <h4 className="text-sm font-semibold text-zinc-400 mb-3 px-3">
-                {section.title}
-              </h4>
-              <ul className="space-y-1">
-                {section.items.map((item) => {
-                  const isActive = pathname === item.href;
-                  return (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
-                          isActive
-                            ? "bg-white/[0.08] text-white font-medium"
-                            : "text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.03]"
-                        )}
-                      >
-                        <item.icon className={cn(
-                          "w-4 h-4",
-                          isActive ? "text-white" : "text-zinc-600"
-                        )} />
-                        {item.title}
-                        {isActive && (
-                          <ChevronRight className="w-3 h-3 ml-auto text-zinc-500" />
-                        )}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </nav>
-      </div>
+    <aside className="hidden lg:block w-64 shrink-0 sticky top-24 self-start h-[calc(100vh-6rem)] overflow-y-auto pr-2 pb-10">
+      <nav className="space-y-8">
+        {sidebarItems.map((section) => (
+          <div key={section.title}>
+            <h4 className="text-sm font-semibold text-zinc-400 mb-3 px-3">
+              {section.title}
+            </h4>
+            <ul className="space-y-1">
+              {section.items.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
+                        isActive
+                          ? "bg-white/[0.08] text-white font-medium"
+                          : "text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.03]"
+                      )}
+                    >
+                      <item.icon className={cn(
+                        "w-4 h-4",
+                        isActive ? "text-white" : "text-zinc-600"
+                      )} />
+                      {item.title}
+                      {isActive && (
+                        <ChevronRight className="w-3 h-3 ml-auto text-zinc-500" />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
+      </nav>
     </aside>
   );
 }
