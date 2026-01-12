@@ -133,7 +133,7 @@ export function Navbar() {
           </button>
 
           {/* Get Started Button */}
-          <Link href="/docs/installation" className="hidden sm:block ml-2">
+          <Link href="/docs/introduction" className="hidden sm:block ml-2">
             <Button
               size="sm"
               className="rounded-full px-5 bg-foreground dark:bg-white text-background dark:text-black hover:bg-foreground/90 dark:hover:bg-zinc-200 transition-all hover:scale-105 font-medium"
@@ -172,7 +172,7 @@ export function Navbar() {
                   GitHub
                 </a>
                 <div className="mt-4">
-                  <Link href="/docs/installation">
+                  <Link href="/docs/introduction">
                     <Button className="w-full rounded-xl bg-foreground dark:bg-white text-background dark:text-black hover:bg-foreground/90 dark:hover:bg-zinc-200" size="lg">
                       Get Started
                     </Button>

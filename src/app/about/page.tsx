@@ -249,7 +249,7 @@ export default function AboutPage() {
               Start building your next project with CanxJS today.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/installation">
+              <Link href="/docs/introduction">
                 <Button size="lg" className="rounded-full px-8">
                   Get Started
                 </Button>

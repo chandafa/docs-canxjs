@@ -145,7 +145,7 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up delay-200">
-              <Link href="/docs/installation">
+              <Link href="/docs/introduction">
                 <Button size="lg" className="rounded-full px-8 h-12 text-base bg-white text-black hover:bg-zinc-200 transition-all hover:scale-105 shadow-lg shadow-white/10">
                   Get Started
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -365,7 +365,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
-              <Link href="/docs/installation">
+              <Link href="/docs/introduction">
                 <Button size="lg" className="rounded-full px-8 h-12 bg-white text-black hover:bg-zinc-200">
                   Get Started
                   <ArrowRight className="w-4 h-4 ml-2" />
