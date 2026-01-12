@@ -72,6 +72,12 @@ const sidebarItems = [
     ],
   },
   {
+    "title": "Ecosystem",
+    "items": [
+      { title: "Canx Admin", href: "/docs/admin", icon: Settings },
+    ],
+  },
+  {
     "title": "Canx UI",
     "items": [
       { title: "Installation", href: "/docs/ui/installation", icon: Terminal },

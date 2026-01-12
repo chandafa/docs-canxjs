@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { SearchDialog } from "@/components/ui/SearchDialog";
-import { Sun, Moon, Menu, Github, Search, Box, TestTube, LayoutTemplate, Puzzle } from "lucide-react";
+import { Sun, Moon, Menu, Github, Search, Box, TestTube, LayoutTemplate, Puzzle, Settings } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -45,6 +45,13 @@ const docsMenu = [
     description: "VS Code extension for enhanced productivity.",
     icon: Puzzle,
     color: "text-orange-500",
+  },
+  {
+    title: "Docs Canx Admin",
+    href: "/docs/admin",
+    description: "Rapidly build admin panels with generators.",
+    icon: Settings,
+    color: "text-red-500",
   },
 ];
 
