@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://canxjs.dev'
+  const baseUrl = 'http://docs-canxjs.netlify.app'
   
   const routes = [
     '',

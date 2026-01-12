@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CanxJS - Ultra-fast Backend Framework for Bun
 
-## Getting Started
+[![CanxJS Version](https://img.shields.io/badge/CanxJS-v1.2.0-blueviolet?style=for-the-badge&logo=bun)](http://docs-canxjs.netlify.app)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
-First, run the development server:
+**CanxJS** is an ultra-fast, async-first MVC backend framework built specifically for [Bun](https://bun.sh). Designed for high performance and developer happiness, it allows you to build production-ready APIs with Type-Safety, elegance, and speed.
+
+> **Documentation**: [http://docs-canxjs.netlify.app](http://docs-canxjs.netlify.app)
+
+## 🚀 Why CanxJS?
+
+CanxJS is built to be the modern alternative to Express and Laravel for the JavaScript ecosystem.
+
+- **Ultra-High Performance**: Capable of handling **250,000+ requests per second**, making it up to 15x faster than Express.
+- **Bun Native**: Leveraging the speed of the Bun runtime for incredibly fast startup times (<50ms).
+- **Async-First MVC**: Modern architecture that treats asynchronous operations as a first-class citizen.
+- **Type-Safe**: Built with TypeScript in mind, offering excellent autocomplete and build-time safety.
+- **Batteries Included**: Comes with Routing, Controllers, Middleware, zero-config ORM, and more.
+
+## 📦 Installation
+
+Get started in seconds with our CLI tool:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Initialize a new project
+bunx create-canx my-app
+
+# Navigate to project
+cd my-app
+
+# Start the development server
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Radix Tree Routing**: O(k) matching algorithm for blazing fast routes.
+- **HotWire Protocol**: Real-time streaming and updates without complex WebSocket setup.
+- **WebSocket Support**: Native integration for bidirectional communication.
+- **Auto-Cache Layer**: Intelligent caching strategies to optimize response times.
+- **Zero-Config ORM**: Seamless support for MySQL and PostgreSQL.
+- **Native JSX Views**: Server-side rendering without external template engines.
+- **Edge Runtime Ready**: Deploy to global edge networks for low latency.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📚 Documentation
 
-## Learn More
+For full documentation, tutorials, and API reference, visit our official documentation site:
 
-To learn more about Next.js, take a look at the following resources:
+[**Read the Documentation →**](http://docs-canxjs.netlify.app)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🤝 Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+CanxJS is open-source software licensed under the [MIT license](LICENSE).

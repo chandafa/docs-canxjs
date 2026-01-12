@@ -18,10 +18,10 @@ export const metadata: Metadata = {
   },
   description: "Ultra-fast async-first MVC backend framework for Bun. Build modern APIs with 250,000+ requests/sec performance, elegant syntax, and type-safe code.",
   keywords: ["canxjs", "bun", "backend", "framework", "typescript", "api", "mvc", "async", "fast", "nodejs alternative"],
-  authors: [{ name: "CanxJS Team", url: "https://canxjs.dev" }],
+  authors: [{ name: "CanxJS Team", url: "http://docs-canxjs.netlify.app" }],
   creator: "CanxJS Team",
   publisher: "CanxJS",
-  metadataBase: new URL("https://canxjs.dev"),
+  metadataBase: new URL("http://docs-canxjs.netlify.app"),
   alternates: {
     canonical: "/",
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://canxjs.dev",
+    url: "http://docs-canxjs.netlify.app",
     siteName: "CanxJS",
     title: "CanxJS - Ultra-fast Backend Framework for Bun",
     description: "Ultra-fast async-first MVC backend framework for Bun. Build modern APIs with 250,000+ requests/sec performance.",
@@ -85,7 +85,7 @@ export default function RootLayout({
               "applicationCategory": "DeveloperApplication",
               "operatingSystem": "Cross-platform",
               "description": "Ultra-fast async-first MVC backend framework for Bun",
-              "url": "https://canxjs.dev",
+              "url": "http://docs-canxjs.netlify.app",
               "author": {
                 "@type": "Organization",
                 "name": "CanxJS Team"
