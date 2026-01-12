@@ -16,7 +16,9 @@ import {
   Shield,
   ChevronRight,
   FileCode,
-  Rocket
+  Rocket,
+  Box,
+  TestTube
 } from "lucide-react";
 
 const sidebarItems = [
@@ -26,6 +28,7 @@ const sidebarItems = [
       { title: "Introduction", href: "/docs/introduction", icon: BookOpen },
       { title: "Installation", href: "/docs/installation", icon: Terminal },
       { title: "Configuration", href: "/docs/config", icon: Settings },
+      { title: "VS Code Extension", href: "/extension", icon: Box },
     ],
   },
   {
@@ -55,10 +58,26 @@ const sidebarItems = [
     ],
   },
   {
+    "title": "Testing",
+    "items": [
+      { title: "Installation", href: "/docs/testing/installation", icon: Terminal },
+      { title: "Writing Tests", href: "/docs/testing/usage", icon: TestTube },
+    ],
+  },
+  {
     title: "Reference",
     items: [
       { title: "CLI Commands", href: "/docs/cli", icon: Terminal },
       { title: "API Reference", href: "/docs/api", icon: Code2 },
+    ],
+  },
+  {
+    "title": "Canx UI",
+    "items": [
+      { title: "Installation", href: "/docs/ui/installation", icon: Terminal },
+      { title: "Button", href: "/docs/ui/button", icon: Box },
+      { title: "Input", href: "/docs/ui/input", icon: FileCode },
+      { title: "Modal", href: "/docs/ui/modal", icon: Layers },
     ],
   },
 ];

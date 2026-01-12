@@ -54,7 +54,11 @@ const features = [
   { icon: Database, text: "Built-in ORM with query builder" },
   { icon: Layers, text: "Native JSX server-side rendering" },
   { icon: Radio, text: "HotWire protocol for real-time" },
-  { icon: Cpu, text: "WebSocket support" },
+  { icon: Cpu, text: "Native WebSocket support" },
+  { icon: Layers, text: "Queue system (Redis/Memory)" },
+  { icon: Database, text: "Storage drivers (S3/Local)" },
+  { icon: Shield, text: "Dependency Injection Container" },
+  { icon: Rocket, text: "Internationalization (i18n)" },
 ];
 
 const quickStartExample = `import { createApp, logger, cors } from "canxjs";

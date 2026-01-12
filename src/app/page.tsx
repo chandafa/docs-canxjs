@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BentoCard, BentoGrid, ShowcaseCard } from "@/components/ui/BentoGrid";
 import { TerminalPreview, CodePreview } from "@/components/ui/TerminalPreview";
+import { ComparisonTable } from "@/components/ui/ComparisonTable";
 import { 
   Zap, 
   Rocket, 
@@ -242,6 +243,25 @@ export default function Home() {
               <div className="text-zinc-400">Startup time</div>
               <div className="text-sm text-zinc-600 mt-1">40x faster than Laravel</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Section */}
+      <section className="relative py-24 sm:py-32 border-t border-white/[0.05] bg-white/[0.01]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16 animate-fade-in">
+            <p className="text-sm text-zinc-500 uppercase tracking-wider mb-4">Why CanxJS?</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Benchmarks that speak for themselves
+            </h2>
+            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+              We did the math. CanxJS outperforms the competition in speed, efficiency, and developer experience.
+            </p>
+          </div>
+          
+          <div className="animate-slide-up">
+            <ComparisonTable />
           </div>
         </div>
       </section>
