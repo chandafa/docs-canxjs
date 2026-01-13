@@ -165,7 +165,7 @@ export default function IntroductionPage() {
             Ready to start building? Follow our installation guide to create your first CanxJS application.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/installation">
+            <Link href="/docs/installation">
               <Button className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
                 Installation
                 <ArrowRight className="w-4 h-4 ml-2" />

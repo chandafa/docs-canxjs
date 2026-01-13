@@ -93,7 +93,7 @@ export default function QueueDashboardPage() {
         </Badge>
         <div className="flex items-center gap-3 mb-4">
           <h1 className="text-4xl sm:text-5xl font-bold text-white">Queue Dashboard</h1>
-          <Badge className="bg-green-500/20 text-green-400 border-green-500/30">v1.2.1</Badge>
+          <Badge className="bg-green-500/20 text-green-400 border-green-500/30">v1.2.4</Badge>
         </div>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Built-in web dashboard for monitoring and managing your background job queues. 

@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -126,7 +127,7 @@ export function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-foreground to-muted-foreground dark:from-white dark:to-zinc-400 flex items-center justify-center text-background dark:text-black font-bold text-sm transition-transform group-hover:scale-105">
               C
             </div>
-            <span className="font-semibold text-lg text-foreground dark:text-white">CanxJS</span>
+                        <span className="font-semibold text-lg text-foreground dark:text-white">CanxJS</span>
           </Link>
 
            {/* Version Badge - Desktop only */}
@@ -134,7 +135,7 @@ export function Navbar() {
             href="/docs"
             className="hidden md:flex items-center px-2.5 py-0.5 rounded-full bg-muted dark:bg-white/[0.05] border border-border dark:border-white/[0.1] text-xs text-muted-foreground dark:text-zinc-400 hover:bg-accent dark:hover:bg-white/[0.1] hover:text-foreground dark:hover:text-zinc-300 transition-colors"
           >
-            v1.2.1
+            v1.2.4
           </Link>
         </div>
 
@@ -155,7 +156,7 @@ export function Navbar() {
                           >
                             <div className="flex items-center gap-2 text-sm font-medium leading-none">
                               <item.icon className={cn("h-4 w-4", item.color)} />
-                              <span className="text-foreground dark:text-zinc-100">{item.title}</span>
+                                                            <span className="text-foreground dark:text-zinc-100">{item.title}</span>
                             </div>
                             <p className="line-clamp-2 text-sm leading-snug text-muted-foreground dark:text-zinc-400 mt-1 pl-6">
                               {item.description}

@@ -228,6 +228,30 @@ export default function ORMPage() {
         <CodePreview code={rawQueriesExample} filename="raw.ts" />
       </section>
 
+      <section className="mb-16 animate-slide-up delay-850">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-pink-500/10"><Zap className="w-5 h-5 text-pink-400" /></div>
+          Eager Loading (N+1 Solution)
+        </h2>
+        <p className="text-zinc-400 mb-6">
+          CanxJS provides powerful eager loading capabilities to solve the N+1 query problem. 
+          You can load relationships at query time using <code>with()</code> or on existing models using <code>load()</code>.
+        </p>
+        <CodePreview code={`// Eager load 'posts' relationship
+const users = await User.query()
+  .with("posts")
+  .get();
+
+// Eager load multiple relationships
+const posts = await Post.query()
+  .with("author", "comments")
+  .get();
+  
+// Lazy Eager Loading (on existing instance)
+const user = await User.find(1);
+await user.load("posts");`} filename="eager-loading.ts" />
+      </section>
+
       <section className="animate-slide-up delay-900">
         <div className="rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.08] p-8">
           <h3 className="text-xl font-semibold text-white mb-4">Next Steps</h3>

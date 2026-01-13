@@ -84,7 +84,7 @@ export default function InstallationPage() {
         </Badge>
         <h1 className="text-4xl sm:text-5xl font-bold text-foreground dark:text-white mb-4">Installation</h1>
         <p className="text-lg text-muted-foreground dark:text-zinc-400 leading-relaxed">
-          The quickest way to create a new CanxJS app is using create-canx, which sets up everything for you automatically.
+          The quickest way to create a new CanxJS app is using create-canx, which sets up everything for you automatically, including **Tailwind CSS**.
         </p>
       </div>
 

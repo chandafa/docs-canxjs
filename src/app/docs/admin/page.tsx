@@ -53,6 +53,17 @@ export default function AdminPage() {
           </div>
         </section>
 
+        <section className="space-y-4">
+           <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Analytics Dashboard</h2>
+           <p className="text-zinc-400">
+             You can also generate a modern analytics dashboard:
+           </p>
+           <CodeBlock language="bash" code="npx canx-admin make:dashboard" />
+           <p className="text-zinc-400 text-sm">
+             This creates <code>src/resources/views/admin/dashboard.tsx</code> with sample charts and metrics cards.
+           </p>
+        </section>
+
          <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Next Steps</h2>
           <p className="text-zinc-400">

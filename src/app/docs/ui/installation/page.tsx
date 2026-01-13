@@ -8,8 +8,14 @@ export default function UIInstallationPage() {
           Installation
         </h1>
         <p className="text-xl text-zinc-400 max-w-2xl">
-          Start building beautiful interfaces with Canx UI components. Designed to be lightweight, accessible, and fully customizable with Tailwind CSS.
+          Start building beautiful interfaces with Canx UI components.
         </p>
+        <div className="p-4 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+           <p className="text-blue-400 font-medium">✨ Recommendation</p>
+           <p className="text-zinc-300 text-sm mt-1">
+             If you used <code>create-canx</code> v1.0.6+, Canx UI and Tailwind CSS are already installed and configured! You can skip this page.
+           </p>
+        </div>
       </div>
 
       <div className="grid gap-12">

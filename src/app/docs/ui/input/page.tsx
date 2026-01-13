@@ -1,4 +1,7 @@
 import { CodeBlock } from "@/components/ui/code-block";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { ComponentPreview } from "@/components/ui/component-preview";
 
 export default function InputPage() {
   return (
@@ -20,24 +23,36 @@ export default function InputPage() {
 
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-white border-b border-zinc-800 pb-2">Usage</h2>
-          <CodeBlock language="tsx" code={`import { Input } from "@/components/ui/input";
+          <ComponentPreview code={`import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export default function Demo() {
   return (
     <div className="grid w-full max-w-sm items-center gap-4">
-      <Input type="email" placeholder="Email" label="Email Address" />
-      <Input type="password" placeholder="Password" label="Password" />
-      <Input 
-        type="text" 
-        placeholder="Username" 
-        label="Username" 
-        error="Username already taken" 
-      />
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="email">Email</Label>
+        <Input type="email" id="email" placeholder="Email" />
+      </div>
+      <div className="grid w-full max-w-sm items-center gap-1.5">
+        <Label htmlFor="password">Password</Label>
+        <Input type="password" id="password" placeholder="Password" />
+      </div>
     </div>
   );
-}`} />
+}`}>
+            <div className="grid w-full max-w-sm items-center gap-4">
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email-demo">Email</Label>
+                <Input type="email" id="email-demo" placeholder="Email" />
+              </div>
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="password-demo">Password</Label>
+                <Input type="password" id="password-demo" placeholder="Password" />
+              </div>
+            </div>
+          </ComponentPreview>
         </section>
-    </div>
+      </div>
     </div>
   );
 }
