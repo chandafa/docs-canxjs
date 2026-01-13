@@ -176,6 +176,72 @@ export default function InstallationPage() {
         </div>
       </section>
 
+      {/* Interactive Setup */}
+      <section className="mb-12 animate-slide-up delay-150">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2 rounded-lg bg-pink-500/10">
+            <Terminal className="w-5 h-5 text-pink-400" />
+          </div>
+          <h2 className="text-xl font-semibold text-foreground dark:text-white">Interactive Setup</h2>
+        </div>
+        
+        <div className="rounded-2xl bg-muted/50 dark:bg-white/[0.02] border border-border dark:border-white/[0.08] p-6">
+          <p className="text-muted-foreground dark:text-zinc-400 mb-6">
+            The CLI will guide you through the setup process with interactive prompts to customize your project:
+          </p>
+
+          <div className="space-y-4">
+            <div className="p-4 rounded-xl bg-zinc-950 border border-white/10 font-mono text-sm">
+              <div className="text-green-400 mb-2">? What project type do you want to create?</div>
+              <div className="pl-4 text-zinc-400">
+                <div className="text-blue-400">❯ Fullstack (MVC)</div>
+                <div>  API Only</div>
+                <div>  Microservice</div>
+              </div>
+              
+              <div className="text-green-400 mt-4 mb-2">? Which language do you want to use?</div>
+              <div className="pl-4 text-zinc-400">
+                <div className="text-blue-400">❯ TypeScript</div>
+                <div>  JavaScript</div>
+              </div>
+
+              <div className="text-green-400 mt-4 mb-2">? Which database do you want to use?</div>
+              <div className="pl-4 text-zinc-400">
+                <div className="text-blue-400">❯ MySQL</div>
+                <div>  PostgreSQL</div>
+                <div>  SQLite</div>
+              </div>
+
+              <div className="text-green-400 mt-4 mb-2">? Do you want to use Prisma ORM?</div>
+              <div className="pl-4 text-zinc-400">
+                <div className="text-blue-400">❯ Yes</div>
+                <div>  No</div>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4 mt-6">
+              <div className="p-4 rounded-xl bg-muted/50 dark:bg-white/[0.02] border border-border dark:border-white/[0.05]">
+                <h3 className="font-semibold text-foreground dark:text-white mb-2">Project Types</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground dark:text-zinc-400">
+                  <li><strong className="text-foreground dark:text-zinc-300">MVC:</strong> Full-stack with views & controllers</li>
+                  <li><strong className="text-foreground dark:text-zinc-300">API:</strong> REST API structure without views</li>
+                  <li><strong className="text-foreground dark:text-zinc-300">Microservice:</strong> Minimal setup for microservices</li>
+                </ul>
+              </div>
+              <div className="p-4 rounded-xl bg-muted/50 dark:bg-white/[0.02] border border-border dark:border-white/[0.05]">
+                <h3 className="font-semibold text-foreground dark:text-white mb-2">Features</h3>
+                <ul className="space-y-2 text-sm text-muted-foreground dark:text-zinc-400">
+                  <li>• TypeScript (Recommended) or JavaScript</li>
+                  <li>• Built-in Database Support (MySQL, PG, SQLite)</li>
+                  <li>• Optional Prisma Integration</li>
+                  <li>• Automatic Docker setup</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Project Templates */}
       <section className="mb-12 animate-slide-up delay-200">
         <div className="flex items-center gap-3 mb-4">
