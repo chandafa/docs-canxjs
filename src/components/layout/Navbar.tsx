@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { SearchDialog } from "@/components/ui/SearchDialog";
-import { Sun, Moon, Menu, Github, Search, Box, TestTube, LayoutTemplate, Puzzle, Settings } from "lucide-react";
+import { Sun, Moon, Menu, Github, Search, Box, TestTube, LayoutTemplate, Puzzle, Settings, Rocket } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -24,6 +24,13 @@ const docsMenu = [
     description: "Build robust backend applications with CanxJS.",
     icon: Box,
     color: "text-blue-500",
+  },
+  {
+    title: "Starter Kits",
+    href: "/docs/starters",
+    description: "Pre-built templates: Basic, API, Admin, SaaS.",
+    icon: Rocket,
+    color: "text-pink-500",
   },
   {
     title: "Docs Testing",
