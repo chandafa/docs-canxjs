@@ -1,3 +1,4 @@
+// Navbar.tsx
 "use client";
 
 import Link from "next/link";
@@ -86,9 +87,6 @@ export function Navbar() {
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark) || savedTheme === null;
     setIsDark(shouldBeDark);
-    import("clsx").then(() => { if (shouldBeDark) document.documentElement.classList.add("dark"); });
-    // Use direct DOM manipulation for immediate effect during hydration if needed, 
-    // but the above is safer with standard React patterns.
     if (shouldBeDark) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
   }, []);
@@ -114,32 +112,34 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
         isScrolled
-          ? "bg-background/80 dark:bg-black/80 backdrop-blur-xl border-b border-border dark:border-white/[0.08]"
-          : "bg-transparent"
+          ? "bg-background/80 dark:bg-black/80 backdrop-blur-xl border-border dark:border-white/[0.08]"
+          : "bg-transparent border-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Left: Logo + Version */}
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2.5 group">
+        
+        {/* Left: Logo */}
+        <div className="flex items-center flex-shrink-0 gap-3">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-foreground to-muted-foreground dark:from-white dark:to-zinc-400 flex items-center justify-center text-background dark:text-black font-bold text-sm transition-transform group-hover:scale-105">
               C
             </div>
             <span className="font-semibold text-lg text-foreground dark:text-white">CanxJS</span>
           </Link>
-          
-          <Link 
+
+           {/* Version Badge - Desktop only */}
+           <Link 
             href="/docs"
-            className="hidden sm:flex items-center px-2.5 py-1 rounded-full bg-muted dark:bg-white/[0.05] border border-border dark:border-white/[0.1] text-xs text-muted-foreground dark:text-zinc-400 hover:bg-accent dark:hover:bg-white/[0.1] hover:text-foreground dark:hover:text-zinc-300 transition-colors"
+            className="hidden md:flex items-center px-2.5 py-0.5 rounded-full bg-muted dark:bg-white/[0.05] border border-border dark:border-white/[0.1] text-xs text-muted-foreground dark:text-zinc-400 hover:bg-accent dark:hover:bg-white/[0.1] hover:text-foreground dark:hover:text-zinc-300 transition-colors"
           >
             v1.2.1
           </Link>
         </div>
 
-        {/* Center: Navigation */}
-        <div className="hidden md:flex items-center gap-1">
+        {/* Center: Navigation (Desktop) */}
+        <div className="hidden md:flex items-center absolute left-1/2 transform -translate-x-1/2">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -185,11 +185,12 @@ export function Navbar() {
         </div>
 
         {/* Right: Actions */}
-        <div className="flex items-center gap-1">
-          {/* Search Button */}
+        <div className="flex items-center gap-2">
+          
+          {/* Desktop Search */}
           <button
             onClick={() => setIsSearchOpen(true)}
-            className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted dark:bg-white/[0.05] border border-border dark:border-white/[0.1] text-sm text-muted-foreground dark:text-zinc-500 hover:bg-accent dark:hover:bg-white/[0.08] hover:border-border dark:hover:border-white/[0.15] transition-colors"
+            className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted dark:bg-white/[0.05] border border-border dark:border-white/[0.1] text-sm text-muted-foreground dark:text-zinc-500 hover:bg-accent dark:hover:bg-white/[0.08] hover:border-border dark:hover:border-white/[0.15] transition-colors"
           >
             <Search className="w-4 h-4" />
             <span className="hidden lg:inline">Search...</span>
@@ -197,13 +198,23 @@ export function Navbar() {
               ⌘K
             </kbd>
           </button>
+          
+          {/* Mobile Search Icon */}
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="md:hidden flex items-center justify-center p-2 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors text-muted-foreground dark:text-zinc-400"
+            aria-label="Search"
+          >
+            <Search className="w-5 h-5" />
+          </button>
 
-          {/* GitHub Link */}
+          {/* GitHub Link - Hidden on Mobile to prevent crowding/misalignment */}
+          {/* GitHub icon is already inside the Mobile Menu Sheet */}
           <a
             href="https://github.com/chandafa/canx.js"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white"
+            className="hidden md:flex items-center justify-center p-2 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white"
             aria-label="GitHub"
           >
             <Github className="w-5 h-5" />
@@ -212,7 +223,7 @@ export function Navbar() {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2.5 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white"
+            className="flex items-center justify-center p-2 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors text-muted-foreground dark:text-zinc-400 hover:text-foreground dark:hover:text-white"
             aria-label="Toggle theme"
           >
             {isDark ? (
@@ -222,8 +233,8 @@ export function Navbar() {
             )}
           </button>
 
-          {/* Get Started Button */}
-          <Link href="/docs/introduction" className="hidden sm:block ml-2">
+          {/* Get Started Button - Desktop */}
+          <Link href="/docs/introduction" className="hidden md:block ml-2">
             <Button
               size="sm"
               className="rounded-full px-5 bg-foreground dark:bg-white text-background dark:text-black hover:bg-foreground/90 dark:hover:bg-zinc-200 transition-all hover:scale-105 font-medium"
@@ -232,14 +243,14 @@ export function Navbar() {
             </Button>
           </Link>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Trigger */}
           <Sheet>
-            <SheetTrigger asChild className="md:hidden">
-              <button className="p-2.5 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors text-muted-foreground dark:text-zinc-400 ml-1">
+            <SheetTrigger asChild>
+              <button className="md:hidden flex items-center justify-center p-2 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors text-muted-foreground dark:text-zinc-400">
                 <Menu className="w-5 h-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80 bg-background dark:bg-zinc-950 border-border dark:border-white/[0.08] p-6 text-foreground overflow-y-auto">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background dark:bg-zinc-950 border-border dark:border-white/[0.08] p-6 text-foreground overflow-y-auto">
               <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
               <div className="flex flex-col gap-6 mt-8">
                 {/* Mobile Docs Menu */}

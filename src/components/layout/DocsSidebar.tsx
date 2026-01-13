@@ -143,7 +143,7 @@ export function MobileDocsSidebar({ onClose }: { onClose?: () => void }) {
     <nav className="space-y-6 p-4">
       {sidebarItems.map((section) => (
         <div key={section.title}>
-          <h4 className="text-sm font-semibold text-zinc-400 mb-3 px-3">
+          <h4 className="text-sm font-semibold text-muted-foreground mb-3 px-3">
             {section.title}
           </h4>
           <ul className="space-y-1">
@@ -157,13 +157,13 @@ export function MobileDocsSidebar({ onClose }: { onClose?: () => void }) {
                     className={cn(
                       "flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg transition-colors",
                       isActive
-                        ? "bg-white/[0.08] text-white font-medium"
-                        : "text-zinc-400 hover:text-white hover:bg-white/[0.03]"
+                        ? "bg-accent text-accent-foreground font-medium"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                     )}
                   >
                     <item.icon className={cn(
                       "w-4 h-4",
-                      isActive ? "text-white" : "text-zinc-500"
+                      isActive ? "text-primary" : "text-muted-foreground"
                     )} />
                     {item.title}
                   </Link>

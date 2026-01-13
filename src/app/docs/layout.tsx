@@ -28,11 +28,11 @@ export default function DocsLayout({
           {/* Mobile Sidebar Button */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <button className="fixed bottom-6 right-6 z-50 p-4 bg-white text-black rounded-full shadow-xl hover:bg-zinc-200 transition-all hover:scale-105">
+              <button className="fixed bottom-6 right-6 z-50 p-4 bg-foreground text-background dark:bg-white dark:text-black rounded-full shadow-xl hover:opacity-90 transition-all hover:scale-105">
                 <Menu className="w-5 h-5" />
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className="w-80 bg-zinc-950 border-white/[0.08] p-0 overflow-y-auto">
+            <SheetContent side="left" className="w-80 bg-background dark:bg-zinc-950 border-border dark:border-white/[0.08] p-0 overflow-y-auto">
               <SheetTitle className="sr-only">Documentation Menu</SheetTitle>
               <MobileDocsSidebar onClose={() => setOpen(false)} />
             </SheetContent>
