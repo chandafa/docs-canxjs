@@ -134,7 +134,7 @@ export function Navbar() {
             href="/docs"
             className="hidden sm:flex items-center px-2.5 py-1 rounded-full bg-muted dark:bg-white/[0.05] border border-border dark:border-white/[0.1] text-xs text-muted-foreground dark:text-zinc-400 hover:bg-accent dark:hover:bg-white/[0.1] hover:text-foreground dark:hover:text-zinc-300 transition-colors"
           >
-            v1.2.0
+            v1.2.1
           </Link>
         </div>
 

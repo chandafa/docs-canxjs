@@ -133,6 +133,65 @@ html {
   }
 }
 
+/* Light mode text overrides for docs pages */
+/* These fix hardcoded dark-mode-only text colors */
+:root:not(.dark) {
+  /* Override text-white to be visible in light mode */
+  .text-white {
+    color: var(--foreground) !important;
+  }
+  
+  /* Override zinc colors for light mode readability */
+  .text-zinc-100, .text-zinc-200 {
+    color: oklch(0.2 0 0) !important;
+  }
+  .text-zinc-300 {
+    color: oklch(0.3 0 0) !important;
+  }
+  .text-zinc-400 {
+    color: oklch(0.45 0 0) !important;
+  }
+  .text-zinc-500 {
+    color: oklch(0.55 0 0) !important;
+  }
+  .text-zinc-600 {
+    color: oklch(0.6 0 0) !important;
+  }
+  
+  /* Override bg colors that are too dark in light mode */
+  .bg-zinc-900, .bg-zinc-950, .bg-black {
+    background-color: oklch(0.97 0 0) !important;
+  }
+  .bg-zinc-900\/50, .bg-black\/30, .bg-black\/50 {
+    background-color: oklch(0.95 0 0 / 80%) !important;
+  }
+  
+  /* Fix borders */
+  .border-zinc-800, .border-white\/\[0\.08\], .border-white\/\[0\.1\] {
+    border-color: oklch(0.9 0 0) !important;
+  }
+  
+  /* Fix semi-transparent whites */
+  .bg-white\/\[0\.02\], .bg-white\/\[0\.03\], .bg-white\/\[0\.05\] {
+    background-color: oklch(0.98 0 0) !important;
+  }
+  .bg-white\/\[0\.08\], .bg-white\/10 {
+    background-color: oklch(0.96 0 0) !important;
+  }
+  
+  /* Fix inline code badges with dark backgrounds */
+  .bg-zinc-800, code.bg-zinc-800 {
+    background-color: oklch(0.92 0 0) !important;
+    color: oklch(0.25 0 0) !important;
+  }
+  
+  /* Fix code elements in prose */
+  code:not(pre code) {
+    background-color: oklch(0.94 0 0) !important;
+    color: oklch(0.25 0 0) !important;
+  }
+}
+
 /* iOS-inspired smooth transitions */
 @layer utilities {
   .glass {

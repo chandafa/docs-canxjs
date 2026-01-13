@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { Search, FileText, Book, Terminal, Settings, X, ArrowRight } from "lucide-react";
+import { Search, FileText, Book, Terminal, Settings, X, ArrowRight, Layers, Rocket, TestTube, LayoutTemplate, Shield, Radio, Zap, Database, Users, CreditCard, Box, Puzzle } from "lucide-react";
 
 interface SearchItem {
   title: string;
@@ -13,12 +13,49 @@ interface SearchItem {
 }
 
 const searchItems: SearchItem[] = [
+  // Getting Started
   { title: "Introduction", description: "What is CanxJS and why use it", href: "/docs/introduction", icon: <Book className="w-4 h-4" />, category: "Getting Started" },
   { title: "Installation", description: "Set up your first project", href: "/docs/installation", icon: <Terminal className="w-4 h-4" />, category: "Getting Started" },
   { title: "Configuration", description: "Configure your application", href: "/docs/config", icon: <Settings className="w-4 h-4" />, category: "Getting Started" },
-  { title: "Core Concepts", description: "Routing, Controllers, Middleware", href: "/docs/core-concepts", icon: <FileText className="w-4 h-4" />, category: "Documentation" },
-  { title: "API Reference", description: "Complete API documentation", href: "/docs/api", icon: <FileText className="w-4 h-4" />, category: "Documentation" },
-  { title: "CLI Commands", description: "All CLI commands explained", href: "/docs/cli", icon: <Terminal className="w-4 h-4" />, category: "Documentation" },
+  
+  // Core Concepts
+  { title: "Routing", description: "Define routes and parameters", href: "/docs/routing", icon: <FileText className="w-4 h-4" />, category: "Core Concepts" },
+  { title: "Controllers", description: "Handle requests with controllers", href: "/docs/controllers", icon: <FileText className="w-4 h-4" />, category: "Core Concepts" },
+  { title: "Middleware", description: "Request/response middleware", href: "/docs/middleware", icon: <Layers className="w-4 h-4" />, category: "Core Concepts" },
+  { title: "Request & Response", description: "Work with HTTP requests", href: "/docs/request-response", icon: <FileText className="w-4 h-4" />, category: "Core Concepts" },
+  
+  // Database
+  { title: "Models & ORM", description: "Database models and queries", href: "/docs/orm", icon: <Database className="w-4 h-4" />, category: "Database" },
+  { title: "Migrations", description: "Database migrations", href: "/docs/migrations", icon: <Database className="w-4 h-4" />, category: "Database" },
+  { title: "Seeders", description: "Database seeders", href: "/docs/seeders", icon: <Database className="w-4 h-4" />, category: "Database" },
+  
+  // Advanced
+  { title: "HotWire Protocol", description: "Real-time UI updates", href: "/docs/hotwire", icon: <Zap className="w-4 h-4" />, category: "Advanced" },
+  { title: "WebSockets", description: "Real-time communication", href: "/docs/websockets", icon: <Radio className="w-4 h-4" />, category: "Advanced" },
+  { title: "Security", description: "Authentication and security", href: "/docs/security", icon: <Shield className="w-4 h-4" />, category: "Advanced" },
+  { title: "Deployment", description: "Deploy your application", href: "/docs/deployment", icon: <Rocket className="w-4 h-4" />, category: "Advanced" },
+  
+  // Testing
+  { title: "Testing Installation", description: "Set up testing framework", href: "/docs/testing/installation", icon: <TestTube className="w-4 h-4" />, category: "Testing" },
+  { title: "Writing Tests", description: "Write unit and integration tests", href: "/docs/testing/usage", icon: <TestTube className="w-4 h-4" />, category: "Testing" },
+  
+  // Ecosystem
+  { title: "Starter Kits", description: "Pre-built templates: Basic, API, Admin, SaaS", href: "/docs/starters", icon: <Rocket className="w-4 h-4" />, category: "Ecosystem" },
+  { title: "Queue Dashboard", description: "Monitor background jobs", href: "/docs/queue", icon: <Layers className="w-4 h-4" />, category: "Ecosystem" },
+  { title: "Canx Admin", description: "Admin panel generator", href: "/docs/admin", icon: <Settings className="w-4 h-4" />, category: "Ecosystem" },
+  
+  // Canx UI
+  { title: "Canx UI Installation", description: "Install UI components", href: "/docs/ui/installation", icon: <LayoutTemplate className="w-4 h-4" />, category: "Canx UI" },
+  { title: "Button Component", description: "Button UI component", href: "/docs/ui/button", icon: <Box className="w-4 h-4" />, category: "Canx UI" },
+  { title: "Input Component", description: "Input UI component", href: "/docs/ui/input", icon: <Box className="w-4 h-4" />, category: "Canx UI" },
+  { title: "Modal Component", description: "Modal UI component", href: "/docs/ui/modal", icon: <Layers className="w-4 h-4" />, category: "Canx UI" },
+  
+  // Reference
+  { title: "CLI Commands", description: "All CLI commands explained", href: "/docs/cli", icon: <Terminal className="w-4 h-4" />, category: "Reference" },
+  { title: "API Reference", description: "Complete API documentation", href: "/docs/api", icon: <FileText className="w-4 h-4" />, category: "Reference" },
+  
+  // Extension
+  { title: "VS Code Extension", description: "Enhanced productivity tools", href: "/extension", icon: <Puzzle className="w-4 h-4" />, category: "Extension" },
 ];
 
 interface SearchDialogProps {

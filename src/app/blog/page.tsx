@@ -15,12 +15,12 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: "CanxJS v1.2.0 Release Notes",
-    excerpt: "Announcing CanxJS v1.2.0 with WebSocket support, improved ORM, and better TypeScript integration.",
+    title: "CanxJS v1.2.1 Release Notes",
+    excerpt: "Announcing CanxJS v1.2.1 with WebSocket support, improved ORM, and better TypeScript integration.",
     category: "Release",
     date: "Jan 8, 2026",
     readTime: "4 min read",
-    href: "/blog/v1-2-0-release",
+    href: "/blog/v1-2-1-release",
     featured: true,
   },
   {
