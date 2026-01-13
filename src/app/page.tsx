@@ -120,7 +120,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative pt-20 sm:pt-32 pb-20 sm:pb-32 overflow-hidden">
+      <section className="relative pt-20 sm:pt-18 pb-20 sm:pb-32 overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center animate-fade-in">
             {/* Version Badge */}
