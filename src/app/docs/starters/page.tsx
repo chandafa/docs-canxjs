@@ -154,7 +154,7 @@ function StarterCard({ kit }: { kit: typeof starterKits[0] }) {
   };
 
   return (
-    <div className={`rounded-2xl bg-gradient-to-br ${colorClasses[kit.color as keyof typeof colorClasses]} border p-6 transition-all duration-300`}>
+    <div className={`rounded-2xl bg-gradient-to-br ${colorClasses[kit.color as keyof typeof colorClasses]} border p-4 sm:p-6 transition-all duration-300 overflow-hidden`}>
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
@@ -175,7 +175,7 @@ function StarterCard({ kit }: { kit: typeof starterKits[0] }) {
       </div>
       
       {/* Description */}
-      <p className="text-zinc-400 mb-4">{kit.desc}</p>
+      <p className="text-zinc-400 mb-4 text-sm sm:text-base break-words">{kit.desc}</p>
       
       {/* Features */}
       <div className="flex flex-wrap gap-2 mb-6">
@@ -191,9 +191,9 @@ function StarterCard({ kit }: { kit: typeof starterKits[0] }) {
       </div>
       
       {/* Clone Command */}
-      <div className="flex items-center gap-2 bg-black/30 rounded-xl px-4 py-3 border border-white/[0.05] mb-4">
-        <Terminal className="w-4 h-4 text-zinc-500" />
-        <code className="flex-1 text-zinc-300 text-sm font-mono truncate">
+      <div className="flex items-center gap-2 bg-black/30 rounded-xl px-3 sm:px-4 py-2 sm:py-3 border border-white/[0.05] mb-4 overflow-x-auto">
+        <Terminal className="w-4 h-4 text-zinc-500 shrink-0" />
+        <code className="flex-1 text-zinc-300 text-xs sm:text-sm font-mono whitespace-nowrap">
           {kit.command}
         </code>
         <CopyButton text={kit.command} />
