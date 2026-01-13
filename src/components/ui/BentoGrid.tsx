@@ -22,30 +22,30 @@ export function BentoCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/[0.08] p-6 transition-all duration-500",
-        "hover:bg-zinc-800/60 hover:border-white/[0.15]",
+        "group relative overflow-hidden rounded-2xl bg-card/50 backdrop-blur-sm border border-border p-6 transition-all duration-500",
+        "hover:bg-accent/50 hover:border-accent",
         className
       )}
     >
       {/* Gradient overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
       {/* Gradient border effect */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-br from-white/20 via-transparent to-transparent" style={{ padding: '1px', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }} />
+        <div className="absolute inset-[-1px] rounded-2xl bg-gradient-to-br from-accent/20 via-transparent to-transparent" style={{ padding: '1px', WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor', maskComposite: 'exclude' }} />
       </div>
 
       <div className="relative z-10">
         {icon && (
-          <div className="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/[0.05] text-white/70 group-hover:text-white transition-colors">
+          <div className="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-accent text-accent-foreground group-hover:text-foreground transition-colors">
             {icon}
           </div>
         )}
-        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-white transition-colors">
+        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-foreground transition-colors">
           {title}
         </h3>
         {description && (
-          <p className="text-sm text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
+          <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors">
             {description}
           </p>
         )}
@@ -93,8 +93,8 @@ export function FeatureCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/[0.08] transition-all duration-500",
-        "hover:bg-zinc-800/60 hover:border-white/[0.15] hover:shadow-2xl hover:shadow-black/20",
+        "group relative overflow-hidden rounded-2xl bg-card/50 backdrop-blur-sm border border-border transition-all duration-500",
+        "hover:bg-accent/50 hover:border-accent hover:shadow-2xl hover:shadow-black/20",
         className
       )}
     >
@@ -103,11 +103,11 @@ export function FeatureCard({
       
       {/* Content */}
       <div className="relative z-10 p-6">
-        <h3 className="text-lg font-semibold text-white mb-2">
+        <h3 className="text-lg font-semibold text-foreground mb-2">
           {title}
         </h3>
         {description && (
-          <p className="text-sm text-zinc-400 leading-relaxed mb-4">
+          <p className="text-sm text-muted-foreground leading-relaxed mb-4">
             {description}
           </p>
         )}
@@ -136,14 +136,14 @@ export function ShowcaseCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-2xl bg-zinc-900/50 border border-white/[0.08] transition-all duration-500",
-        "hover:bg-zinc-800/60 hover:border-white/[0.15]",
+        "group relative overflow-hidden rounded-2xl bg-card/50 backdrop-blur-sm border border-border transition-all duration-500",
+        "hover:bg-accent/50 hover:border-accent",
         className
       )}
     >
       {/* Image preview area */}
       {image ? (
-        <div className="aspect-video w-full bg-zinc-800/50 overflow-hidden">
+        <div className="aspect-video w-full bg-muted overflow-hidden">
           <img
             src={image}
             alt={title}
@@ -151,9 +151,9 @@ export function ShowcaseCard({
           />
         </div>
       ) : (
-        <div className="aspect-video w-full bg-zinc-800/50 flex items-center justify-center">
-          <div className="w-16 h-16 rounded-xl bg-white/[0.05] flex items-center justify-center">
-            <svg className="w-8 h-8 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="aspect-video w-full bg-muted flex items-center justify-center">
+          <div className="w-16 h-16 rounded-xl bg-background flex items-center justify-center">
+            <svg className="w-8 h-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
@@ -162,16 +162,16 @@ export function ShowcaseCard({
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="font-semibold text-white mb-1">{title}</h3>
+        <h3 className="font-semibold text-foreground mb-1">{title}</h3>
         {description && (
-          <p className="text-sm text-zinc-400 mb-3">{description}</p>
+          <p className="text-sm text-muted-foreground mb-3">{description}</p>
         )}
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-2 py-1 rounded-full bg-white/[0.05] text-zinc-400"
+                className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground"
               >
                 {tag}
               </span>

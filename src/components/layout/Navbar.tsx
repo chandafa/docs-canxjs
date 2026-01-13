@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 
 const docsMenu = [
   {
-    title: "Framework Next.js",
+    title: "Framework CanxJS",
     href: "/docs/introduction",
     description: "Build robust backend applications with CanxJS.",
     icon: Box,

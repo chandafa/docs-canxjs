@@ -120,7 +120,7 @@ export function Footer() {
             © {new Date().getFullYear()} CanxJS. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground dark:text-zinc-600">
-            Built with ❤️ for developers
+            Built with ❤️ for Candra Kirana
           </p>
         </div>
       </div>

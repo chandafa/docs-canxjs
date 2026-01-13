@@ -59,10 +59,13 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@canxjs",
   },
+  verification: {
+    google: "cP1LuKsmCbATtxcmo3SYqWjcqv2Vb4ECL8b_lGhrqJg",
+  },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   manifest: "/site.webmanifest",
 };
@@ -75,6 +78,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="cP1LuKsmCbATtxcmo3SYqWjcqv2Vb4ECL8b_lGhrqJg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

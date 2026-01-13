@@ -151,6 +151,20 @@ app.group("/api", (router) => {
   router.get("/settings", getSettings);
 });`;
 
+const controllerRoutingExample = `import { createApp, QueueController } from "canxjs";
+import { HomeController } from "./controllers/HomeController";
+import { AuthController } from "./controllers/AuthController";
+
+// New in v1.2.1: Controller-based routing
+app.routes((router) => {
+  // Mount controllers with router.controller()
+  router.controller('/', HomeController);
+  router.controller('/auth', AuthController);
+  
+  // Built-in Queue Dashboard
+  router.controller('/canx-queue', QueueController);
+});`;
+
 const features = [
   { 
     icon: Zap, 
@@ -287,6 +301,23 @@ export default function RoutingPage() {
           before the route handler.
         </p>
         <CodePreview code={routeMiddlewareExample} filename="middleware.ts" />
+      </section>
+
+      {/* Controller-based Routing */}
+      <section className="mb-16 animate-slide-up delay-550">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-pink-500/10">
+            <Code2 className="w-5 h-5 text-pink-400" />
+          </div>
+          Controller-based Routing
+          <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">v1.2.1</Badge>
+        </h2>
+        <p className="text-zinc-400 mb-6">
+          New in v1.2.1: Use <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">router.controller()</code> to 
+          register entire controller classes with their decorated routes. This provides cleaner, 
+          more organized routing similar to Laravel.
+        </p>
+        <CodePreview code={controllerRoutingExample} filename="routes.ts" />
       </section>
 
       {/* Router Options */}

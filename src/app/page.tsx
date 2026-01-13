@@ -124,12 +124,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center animate-fade-in">
             {/* Version Badge */}
-            <Badge variant="secondary" className="mb-8 px-4 py-2 bg-white/[0.05] border-white/[0.1] text-zinc-300 hover:bg-white/[0.08] transition-colors">
-              <Zap className="w-3.5 h-3.5 mr-2 text-yellow-400" />
-              <span className="text-zinc-400">Version 1.2.0</span>
-              <span className="mx-2 text-zinc-600">—</span>
+            <Badge variant="secondary" className="mb-8 px-4 py-2 bg-secondary/50 border-border text-muted-foreground hover:bg-secondary transition-colors">
+              <Zap className="w-3.5 h-3.5 mr-2 text-yellow-500" />
+              <span className="text-muted-foreground">Version 1.2.0</span>
+              <span className="mx-2 text-muted-foreground/50">—</span>
               <span>WebSocket Support</span>
-              <ChevronRight className="w-3.5 h-3.5 ml-1 text-zinc-500" />
+              <ChevronRight className="w-3.5 h-3.5 ml-1 text-muted-foreground/70" />
             </Badge>
             
             {/* Main Title */}
@@ -140,20 +140,20 @@ export default function Home() {
             </h1>
             
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-muted-foreground dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up delay-100">
-              Ultra-fast async MVC for Bun. <span className="text-foreground dark:text-white font-medium">250,000+ req/sec</span> performance.
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up delay-100">
+              Ultra-fast async MVC for Bun. <span className="text-foreground font-medium">250,000+ req/sec</span> performance.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-slide-up delay-200">
               <Link href="/docs/introduction">
-                <Button size="lg" className="rounded-full px-8 h-12 text-base bg-white text-black hover:bg-zinc-200 transition-all hover:scale-105 shadow-lg shadow-white/10">
+                <Button size="lg" className="rounded-full px-8 h-12 text-base bg-primary text-primary-foreground hover:bg-primary/90 transition-all hover:scale-105 shadow-lg shadow-primary/20">
                   Get Started
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
               <Link href="/docs">
-                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base border-white/[0.15] bg-white/[0.02] hover:bg-white/[0.08] hover:border-white/[0.25] transition-all">
+                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base border-border bg-card/50 hover:bg-accent hover:text-accent-foreground hover:border-accent transition-all">
                   <Code2 className="w-4 h-4 mr-2" />
                   Documentation
                 </Button>
@@ -176,11 +176,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <p className="text-sm text-zinc-500 uppercase tracking-wider mb-4">What is CanxJS?</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">What is CanxJS?</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
               Everything you need to build
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Production-ready features out of the box. Built for performance, designed for developer happiness.
             </p>
           </div>
@@ -201,12 +201,12 @@ export default function Home() {
       </section>
 
       {/* Production Tooling Section */}
-      <section className="relative py-24 sm:py-32 border-t border-white/[0.05]">
+      <section className="relative py-24 sm:py-32 border-t border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <p className="text-sm text-zinc-500 uppercase tracking-wider mb-4">Built on Foundation of</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+            <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">Built on Foundation of</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               Fast, Production-Grade Tooling
             </h2>
           </div>
@@ -216,9 +216,9 @@ export default function Home() {
             {productionTools.map((tool) => (
               <div 
                 key={tool.name}
-                className="flex flex-col items-center gap-3 text-zinc-400 hover:text-white transition-colors group"
+                className="flex flex-col items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center group-hover:bg-white/[0.06] group-hover:border-white/[0.15] transition-all text-2xl">
+                <div className="w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all text-2xl">
                   {tool.icon}
                 </div>
                 <span className="text-sm font-medium">{tool.name}</span>
@@ -228,34 +228,34 @@ export default function Home() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 animate-slide-up delay-100">
-            <div className="text-center p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-2">250,000+</div>
-              <div className="text-zinc-400">Requests per second</div>
-              <div className="text-sm text-zinc-600 mt-1">15x faster than Express</div>
+            <div className="text-center p-8 rounded-2xl bg-card border border-border">
+              <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">250,000+</div>
+              <div className="text-muted-foreground">Requests per second</div>
+              <div className="text-sm text-muted-foreground mt-1">15x faster than Express</div>
             </div>
-            <div className="text-center p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-2">&lt;30MB</div>
-              <div className="text-zinc-400">Memory usage</div>
-              <div className="text-sm text-zinc-600 mt-1">75% less than Laravel</div>
+            <div className="text-center p-8 rounded-2xl bg-card border border-border">
+              <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">&lt;30MB</div>
+              <div className="text-muted-foreground">Memory usage</div>
+              <div className="text-sm text-muted-foreground mt-1">75% less than Laravel</div>
             </div>
-            <div className="text-center p-8 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-              <div className="text-4xl sm:text-5xl font-bold text-white mb-2">&lt;50ms</div>
-              <div className="text-zinc-400">Startup time</div>
-              <div className="text-sm text-zinc-600 mt-1">40x faster than Laravel</div>
+            <div className="text-center p-8 rounded-2xl bg-card border border-border">
+              <div className="text-4xl sm:text-5xl font-bold text-foreground mb-2">&lt;50ms</div>
+              <div className="text-muted-foreground">Startup time</div>
+              <div className="text-sm text-muted-foreground mt-1">40x faster than Laravel</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Comparison Section */}
-      <section className="relative py-24 sm:py-32 border-t border-white/[0.05] bg-white/[0.01]">
+      <section className="relative py-24 sm:py-32 border-t border-border bg-accent/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16 animate-fade-in">
-            <p className="text-sm text-zinc-500 uppercase tracking-wider mb-4">Why CanxJS?</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">Why CanxJS?</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
               Benchmarks that speak for themselves
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We did the math. CanxJS outperforms the competition in speed, efficiency, and developer experience.
             </p>
           </div>
@@ -267,16 +267,16 @@ export default function Home() {
       </section>
 
       {/* Get Started in Seconds Section */}
-      <section className="relative py-24 sm:py-32 border-t border-white/[0.05]">
+      <section className="relative py-24 sm:py-32 border-t border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text */}
             <div className="animate-fade-in">
-              <p className="text-sm text-zinc-500 uppercase tracking-wider mb-4">Get Started in Seconds</p>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+              <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">Get Started in Seconds</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
                 Ship faster with less code
               </h2>
-              <p className="text-lg text-zinc-400 mb-8 leading-relaxed">
+              <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 CanxJS lets you build production-ready APIs in minutes. 
                 With zero configuration, automatic type safety, and batteries-included features.
               </p>
@@ -284,35 +284,35 @@ export default function Home() {
               <div className="space-y-4 mb-8">
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Gauge className="w-3.5 h-3.5 text-green-400" />
+                    <Gauge className="w-3.5 h-3.5 text-green-500" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">Zero Configuration</div>
-                    <div className="text-sm text-zinc-500">Works out of the box with sensible defaults</div>
+                    <div className="font-medium text-foreground">Zero Configuration</div>
+                    <div className="text-sm text-muted-foreground">Works out of the box with sensible defaults</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Lock className="w-3.5 h-3.5 text-blue-400" />
+                    <Lock className="w-3.5 h-3.5 text-blue-500" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">Type-Safe by Default</div>
-                    <div className="text-sm text-zinc-500">Full TypeScript support with inference</div>
+                    <div className="font-medium text-foreground">Type-Safe by Default</div>
+                    <div className="text-sm text-muted-foreground">Full TypeScript support with inference</div>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Server className="w-3.5 h-3.5 text-purple-400" />
+                    <Server className="w-3.5 h-3.5 text-purple-500" />
                   </div>
                   <div>
-                    <div className="font-medium text-white">Production Ready</div>
-                    <div className="text-sm text-zinc-500">Deploy anywhere with confidence</div>
+                    <div className="font-medium text-foreground">Production Ready</div>
+                    <div className="text-sm text-muted-foreground">Deploy anywhere with confidence</div>
                   </div>
                 </div>
               </div>
 
               <Link href="/docs/installation">
-                <Button className="rounded-full px-6 bg-white text-black hover:bg-zinc-200">
+                <Button className="rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90">
                   Read the Installation Guide
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -331,14 +331,14 @@ export default function Home() {
       </section>
 
       {/* Framework of Choice Section */}
-      <section className="relative py-24 sm:py-32 border-t border-white/[0.05]">
+      <section className="relative py-24 sm:py-32 border-t border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
               The framework of choice when it matters
             </h2>
-            <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From startups to enterprises, developers choose CanxJS for mission-critical applications.
             </p>
           </div>
@@ -357,7 +357,7 @@ export default function Home() {
 
           {/* View More Link */}
           <div className="text-center mt-12 animate-fade-in delay-200">
-            <Link href="/showcase" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
+            <Link href="/showcase" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
               View all showcases
               <ExternalLink className="w-4 h-4" />
             </Link>
@@ -366,13 +366,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-24 sm:py-32 border-t border-white/[0.05]">
+      <section className="relative py-24 sm:py-32 border-t border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
               Ready to get started?
             </h2>
-            <p className="text-lg text-zinc-400 mb-12 max-w-xl mx-auto">
+            <p className="text-lg text-muted-foreground mb-12 max-w-xl mx-auto">
               Create your first CanxJS app in seconds with our CLI. Start building your next great project today.
             </p>
 
@@ -386,7 +386,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-200">
               <Link href="/docs/introduction">
-                <Button size="lg" className="rounded-full px-8 h-12 bg-white text-black hover:bg-zinc-200">
+                <Button size="lg" className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90">
                   Get Started
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -396,7 +396,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-white/[0.15] bg-white/[0.02] hover:bg-white/[0.08]">
+                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-border bg-card hover:bg-accent hover:text-accent-foreground">
                   <Globe className="w-4 h-4 mr-2" />
                   View on GitHub
                 </Button>

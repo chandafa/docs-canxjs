@@ -13,7 +13,7 @@ export default function DocsLayout({
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-black">
+    <div className="relative min-h-screen bg-background text-foreground">
       {/* Background Effects */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 hero-gradient opacity-50" />

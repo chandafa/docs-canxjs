@@ -74,6 +74,8 @@ const sidebarItems = [
   {
     "title": "Ecosystem",
     "items": [
+      { title: "Starter Kits", href: "/docs/starters", icon: Rocket },
+      { title: "Queue Dashboard", href: "/docs/queue", icon: Layers },
       { title: "Canx Admin", href: "/docs/admin", icon: Settings },
     ],
   },
@@ -96,7 +98,7 @@ export function DocsSidebar() {
       <nav className="space-y-8">
         {sidebarItems.map((section) => (
           <div key={section.title}>
-            <h4 className="text-sm font-semibold text-zinc-400 mb-3 px-3">
+            <h4 className="text-sm font-semibold text-muted-foreground mb-3 px-3">
               {section.title}
             </h4>
             <ul className="space-y-1">
@@ -109,13 +111,13 @@ export function DocsSidebar() {
                       className={cn(
                         "flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
                         isActive
-                          ? "bg-white/[0.08] text-white font-medium"
-                          : "text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.03]"
+                          ? "bg-accent text-accent-foreground font-medium"
+                          : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
                       )}
                     >
                       <item.icon className={cn(
                         "w-4 h-4",
-                        isActive ? "text-white" : "text-zinc-600"
+                        isActive ? "text-primary" : "text-muted-foreground"
                       )} />
                       {item.title}
                       {isActive && (

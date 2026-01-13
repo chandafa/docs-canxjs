@@ -59,18 +59,18 @@ const metrics: ComparisonMetric[] = [
 
 export function ComparisonTable() {
   return (
-    <div className="w-full overflow-hidden rounded-xl border border-white/[0.05] bg-black/20 backdrop-blur-sm">
+    <div className="w-full overflow-hidden rounded-xl border border-border bg-card/50 backdrop-blur-sm">
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead>
-            <tr className="border-b border-white/[0.05] bg-white/[0.02]">
-              <th className="p-4 font-medium text-zinc-400">Feature</th>
-              <th className="p-4 font-bold text-white bg-purple-500/10 border-b-2 border-purple-500">
+            <tr className="border-b border-border bg-muted/50">
+              <th className="p-4 font-medium text-muted-foreground">Feature</th>
+              <th className="p-4 font-bold text-foreground bg-primary/10 border-b-2 border-primary">
                 CanxJS
               </th>
-              <th className="p-4 font-medium text-zinc-400">Express.js</th>
-              <th className="p-4 font-medium text-zinc-400">Laravel</th>
-              <th className="p-4 font-medium text-zinc-400">NestJS</th>
+              <th className="p-4 font-medium text-muted-foreground">Express.js</th>
+              <th className="p-4 font-medium text-muted-foreground">Laravel</th>
+              <th className="p-4 font-medium text-muted-foreground">NestJS</th>
             </tr>
           </thead>
           <tbody>
@@ -78,21 +78,21 @@ export function ComparisonTable() {
               <tr
                 key={metric.name}
                 className={cn(
-                  "border-b border-white/[0.05] transition-colors hover:bg-white/[0.02]",
+                  "border-b border-border transition-colors hover:bg-muted/50",
                   index === metrics.length - 1 && "border-0"
                 )}
               >
-                <td className="p-4 font-medium text-zinc-300">{metric.name}</td>
-                <td className="p-4 font-bold text-white bg-purple-500/5">
+                <td className="p-4 font-medium text-foreground">{metric.name}</td>
+                <td className="p-4 font-bold text-foreground bg-primary/5">
                   <ValueDisplay value={metric.canx} isPrimary />
                 </td>
-                <td className="p-4 text-zinc-400">
+                <td className="p-4 text-muted-foreground">
                   <ValueDisplay value={metric.express} />
                 </td>
-                <td className="p-4 text-zinc-400">
+                <td className="p-4 text-muted-foreground">
                   <ValueDisplay value={metric.laravel} />
                 </td>
-                <td className="p-4 text-zinc-400">
+                <td className="p-4 text-muted-foreground">
                   <ValueDisplay value={metric.nest} />
                 </td>
               </tr>
@@ -117,14 +117,14 @@ function ValueDisplay({
         <Check
           className={cn(
             "w-4 h-4",
-            isPrimary ? "text-green-400" : "text-zinc-500"
+            isPrimary ? "text-green-500" : "text-muted-foreground"
           )}
         />
-        {isPrimary && <span className="text-green-400 text-xs">Included</span>}
+        {isPrimary && <span className="text-green-500 text-xs">Included</span>}
       </div>
     ) : (
-      <Minus className="w-4 h-4 text-zinc-700" />
+      <Minus className="w-4 h-4 text-muted-foreground" />
     );
   }
-  return <span className={cn(isPrimary && "text-purple-300")}>{value}</span>;
+  return <span className={cn(isPrimary && "text-primary font-semibold")}>{value}</span>;
 }
