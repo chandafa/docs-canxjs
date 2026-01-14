@@ -1,6 +1,6 @@
 # CanxJS - Ultra-fast Backend Framework for Bun
 
-[![CanxJS Version](https://img.shields.io/badge/CanxJS-v1.2.4-blueviolet?style=for-the-badge&logo=bun)](http://docs-canxjs.netlify.app)
+[![CanxJS Version](https://img.shields.io/badge/CanxJS-v1.3.1-blueviolet?style=for-the-badge&logo=bun)](http://docs-canxjs.netlify.app)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
 **CanxJS** is an ultra-fast, async-first MVC backend framework built specifically for [Bun](https://bun.sh). Designed for high performance and developer happiness, it allows you to build production-ready APIs with Type-Safety, elegance, and speed.
