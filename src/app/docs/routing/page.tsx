@@ -155,7 +155,7 @@ const controllerRoutingExample = `import { createApp, QueueController } from "ca
 import { HomeController } from "./controllers/HomeController";
 import { AuthController } from "./controllers/AuthController";
 
-// New in v1.3.5: Controller-based routing
+// New in v1.4.0: Controller-based routing
 app.routes((router) => {
   // Mount controllers with router.controller()
   router.controller('/', HomeController);
@@ -310,10 +310,10 @@ export default function RoutingPage() {
             <Code2 className="w-5 h-5 text-pink-400" />
           </div>
           Controller-based Routing
-          <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">v1.3.5</Badge>
+          <Badge className="bg-green-500/20 text-green-400 border-green-500/30 text-xs">v1.4.0</Badge>
         </h2>
         <p className="text-zinc-400 mb-6">
-          New in v1.3.5: Use <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">router.controller()</code> to 
+          New in v1.4.0: Use <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">router.controller()</code> to 
           register entire controller classes with their decorated routes. This provides cleaner, 
           more organized routing similar to Laravel.
         </p>

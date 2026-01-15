@@ -120,6 +120,14 @@ const cliCommands = [
         description: "Clear application cache" 
       },
       { 
+        command: "bun run canx optimize", 
+        description: "Optimize framework for production (clear caches, etc)" 
+      },
+      { 
+        command: "bun run canx schedule:run", 
+        description: "Run scheduled tasks manually" 
+      },
+      { 
         command: "bun run canx routes", 
         description: "List all registered routes" 
       },

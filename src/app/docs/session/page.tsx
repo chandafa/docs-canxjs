@@ -78,11 +78,11 @@ export default function SessionPage() {
         </Badge>
         <div className="flex items-center gap-3 mb-4">
           <h1 className="text-4xl sm:text-5xl font-bold text-white">Session Management</h1>
-          <Badge className="bg-green-500/20 text-green-400 border-green-500/30">v1.3.5</Badge>
+          <Badge className="bg-green-500/20 text-green-400 border-green-500/30">v1.4.0</Badge>
         </div>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Manage user state across requests with a powerful, driver-based session system. 
-          CanxJS v1.3.5 introduces robust Database and Redis drivers for production-ready session handling.
+          CanxJS v1.4.0 introduces robust Database and Redis drivers for production-ready session handling.
         </p>
       </div>
 

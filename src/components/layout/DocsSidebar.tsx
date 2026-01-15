@@ -18,7 +18,8 @@ import {
   FileCode,
   Rocket,
   Box,
-  TestTube
+  TestTube,
+  Key
 } from "lucide-react";
 
 const sidebarItems = [
@@ -38,6 +39,7 @@ const sidebarItems = [
       { title: "Controllers", href: "/docs/controllers", icon: FileCode },
       { title: "Middleware", href: "/docs/middleware", icon: Layers },
       { title: "Request & Response", href: "/docs/request-response", icon: Code2 },
+      { title: "Authentication", href: "/docs/authentication", icon: Key },
       { title: "Session", href: "/docs/session", icon: Shield },
     ],
   },
@@ -54,6 +56,8 @@ const sidebarItems = [
     items: [
       { title: "HotWire Protocol", href: "/docs/hotwire", icon: Zap },
       { title: "WebSockets", href: "/docs/websockets", icon: Radio },
+      { title: "Task Scheduling", href: "/docs/scheduler", icon: Layers },
+      { title: "Caching", href: "/docs/caching", icon: Database },
       { title: "Security", href: "/docs/security", icon: Shield },
       { title: "Deployment", href: "/docs/deployment", icon: Rocket },
     ],

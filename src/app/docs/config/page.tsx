@@ -49,26 +49,16 @@ const configSections = [
   },
 ];
 
-const configExample = `// canx.config.ts
-import { defineConfig } from "canxjs";
-
-export default defineConfig({
+const configExample = `// src/config/app.ts
+export default {
   app: {
+    name: "My CanxJS App",
     port: 3000,
     host: "localhost",
-    env: "development",
+    env: process.env.NODE_ENV || "development",
     debug: true,
   },
   
-  database: {
-    driver: "mysql",
-    host: process.env.DB_HOST || "localhost",
-    port: 3306,
-    database: process.env.DB_NAME || "canx_app",
-    username: process.env.DB_USER || "root",
-    password: process.env.DB_PASS || "",
-  },
-
   security: {
     cors: {
       enabled: true,
@@ -86,7 +76,19 @@ export default defineConfig({
     driver: "memory", // or "redis"
     ttl: 3600,
   },
-});`;
+};`;
+
+const dbConfigExample = `// src/config/database.ts
+export default {
+  driver: process.env.DB_DRIVER || "mysql",
+  host: process.env.DB_HOST || "localhost",
+  port: Number(process.env.DB_PORT) || 3306,
+  database: process.env.DB_NAME || "canx_app",
+  username: process.env.DB_USER || "root",
+  password: process.env.DB_PASS || "",
+  pool: { min: 2, max: 10 },
+  logging: process.env.NODE_ENV === "development",
+};`;
 
 const envExample = `# .env
 NODE_ENV=development
@@ -127,14 +129,32 @@ export default function ConfigPage() {
           <div className="p-2 rounded-lg bg-purple-500/10">
             <FileCode className="w-5 h-5 text-purple-400" />
           </div>
-          Configuration File
+          App Configuration
         </h2>
         <p className="text-zinc-400 mb-6 leading-relaxed">
-          Create a <code className="px-2 py-0.5 rounded bg-white/[0.05] text-zinc-300 font-mono text-sm">canx.config.ts</code> file in your project root to customize your application settings.
+          Create configuration files in <code className="px-2 py-0.5 rounded bg-white/[0.05] text-zinc-300 font-mono text-sm">src/config/</code> to customize your application settings.
         </p>
         <CodePreview 
           code={configExample}
-          filename="canx.config.ts"
+          filename="src/config/app.ts"
+          language="typescript"
+        />
+      </section>
+
+      {/* Database Configuration Section */}
+      <section className="mb-16 animate-slide-up delay-50">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-blue-500/10">
+            <Database className="w-5 h-5 text-blue-400" />
+          </div>
+          Database Configuration
+        </h2>
+        <p className="text-zinc-400 mb-6 leading-relaxed">
+          Configure your database connection in <code className="px-2 py-0.5 rounded bg-white/[0.05] text-zinc-300 font-mono text-sm">src/config/database.ts</code>.
+        </p>
+        <CodePreview 
+          code={dbConfigExample}
+          filename="src/config/database.ts"
           language="typescript"
         />
       </section>
