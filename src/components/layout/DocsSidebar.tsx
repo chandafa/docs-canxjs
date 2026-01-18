@@ -19,10 +19,19 @@ import {
   Rocket,
   Box,
   TestTube,
-  Key
+  Key,
+  ShieldCheck
 } from "lucide-react";
 
 const sidebarItems = [
+  {
+    title: "Prologue",
+    items: [
+      { title: "Release Notes", href: "/docs/release-notes", icon: FileCode },
+      { title: "Upgrade Guide", href: "/docs/upgrade", icon: Rocket },
+      { title: "Contribution Guide", href: "/docs/contribution", icon: ShieldCheck },
+    ],
+  },
   {
     title: "Getting Started",
     items: [
@@ -40,6 +49,7 @@ const sidebarItems = [
       { title: "Middleware", href: "/docs/middleware", icon: Layers },
       { title: "Request & Response", href: "/docs/request-response", icon: Code2 },
       { title: "Authentication", href: "/docs/authentication", icon: Key },
+      { title: "Validation", href: "/docs/validation", icon: ShieldCheck },
       { title: "Session", href: "/docs/session", icon: Shield },
     ],
   },
@@ -58,13 +68,16 @@ const sidebarItems = [
       { title: "WebSockets", href: "/docs/websockets", icon: Radio },
       { title: "Task Scheduling", href: "/docs/scheduler", icon: Layers },
       { title: "Caching", href: "/docs/caching", icon: Database },
+      { title: "Events", href: "/docs/events", icon: Zap }, // New
+      { title: "Notifications", href: "/docs/notifications", icon: Radio }, // New
+      { title: "File Storage", href: "/docs/storage", icon: Database }, // New
       { title: "Security", href: "/docs/security", icon: Shield },
       { title: "Deployment", href: "/docs/deployment", icon: Rocket },
     ],
   },
   {
-    "title": "Testing",
-    "items": [
+    title: "Testing",
+    items: [
       { title: "Installation", href: "/docs/testing/installation", icon: Terminal },
       { title: "Writing Tests", href: "/docs/testing/usage", icon: TestTube },
     ],
@@ -77,16 +90,16 @@ const sidebarItems = [
     ],
   },
   {
-    "title": "Ecosystem",
-    "items": [
+    title: "Ecosystem",
+    items: [
       { title: "Starter Kits", href: "/docs/starters", icon: Rocket },
       { title: "Queue Dashboard", href: "/docs/queue", icon: Layers },
       { title: "Canx Admin", href: "/docs/admin", icon: Settings },
     ],
   },
   {
-    "title": "Canx UI",
-    "items": [
+    title: "Canx UI",
+    items: [
       { title: "Installation", href: "/docs/ui/installation", icon: Terminal },
       { title: "Button", href: "/docs/ui/button", icon: Box },
       { title: "Input", href: "/docs/ui/input", icon: FileCode },
@@ -104,7 +117,7 @@ export function DocsSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden lg:block w-64 shrink-0 sticky top-24 self-start h-[calc(100vh-6rem)] overflow-y-auto pr-2 pb-10">
+    <aside className="hidden lg:block w-64 shrink-0 sticky top-24 self-start h-[calc(100vh-6rem)] overflow-y-auto pr-4 pb-10 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
       <nav className="space-y-8">
         {sidebarItems.map((section) => (
           <div key={section.title}>
@@ -161,7 +174,7 @@ export function MobileDocsSidebar({ onClose }: { onClose?: () => void }) {
               const isActive = pathname === item.href;
               return (
                 <li key={item.href}>
-                  <Link
+                   <Link
                     href={item.href}
                     onClick={onClose}
                     className={cn(

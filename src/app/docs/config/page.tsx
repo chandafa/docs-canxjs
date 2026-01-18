@@ -51,44 +51,34 @@ const configSections = [
 
 const configExample = `// src/config/app.ts
 export default {
-  app: {
-    name: "My CanxJS App",
-    port: 3000,
-    host: "localhost",
-    env: process.env.NODE_ENV || "development",
-    debug: true,
-  },
+  name: "CanxJS App",
+  env: process.env.NODE_ENV || "development",
+  port: Number(process.env.PORT) || 3000,
+  key: process.env.APP_KEY || "your-secret-key",
+  debug: process.env.DEBUG === "true",
   
+  // You can add custom config here
   security: {
-    cors: {
-      enabled: true,
-      origin: ["http://localhost:3000"],
-      credentials: true,
-    },
-    rateLimit: {
-      enabled: true,
-      max: 100,
-      window: 60000, // 1 minute
-    },
-  },
-
-  cache: {
-    driver: "memory", // or "redis"
-    ttl: 3600,
-  },
+    cors: true,
+    rateLimit: true,
+  }
 };`;
 
 const dbConfigExample = `// src/config/database.ts
-export default {
-  driver: process.env.DB_DRIVER || "mysql",
+import type { DatabaseConfig } from 'canxjs';
+
+const config: DatabaseConfig = {
+  driver: process.env.DB_CONNECTION as any || "mysql",
   host: process.env.DB_HOST || "localhost",
   port: Number(process.env.DB_PORT) || 3306,
   database: process.env.DB_NAME || "canx_app",
   username: process.env.DB_USER || "root",
   password: process.env.DB_PASS || "",
+  logging: process.env.NODE_ENV !== "production",
   pool: { min: 2, max: 10 },
-  logging: process.env.NODE_ENV === "development",
-};`;
+};
+
+export default config;`;
 
 const envExample = `# .env
 NODE_ENV=development
@@ -132,7 +122,7 @@ export default function ConfigPage() {
           App Configuration
         </h2>
         <p className="text-zinc-400 mb-6 leading-relaxed">
-          Create configuration files in <code className="px-2 py-0.5 rounded bg-white/[0.05] text-zinc-300 font-mono text-sm">src/config/</code> to customize your application settings.
+          The main application configuration lives in <code className="px-2 py-0.5 rounded bg-white/[0.05] text-zinc-300 font-mono text-sm">src/config/app.ts</code>.
         </p>
         <CodePreview 
           code={configExample}

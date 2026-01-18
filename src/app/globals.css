@@ -12,8 +12,11 @@ html {
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins), -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-sans:
+    var(--font-poppins), -apple-system, BlinkMacSystemFont, "SF Pro Display",
+    "SF Pro Text", "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -126,8 +129,10 @@ html {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -140,9 +145,10 @@ html {
   .text-white {
     color: var(--foreground) !important;
   }
-  
+
   /* Override zinc colors for light mode readability */
-  .text-zinc-100, .text-zinc-200 {
+  .text-zinc-100,
+  .text-zinc-200 {
     color: oklch(0.2 0 0) !important;
   }
   .text-zinc-300 {
@@ -157,34 +163,44 @@ html {
   .text-zinc-600 {
     color: oklch(0.6 0 0) !important;
   }
-  
+
   /* Override bg colors that are too dark in light mode */
-  .bg-zinc-900, .bg-zinc-950, .bg-black {
+  .bg-zinc-900,
+  .bg-zinc-950,
+  .bg-black {
     background-color: oklch(0.97 0 0) !important;
   }
-  .bg-zinc-900\/50, .bg-black\/30, .bg-black\/50 {
+  .bg-zinc-900\/50,
+  .bg-black\/30,
+  .bg-black\/50 {
     background-color: oklch(0.95 0 0 / 80%) !important;
   }
-  
+
   /* Fix borders */
-  .border-zinc-800, .border-white\/\[0\.08\], .border-white\/\[0\.1\] {
+  .border-zinc-800,
+  .border-white\/\[0\.08\],
+  .border-white\/\[0\.1\] {
     border-color: oklch(0.9 0 0) !important;
   }
-  
+
   /* Fix semi-transparent whites */
-  .bg-white\/\[0\.02\], .bg-white\/\[0\.03\], .bg-white\/\[0\.05\] {
+  .bg-white\/\[0\.02\],
+  .bg-white\/\[0\.03\],
+  .bg-white\/\[0\.05\] {
     background-color: oklch(0.98 0 0) !important;
   }
-  .bg-white\/\[0\.08\], .bg-white\/10 {
+  .bg-white\/\[0\.08\],
+  .bg-white\/10 {
     background-color: oklch(0.96 0 0) !important;
   }
-  
+
   /* Fix inline code badges with dark backgrounds */
-  .bg-zinc-800, code.bg-zinc-800 {
+  .bg-zinc-800,
+  code.bg-zinc-800 {
     background-color: oklch(0.92 0 0) !important;
     color: oklch(0.25 0 0) !important;
   }
-  
+
   /* Fix code elements in prose */
   code:not(pre code) {
     background-color: oklch(0.94 0 0) !important;
@@ -232,14 +248,23 @@ html {
   }
 
   .bento-card::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, transparent 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%,
+      transparent 100%
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
@@ -251,9 +276,9 @@ html {
 
   /* Grid pattern background */
   .grid-pattern {
-    background-image: 
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 
@@ -263,7 +288,11 @@ html {
   }
 
   .hero-gradient {
-    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent);
+    background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(120, 119, 198, 0.15),
+      transparent
+    );
   }
 
   /* Shimmer effect */
@@ -273,10 +302,15 @@ html {
   }
 
   .shimmer::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
     animation: shimmer 2s infinite;
   }
 
@@ -331,19 +365,39 @@ html {
   }
 
   .animate-typing {
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation:
+      typing 3.5s steps(40, end),
+      blink-caret 0.75s step-end infinite;
   }
 
   /* Staggered animation delays */
-  .delay-75 { animation-delay: 75ms; }
-  .delay-100 { animation-delay: 100ms; }
-  .delay-150 { animation-delay: 150ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
-  .delay-600 { animation-delay: 600ms; }
-  .delay-700 { animation-delay: 700ms; }
+  .delay-75 {
+    animation-delay: 75ms;
+  }
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  .delay-150 {
+    animation-delay: 150ms;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+  .delay-600 {
+    animation-delay: 600ms;
+  }
+  .delay-700 {
+    animation-delay: 700ms;
+  }
 
   /* Transition utilities */
   .transition-spring {
@@ -368,81 +422,159 @@ html {
     @apply w-3 h-3 rounded-full;
   }
 
-  .terminal-dot-red { @apply bg-red-500; }
-  .terminal-dot-yellow { @apply bg-yellow-500; }
-  .terminal-dot-green { @apply bg-green-500; }
+  .terminal-dot-red {
+    @apply bg-red-500;
+  }
+  .terminal-dot-yellow {
+    @apply bg-yellow-500;
+  }
+  .terminal-dot-green {
+    @apply bg-green-500;
+  }
 }
 
 /* Keyframes */
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes blurIn {
-  from { opacity: 0; filter: blur(10px); }
-  to { opacity: 1; filter: blur(0); }
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes pulseSoft {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 @keyframes shimmer {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(100%); }
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 20px rgba(120, 119, 198, 0.2); }
-  to { box-shadow: 0 0 40px rgba(120, 119, 198, 0.4); }
+  from {
+    box-shadow: 0 0 20px rgba(120, 119, 198, 0.2);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(120, 119, 198, 0.4);
+  }
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes borderGlow {
-  0%, 100% { border-color: rgba(255, 255, 255, 0.08); }
-  50% { border-color: rgba(120, 119, 198, 0.3); }
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  50% {
+    border-color: rgba(120, 119, 198, 0.3);
+  }
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: white; }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
 }
 
 /* Custom scrollbar - minimal dark style */

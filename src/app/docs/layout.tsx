@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { DocsSidebar, MobileDocsSidebar } from "@/components/layout/DocsSidebar";
+import { TableOfContents } from "@/components/layout/TableOfContents";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
@@ -20,8 +21,8 @@ export default function DocsLayout({
         <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 pb-16">
-        <div className="flex gap-12">
+      <div className="max-w-[85rem] mx-auto px-4 sm:px-6 pt-6 pb-16">
+        <div className="grid lg:grid-cols-[260px_1fr] xl:grid-cols-[260px_1fr_260px] gap-10 items-start">
           {/* Desktop Sidebar */}
           <DocsSidebar />
 
@@ -39,9 +40,12 @@ export default function DocsLayout({
           </Sheet>
 
           {/* Main Content */}
-          <main className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0 prose prose-invert max-w-none">
             {children}
           </main>
+
+          {/* Table of Contents */}
+          <TableOfContents />
         </div>
       </div>
     </div>

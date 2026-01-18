@@ -37,12 +37,12 @@ await queue.dispatch("send-email", {
 });
 
 // Dispatch with delay (5 minutes)
-await queue.later("send-reminder", { userId: 123 }, 300);
+await queue.schedule("send-reminder", { userId: 123 }, 300);
 
 // Process jobs
-queue.process("send-email", async (job) => {
-  await sendEmail(job.data);
-  console.log(\`Email sent to \${job.data.to}\`);
+queue.define("send-email", async (data) => {
+  await sendEmail(data);
+  console.log(\`Email sent to \${data.to}\`);
 });`;
 
 const queueStatsExample = `// Get queue statistics
@@ -93,7 +93,7 @@ export default function QueueDashboardPage() {
         </Badge>
         <div className="flex items-center gap-3 mb-4">
           <h1 className="text-4xl sm:text-5xl font-bold text-white">Queue Dashboard</h1>
-          <Badge className="bg-green-500/20 text-green-400 border-green-500/30">v1.4.0</Badge>
+          <Badge className="bg-green-500/20 text-green-400 border-green-500/30">v1.4.1</Badge>
         </div>
         <p className="text-lg text-zinc-400 leading-relaxed">
           Built-in web dashboard for monitoring and managing your background job queues. 

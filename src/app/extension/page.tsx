@@ -31,7 +31,7 @@ export default function ExtensionPage() {
             <Button size="lg" className="h-12 px-8 text-base bg-blue-600 hover:bg-blue-500 text-white gap-2" asChild>
               <a href="https://marketplace.visualstudio.com/items?itemName=chandafa.vscode-canx">
                 <Download className="w-5 h-5" />
-                Download Extension (.vsix)
+                Download
               </a>
             </Button>
             <Button size="lg" variant="outline" className="h-12 px-8 text-base border-zinc-800 hover:bg-zinc-900 text-zinc-300" asChild>

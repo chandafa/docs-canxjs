@@ -126,7 +126,7 @@ export default function Home() {
             {/* Version Badge */}
             <Badge variant="secondary" className="mb-8 px-4 py-2 bg-secondary/50 border-border text-muted-foreground hover:bg-secondary transition-colors">
               <Zap className="w-3.5 h-3.5 mr-2 text-yellow-500" />
-              <span className="text-muted-foreground">Version 1.4.0</span>
+              <span className="text-muted-foreground">Version 1.4.1</span>
               <span className="mx-2 text-muted-foreground/50">—</span>
               <span>WebSocket Support</span>
               <ChevronRight className="w-3.5 h-3.5 ml-1 text-muted-foreground/70" />

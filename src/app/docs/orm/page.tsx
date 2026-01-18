@@ -19,6 +19,27 @@ export class User extends Model {
   role!: string;
   created_at!: Date;
   updated_at!: Date;
+  updated_at!: Date;
+
+  // Relations
+  posts() {
+    return this.hasMany(Post, "user_id");
+  }
+
+  profile() {
+    return this.hasOne(Profile, "user_id");
+  }
+}
+
+export class Post extends Model {
+  // ...
+  user() {
+    return this.belongsTo(User, "user_id");
+  }
+  
+  tags() {
+    return this.belongsToMany(Tag, "post_tags", "post_id", "tag_id");
+  }
 }`;
 
 const basicQueriesExample = `// Find by primary key
@@ -198,6 +219,14 @@ export default function ORMPage() {
       <section className="mb-16 animate-slide-up delay-300">
         <h2 className="text-2xl font-semibold text-white mb-4">Basic CRUD Operations</h2>
         <CodePreview code={basicQueriesExample} filename="crud.ts" />
+      </section>
+
+      <section className="mb-16 animate-slide-up delay-350">
+        <h2 className="text-2xl font-semibold text-white mb-4">Defining Relationships</h2>
+        <p className="text-zinc-400 mb-6">
+          Define relationships as methods on your model class using <code>hasOne</code>, <code>hasMany</code>, <code>belongsTo</code>, and <code>belongsToMany</code>.
+        </p>
+        <CodePreview code={defineModelExample} filename="models/User.ts" />
       </section>
 
       <section className="mb-16 animate-slide-up delay-400">

@@ -64,15 +64,15 @@ const cliCommands = [
     icon: <Database className="w-4 h-4 text-purple-400" />,
     commands: [
       { 
-        command: "bun run canx migrate", 
+        command: "bun run migrate", 
         description: "Run pending migrations" 
       },
       { 
-        command: "bun run canx migrate:rollback", 
+        command: "bun run migrate:rollback", 
         description: "Rollback the last batch of migrations" 
       },
       { 
-        command: "bun run canx migrate:fresh", 
+        command: "bun run migrate:fresh", 
         description: "Drop all tables and re-run all migrations" 
       },
       { 
@@ -80,11 +80,11 @@ const cliCommands = [
         description: "Run database seeders" 
       },
       { 
-        command: "bun run canx make:migration create_users", 
+        command: "bun run make:migration create_users", 
         description: "Create a new migration file" 
       },
       { 
-        command: "bun run canx make:seeder UserSeeder", 
+        command: "bun run make:seeder UserSeeder", 
         description: "Create a new seeder file" 
       },
     ],
@@ -94,21 +94,18 @@ const cliCommands = [
     icon: <Wrench className="w-4 h-4 text-orange-400" />,
     commands: [
       { 
-        command: "bun run canx make:controller UserController", 
+        command: "bun run make:controller UserController", 
         description: "Create a new controller" 
       },
       { 
-        command: "bun run canx make:model User", 
+        command: "bun run make:model User", 
         description: "Create a new model" 
       },
       { 
-        command: "bun run canx make:middleware Auth", 
+        command: "bun run make:middleware Auth", 
         description: "Create a new middleware" 
       },
-      { 
-        command: "bun run canx make:route api", 
-        description: "Create a new route file" 
-      },
+
     ],
   },
   {
@@ -152,7 +149,7 @@ bun install
 bun run dev`;
 
 const makeControllerExample = `# Create a controller
-bun run canx make:controller UserController
+bun run make:controller UserController
 
 # Creates: src/controllers/UserController.ts
 # With basic CRUD methods: index, show, store, update, destroy`;

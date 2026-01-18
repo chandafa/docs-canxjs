@@ -18,12 +18,12 @@ export default function TestingUsagePage() {
           <p className="text-zinc-400">
             Extend your test files with <code>TestCase</code> to access helper methods.
           </p>
-          <CodeBlock language="typescript" code={`import { TestCase } from "testingcanxjs";
+          <CodeBlock language="typescript" code={`import { TestClient } from "canxjs";
 import { describe, test } from "bun:test";
 
 describe("User API", () => {
   test("guest cannot access profile", async () => {
-    const api = new TestCase();
+    const api = new TestClient();
     
     // Fluent assertion API
     const response = await api.get("/api/user");
@@ -39,10 +39,10 @@ describe("User API", () => {
             Use the <code>actingAs</code> helper to mock authentication headers easily.
           </p>
           <CodeBlock language="typescript" code={`test("authenticated user can access profile", async () => {
-  const api = new TestCase();
+  const api = new TestClient();
   
   // Simulate logged in user with a token
-  const response = await api.actingAs("fake-jwt-token").get("/api/user");
+  const response = await api.withToken("fake-jwt-token").get("/api/user");
   
   response.assertStatus(200);
   
