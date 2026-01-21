@@ -27,7 +27,8 @@ import {
   Activity,
   Heart,
   LayoutDashboard,
-  Monitor
+  Monitor,
+  Wrench
 } from "lucide-react";
 
 const sidebarItems = [
@@ -60,6 +61,7 @@ const sidebarItems = [
       { title: "Validation", href: "/docs/validation", icon: ShieldCheck },
       { title: "Session", href: "/docs/session", icon: Shield },
       { title: "Views (JSX)", href: "/docs/views", icon: Monitor },
+      { title: "Utilities", href: "/docs/utilities", icon: Wrench },
     ],
   },
   {

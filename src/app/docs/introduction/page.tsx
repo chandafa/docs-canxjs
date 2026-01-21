@@ -53,11 +53,13 @@ const features = [
   { icon: Rocket, text: "Async-first architecture" },
   { icon: Database, text: "Built-in ORM with query builder" },
   { icon: Layers, text: "Native JSX server-side rendering" },
+  { icon: Cpu, text: "Microservices (TCP, Redis, NATS)" },
+  { icon: Layers, text: "CQRS (Command & Query Bus)" },
+  { icon: Database, text: "GraphQL Code-First Support" },
+  { icon: Shield, text: "OpenAPI/Swagger Auto-Generation" },
   { icon: Radio, text: "HotWire protocol for real-time" },
-  { icon: Cpu, text: "Native WebSocket support" },
   { icon: Layers, text: "Queue system (Redis/Memory)" },
   { icon: Database, text: "Storage drivers (S3/Local)" },
-  { icon: Shield, text: "Dependency Injection Container" },
   { icon: Rocket, text: "Internationalization (i18n)" },
 ];
 
