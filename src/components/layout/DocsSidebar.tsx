@@ -21,6 +21,7 @@ import {
   TestTube,
   Key,
   ShieldCheck,
+  History as HistoryIcon,
   Server,
   GitMerge,
   Activity,
@@ -35,6 +36,7 @@ const sidebarItems = [
     items: [
       { title: "Release Notes", href: "/docs/release-notes", icon: FileCode },
       { title: "Upgrade Guide", href: "/docs/upgrade", icon: Rocket },
+      { title: "Downgrade Guide", href: "/docs/downgrade", icon: HistoryIcon },
       { title: "Contribution Guide", href: "/docs/contribution", icon: ShieldCheck },
     ],
   },
