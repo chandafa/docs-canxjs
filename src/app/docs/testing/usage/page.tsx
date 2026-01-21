@@ -64,6 +64,34 @@ describe("User API", () => {
             <li><code>api.delete(url)</code></li>
           </ul>
         </section>
+
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold text-white">Component Testing (Mocks)</h2>
+          <p className="text-zinc-400">
+             For unit testing controllers and services with mocked dependencies, use the <code>Test</code> utility.
+          </p>
+          <CodeBlock language="typescript" code={`import { Test, TestingModule } from 'canxjs';
+import { UserController } from './UserController';
+import { UserService } from './UserService';
+
+test("it returns users", async () => {
+    // Create a testing module
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [UserController],
+      providers: [UserService],
+    })
+    .overrideProvider(UserService)
+    .useValue({
+      findAll: () => ['test-user'],
+    })
+    .compile();
+
+    const controller = module.get(UserController);
+    const result = await controller.findAll();
+    
+    expect(result).toEqual(['test-user']);
+});`} />
+        </section>
       </div>
     </div>
   );

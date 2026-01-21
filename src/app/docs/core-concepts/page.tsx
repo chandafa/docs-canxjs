@@ -10,10 +10,40 @@ import {
   ChevronRight,
   ArrowRight,
   Zap,
-  Code2
+  Code2,
+  Box // Add Box for Modules icon
 } from "lucide-react";
 
 const concepts = [
+  {
+    id: "modules",
+    icon: Box,
+    title: "Modules (Auto-Scan)",
+    description: "Organize your application structure with smart, auto-scanning modules.",
+    color: "text-pink-400",
+    bgColor: "bg-pink-500/10",
+    content: [
+      {
+        subtitle: "The Module Decorator",
+        text: "Modules organize components, controllers, and services into cohesive blocks.",
+        code: `@Module({
+  controllers: [UserController],
+  providers: [UserService],
+  exports: [UserService]
+})
+export class UserModule {}`
+      },
+      {
+        subtitle: "Auto-Scanning (New 🚀)",
+        text: "Automatically discover and register modules without manual imports using Bun.Glob.",
+        code: `// In your main entry file
+import { Module } from 'canxjs';
+
+// Automatically finds and registers all modules in ./src
+await Module.scan('./src');`
+      }
+    ]
+  },
   {
     id: "routing",
     icon: Route,

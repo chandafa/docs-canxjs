@@ -20,7 +20,13 @@ import {
   Box,
   TestTube,
   Key,
-  ShieldCheck
+  ShieldCheck,
+  Server,
+  GitMerge,
+  Activity,
+  Heart,
+  LayoutDashboard,
+  Monitor
 } from "lucide-react";
 
 const sidebarItems = [
@@ -51,6 +57,7 @@ const sidebarItems = [
       { title: "Authentication", href: "/docs/authentication", icon: Key },
       { title: "Validation", href: "/docs/validation", icon: ShieldCheck },
       { title: "Session", href: "/docs/session", icon: Shield },
+      { title: "Views (JSX)", href: "/docs/views", icon: Monitor },
     ],
   },
   {
@@ -68,11 +75,22 @@ const sidebarItems = [
       { title: "WebSockets", href: "/docs/websockets", icon: Radio },
       { title: "Task Scheduling", href: "/docs/scheduler", icon: Layers },
       { title: "Caching", href: "/docs/caching", icon: Database },
-      { title: "Events", href: "/docs/events", icon: Zap }, // New
-      { title: "Notifications", href: "/docs/notifications", icon: Radio }, // New
-      { title: "File Storage", href: "/docs/storage", icon: Database }, // New
+      { title: "Events", href: "/docs/events", icon: Zap }, 
+      { title: "Notifications", href: "/docs/notifications", icon: Radio },
+      { title: "File Storage", href: "/docs/storage", icon: Database }, 
       { title: "Security", href: "/docs/security", icon: Shield },
+      { title: "Performance", href: "/docs/performance", icon: Zap },
       { title: "Deployment", href: "/docs/deployment", icon: Rocket },
+    ],
+  },
+  {
+    title: "Architecture",
+    items: [
+      { title: "Microservices", href: "/docs/microservices", icon: Server },
+      { title: "GraphQL", href: "/docs/graphql", icon: Database },
+      { title: "CQRS", href: "/docs/cqrs", icon: GitMerge },
+      { title: "Tracing", href: "/docs/tracing", icon: Activity },
+      { title: "Health Checks", href: "/docs/health", icon: Heart },
     ],
   },
   {
@@ -87,12 +105,14 @@ const sidebarItems = [
     items: [
       { title: "CLI Commands", href: "/docs/cli", icon: Terminal },
       { title: "API Reference", href: "/docs/api", icon: Code2 },
+      { title: "OpenAPI Spec", href: "/docs/openapi", icon: FileCode },
     ],
   },
   {
     title: "Ecosystem",
     items: [
       { title: "Starter Kits", href: "/docs/starters", icon: Rocket },
+      { title: "Canx Studio", href: "/docs/cli/dashboard", icon: LayoutDashboard },
       { title: "Queue Dashboard", href: "/docs/queue", icon: Layers },
       { title: "Canx Admin", href: "/docs/admin", icon: Settings },
     ],

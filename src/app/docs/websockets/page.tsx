@@ -4,149 +4,74 @@ import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
 import { Radio, ChevronRight, ArrowRight, Users, Send, MessageSquare, Zap } from "lucide-react";
 
-const setupWebSocketExample = `import { createApp, createWebSocketServer } from "canxjs";
+const gatewayExample = `import { WebSocketGateway, SubscribeMessage, MessageBody, ConnectedSocket } from 'canxjs';
 
-const app = createApp({ port: 3000 });
-const wss = createWebSocketServer({ path: "/ws" });
-
-// Handle new connections
-wss.onOpen((ws) => {
-  console.log("Client connected:", ws.data.id);
-  ws.send(JSON.stringify({ type: "welcome", id: ws.data.id }));
-});
-
-// Handle disconnections
-wss.onClose((ws) => {
-  console.log("Client disconnected:", ws.data.id);
-});
-
-// Handle messages
-wss.on("message", (ws, message) => {
-  console.log("Received:", message);
-});
-
-app.listen();`;
-
-const eventHandlingExample = `// Register event handlers
-wss.on("chat:message", async (ws, message) => {
-  const data = JSON.parse(message);
+@WebSocketGateway({
+  path: '/ws',
+  cors: { origin: '*' }
+})
+export class ChatGateway {
   
-  // Broadcast to room
-  wss.broadcastToRoom("chat", {
-    event: "chat:message",
-    data: {
-      userId: ws.data.userId,
-      text: data.text,
-      timestamp: Date.now()
-    }
-  });
-});
-
-wss.on("user:typing", (ws, message) => {
-  wss.broadcastToRoom("chat", {
-    event: "user:typing",
-    data: { userId: ws.data.userId }
-  }, [ws.data.id]); // exclude sender
-});`;
-
-const roomsExample = `// Join a room
-wss.on("room:join", (ws, message) => {
-  const { roomName } = JSON.parse(message);
-  wss.joinRoom(ws, roomName);
-  
-  // Notify others
-  wss.broadcastToRoom(roomName, {
-    event: "user:joined",
-    data: { userId: ws.data.id }
-  }, [ws.data.id]);
-});
-
-// Leave a room
-wss.on("room:leave", (ws, message) => {
-  const { roomName } = JSON.parse(message);
-  wss.leaveRoom(ws, roomName);
-  
-  wss.broadcastToRoom(roomName, {
-    event: "user:left",
-    data: { userId: ws.data.id }
-  });
-});
-
-// Get room clients
-const clients = wss.getRoomClients("chat");
-console.log(\`\${clients.length} users in chat\`);`;
-
-const broadcastingExample = `// Broadcast to all clients
-wss.broadcast({ type: "announcement", text: "Hello everyone!" });
-
-// Broadcast to specific room
-wss.broadcastToRoom("game-123", { type: "game:update", state: gameState });
-
-// Send to specific client
-wss.sendTo(clientId, { type: "private", data: "secret" });
-
-// Emit event (auto-wraps in event structure)
-wss.emit("notification", { message: "New message!" }, "user-room-456");`;
-
-const userAssociationExample = `// Associate WebSocket with authenticated user
-wss.on("auth", async (ws, message) => {
-  const { token } = JSON.parse(message);
-  
-  try {
-    const user = await verifyToken(token);
-    wss.setUserId(ws, user.id);
+  // Handle 'chat:message' event
+  @SubscribeMessage('chat:message')
+  handleMessage(
+    @MessageBody() data: { text: string },
+    @ConnectedSocket() client: any
+  ) {
+    console.log(\`Received message from \${client.id}: \${data.text}\`);
     
-    // Join user's personal room
-    wss.joinRoom(ws, \`user:\${user.id}\`);
-    
-    ws.send(JSON.stringify({ event: "auth:success", data: user }));
-  } catch (error) {
-    ws.send(JSON.stringify({ event: "auth:error" }));
+    // Return explicit response (emits 'chat:message' back to sender)
+    return { event: 'ack', status: 'received' };
   }
-});
 
-// Find all connections for a user
-const userSockets = wss.findByUserId(123);
+  @SubscribeMessage('join:room')
+  handleJoinRoom(
+    @MessageBody() room: string,
+    @ConnectedSocket() client: any
+  ) {
+    client.join(room);
+    // Broadcast to room (auto-injected server/client methods)
+    client.to(room).emit('user:joined', { id: client.id });
+  }
+}`;
 
-// Send notification to specific user
-wss.emit("notification", { text: "Hello!" }, \`user:123\`);`;
+const diIntegrationExample = `import { WebSocketGateway, SubscribeMessage } from 'canxjs';
+import { AuthService } from './AuthService';
 
-const clientSideExample = `// Client-side JavaScript
+@WebSocketGateway()
+export class AuthGateway {
+  // Full Dependency Injection Support
+  constructor(private authService: AuthService) {}
+
+  @SubscribeMessage('login')
+  async handleLogin(@MessageBody() token: string, @ConnectedSocket() client: any) {
+    const user = await this.authService.validate(token);
+    client.data.user = user;
+    return { status: 'authenticated', user };
+  }
+}`;
+
+const clientSideExample = `// Native WebSocket Client or CanxJS Client
 const ws = new WebSocket("ws://localhost:3000/ws");
 
 ws.onopen = () => {
-  console.log("Connected!");
-  
-  // Authenticate
-  ws.send(JSON.stringify({ event: "auth", data: { token: authToken } }));
-  
-  // Join a room
-  ws.send(JSON.stringify({ event: "room:join", data: { roomName: "chat" } }));
+  // Standard JSON event format
+  ws.send(JSON.stringify({
+    event: "chat:message",
+    data: { text: "Hello World!" }
+  }));
 };
 
-ws.onmessage = (event) => {
-  const { event: eventName, data } = JSON.parse(event.data);
-  
-  switch (eventName) {
-    case "chat:message":
-      displayMessage(data);
-      break;
-    case "user:typing":
-      showTypingIndicator(data.userId);
-      break;
-  }
-};
-
-// Send chat message
-function sendMessage(text) {
-  ws.send(JSON.stringify({ event: "chat:message", data: { text } }));
-}`;
+ws.onmessage = (msg) => {
+  const { event, data } = JSON.parse(msg.data);
+  console.log(event, data);
+};`;
 
 const features = [
-  { icon: Radio, title: "Full Duplex", desc: "Bidirectional real-time communication" },
-  { icon: Users, title: "Rooms", desc: "Group clients into rooms for targeted messaging" },
-  { icon: Send, title: "Broadcasting", desc: "Send to all, rooms, or specific clients" },
-  { icon: MessageSquare, title: "Event-Based", desc: "Clean event handler pattern" },
+  { icon: Radio, title: "Declarative Gateways", desc: "Use decorators to define WebSocket endpoints similar to Controllers." },
+  { icon: Zap, title: "DI Integration", desc: "Gateways are providers! Inject services directly into your real-time logic." },
+  { icon: Users, title: "Room Support", desc: "Built-in adapters for room-management and broadcasting." },
+  { icon: MessageSquare, title: "AsyncAPI Ready", desc: "Automatically generates documentation for your events." },
 ];
 
 export default function WebSocketsPage() {
@@ -154,11 +79,11 @@ export default function WebSocketsPage() {
     <div className="max-w-4xl">
       <div className="mb-12 animate-fade-in">
         <Badge variant="secondary" className="mb-4 bg-white/[0.05] border-white/[0.1] text-zinc-400">
-          <Radio className="w-3 h-3 mr-1.5" />Advanced
+          <Radio className="w-3 h-3 mr-1.5" />Real-Time
         </Badge>
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">WebSockets</h1>
+        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">WebSockets (Gateways)</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Full-duplex real-time communication with rooms, broadcasting, and event-based messaging.
+          Build powerful real-time applications using the declarative Gateway pattern. Fully integrated with Dependency Injection.
         </p>
       </div>
 
@@ -177,51 +102,34 @@ export default function WebSocketsPage() {
       </section>
 
       <section className="mb-16 animate-slide-up delay-100">
-        <h2 className="text-2xl font-semibold text-white mb-4">Setting Up WebSocket Server</h2>
-        <CodePreview code={setupWebSocketExample} filename="app.ts" />
+        <h2 className="text-2xl font-semibold text-white mb-4">The Gateway Pattern</h2>
+        <p className="text-zinc-400 mb-6">
+          Unlike traditional event listeners, Gateways allow you to organize your real-time logic into classes using decorators.
+        </p>
+        <CodePreview code={gatewayExample} filename="ChatGateway.ts" />
       </section>
 
       <section className="mb-16 animate-slide-up delay-200">
-        <h2 className="text-2xl font-semibold text-white mb-4">Event Handling</h2>
-        <CodePreview code={eventHandlingExample} filename="events.ts" />
+        <h2 className="text-2xl font-semibold text-white mb-4">Dependency Injection</h2>
+        <p className="text-zinc-400 mb-6">
+          Gateways are fully managed by the CanxJS IoC container. You can inject any service, repository, or provider.
+        </p>
+        <CodePreview code={diIntegrationExample} filename="AuthGateway.ts" />
       </section>
 
       <section className="mb-16 animate-slide-up delay-300">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-blue-500/10"><Users className="w-5 h-5 text-blue-400" /></div>
-          Rooms
-        </h2>
-        <CodePreview code={roomsExample} filename="rooms.ts" />
-      </section>
-
-      <section className="mb-16 animate-slide-up delay-400">
-        <h2 className="text-2xl font-semibold text-white mb-4">Broadcasting</h2>
-        <CodePreview code={broadcastingExample} filename="broadcast.ts" />
-      </section>
-
-      <section className="mb-16 animate-slide-up delay-500">
-        <h2 className="text-2xl font-semibold text-white mb-4">User Association</h2>
-        <CodePreview code={userAssociationExample} filename="users.ts" />
-      </section>
-
-      <section className="mb-16 animate-slide-up delay-600">
-        <h2 className="text-2xl font-semibold text-white mb-4">Client-Side</h2>
+        <h2 className="text-2xl font-semibold text-white mb-4">Client Integration</h2>
         <CodePreview code={clientSideExample} filename="client.js" />
       </section>
 
       <section className="animate-slide-up delay-700">
         <div className="rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.08] p-8">
-          <h3 className="text-xl font-semibold text-white mb-4">Next Steps</h3>
-          <p className="text-zinc-400 mb-6">Learn about securing your application.</p>
+          <h3 className="text-xl font-semibold text-white mb-4">Explore Events</h3>
+          <p className="text-zinc-400 mb-6">CanxJS uses AsyncAPI to document your events automatically.</p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/docs/security">
+            <Link href="/docs/events">
               <Button className="rounded-full bg-white text-black hover:bg-zinc-200">
-                Security<ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-            <Link href="/docs/hotwire">
-              <Button variant="outline" className="rounded-full border-white/[0.15] hover:bg-white/[0.05]">
-                HotWire<ChevronRight className="w-4 h-4 ml-1" />
+                AsyncAPI Docs<ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
           </div>

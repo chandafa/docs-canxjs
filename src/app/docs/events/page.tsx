@@ -88,6 +88,43 @@ export class UserSubscriber {
   }
 }`} />
         </section>
+
+        <section className="space-y-4">
+           <h2 id="async-api" className="text-2xl font-semibold text-white scroll-mt-24">Documentation (AsyncAPI)</h2>
+           <p className="text-zinc-400">
+             CanxJS automatically generates AsyncAPI 2.6+ specifications for your event-driven services using decorators. This provides a Swagger-like experience for events.
+           </p>
+           <CodeBlock language="typescript" code={`import { AsyncApiChannel, AsyncApiMessage, Controller } from 'canxjs';
+
+class OrderPayload {
+  @AsyncApiMessage({ summary: "Order ID" })
+  id: string;
+}
+
+@Controller('orders')
+export class OrderController {
+  
+  @AsyncApiChannel({ 
+    name: 'order/created', 
+    publish: true, 
+    summary: 'Emitted when a new order is placed' 
+  })
+  @AsyncApiMessage({ payload: OrderPayload })
+  createOrder() {
+     // Your logic...
+  }
+}`} />
+           <p className="text-zinc-400">
+             To generate the spec file, use the <code>AsyncApiGenerator</code> in your bootstrap file:
+           </p>
+           <CodeBlock language="typescript" code={`const document = AsyncApiGenerator.create(app, {
+  info: { title: 'Event API', version: '1.0.0' },
+  servers: {
+    dev: { url: 'ws://localhost:3000', protocol: 'ws' }
+  }
+});
+await AsyncApiGenerator.save(document, './asyncapi.json');`} />
+        </section>
       </div>
     </div>
   );

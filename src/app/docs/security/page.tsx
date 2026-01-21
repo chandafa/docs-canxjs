@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
 import { Shield, ChevronRight, ArrowRight, Lock, Key, ShieldCheck, Eye } from "lucide-react";
 
-const securityMiddlewareExample = `import { createApp, security, rateLimit, cors } from "canxjs";
+const securityMiddlewareExample = `import { createApp, security, createRateLimiter, createRedisStore, cors } from "canxjs";
 
 const app = createApp({ port: 3000 });
 
@@ -22,9 +22,12 @@ app.use(security({
 }));
 
 // Rate limiting
-app.use(rateLimit({
-  windowMs: 60000,  // 1 minute
-  max: 100          // 100 requests per minute
+// Rate limiting (Enterprise)
+app.use(createRateLimiter({
+  windowMs: 60000,
+  max: 100,
+  // Use Redis for distributed limiting
+  store: createRedisStore(redisClient) // or createMemoryStore()
 }));
 
 // CORS configuration
