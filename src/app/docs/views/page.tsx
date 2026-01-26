@@ -88,6 +88,47 @@ export default function ViewsPage() {
         <h2 className="text-2xl font-semibold text-white mb-4">Layouts</h2>
         <CodePreview code={layoutExample} filename="src/views/layouts/main.tsx" />
       </section>
+
+      <section className="mb-16 animate-slide-up delay-400">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-yellow-500/10">
+                <Zap className="w-5 h-5 text-yellow-400" />
+            </div>
+            Client-Side Interactivity
+        </h2>
+        
+        <div className="rounded-2xl bg-yellow-400/10 border border-yellow-400/20 p-5 mb-6">
+            <h3 className="text-yellow-400 font-semibold mb-2">⚠️ Important Note on Hooks</h3>
+            <p className="text-zinc-300 text-sm leading-relaxed">
+                CanxJS views are <strong>server-rendered only</strong>. This means standard React hooks like 
+                <code>useState</code>, <code>useEffect</code>, or event handlers like <code>onClick</code> inside your JSX 
+                <strong> will not work</strong> and may cause errors.
+            </p>
+        </div>
+
+        <p className="text-zinc-400 mb-6">
+            For client-side interactivity, we recommend using modern, lightweight libraries that work great with server-rendered HTML, 
+            such as <strong>Alpine.js</strong> or vanilla JavaScript script tags.
+        </p>
+
+        <CodePreview code={`// src/views/counter.tsx
+export default function Counter() {
+  return (
+    <div x-data="{ count: 0 }" className="p-4">
+      <span x-text="count" className="text-xl font-bold"></span>
+      <button 
+        @click="count++"
+        className="ml-4 px-4 py-2 bg-blue-500 rounded"
+      >
+        Increment
+      </button>
+      
+      {/* Load AlpineJS */}
+      <script src="//unpkg.com/alpinejs" defer></script>
+    </div>
+  );
+}`} filename="interactive-component.tsx" />
+      </section>
     </div>
   );
 }

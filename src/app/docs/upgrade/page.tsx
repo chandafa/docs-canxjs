@@ -22,7 +22,7 @@ export default function UpgradeGuidePage() {
         {/* Latest Version Section */}
         <section className="space-y-6">
           <div className="flex items-center gap-3 pb-2 border-b border-white/10">
-            <h2 className="text-2xl font-semibold text-white">Upgrading to v1.5.0</h2>
+            <h2 className="text-2xl font-semibold text-white">Upgrading to v1.6.0</h2>
             <Badge className="bg-green-500/10 text-green-400 border-green-500/20">Latest</Badge>
           </div>
           
@@ -40,10 +40,10 @@ export default function UpgradeGuidePage() {
                <div>
                  <h4 className="font-medium text-blue-400 mb-1">New Features</h4>
                  <ul className="text-zinc-400 text-sm list-disc list-inside space-y-1">
-                   <li><strong>Microservices:</strong> Full support for TCP, Redis, and MQTT transporters.</li>
-                   <li><strong>CQRS:</strong> Command, Query, and Event buses with Sagas support.</li>
-                   <li><strong>GraphQL:</strong> Code-first schema generation.</li>
-                   <li><strong>Performance:</strong> JIT Compiler and Request Batching.</li>
+                   <li><strong>Native JSX:</strong> Removed React dependency for faster SSR.</li>
+                   <li><strong>Global Helpers:</strong> <code>route()</code> helper for named reverse routing.</li>
+                   <li><strong>Controller API:</strong> <code>render()</code> helper for easier view rendering.</li>
+                   <li><strong>Polish:</strong> Vibrant Server Boot Message and type safety improvements.</li>
                  </ul>
                </div>
              </div>

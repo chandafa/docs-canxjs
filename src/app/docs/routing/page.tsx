@@ -288,6 +288,31 @@ export default function RoutingPage() {
         <CodePreview code={routeGroupsExample} filename="groups.ts" />
       </section>
 
+      {/* Named Routes & Reverse Routing */}
+      <section className="mb-16 animate-slide-up delay-450">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-indigo-500/10">
+            <Zap className="w-5 h-5 text-indigo-400" />
+          </div>
+          Named Routes & Reverse Routing
+        </h2>
+        <p className="text-zinc-400 mb-6">
+          Give your routes a name for easier referencing. Use the <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">name()</code> method 
+          chain and the global <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">route()</code> helper to generate URLs.
+        </p>
+        <CodePreview code={`// Define named route
+app.get("/users/:id", (req, res) => {
+  // ...
+}).name("users.show");
+
+// In your controller or view:
+const url = route("users.show", { id: 123 });
+// Output: /users/123
+
+// Redirect using named route
+return res.redirect(route("users.show", { id: 1 }));`} filename="named-routes.ts" />
+      </section>
+
       {/* Route with Middleware */}
       <section className="mb-16 animate-slide-up delay-500">
         <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">

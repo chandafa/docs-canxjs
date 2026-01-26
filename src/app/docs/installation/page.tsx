@@ -40,7 +40,7 @@ const projectStructure = `my-app/
 │   ├── routes/          # Route definitions
 │   ├── middlewares/     # Custom middlewares
 │   ├── config/          # Configuration files
-│   └── app.ts           # Application entry
+│   └── main.ts          # Application entry
 ├── public/              # Static assets
 ├── storage/             # File storage
 ├── .env                 # Environment variables

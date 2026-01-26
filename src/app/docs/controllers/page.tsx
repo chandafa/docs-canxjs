@@ -339,6 +339,10 @@ export default function ControllersPage() {
                 <td className="py-3 text-zinc-400">Send JSON response</td>
               </tr>
               <tr className="border-b border-white/[0.05]">
+                <td className="py-3 font-mono text-xs">this.render(view, data?, status?)</td>
+                <td className="py-3 text-zinc-400">Render a view template</td>
+              </tr>
+              <tr className="border-b border-white/[0.05]">
                 <td className="py-3 font-mono text-xs">this.html(content, status?)</td>
                 <td className="py-3 text-zinc-400">Send HTML response</td>
               </tr>

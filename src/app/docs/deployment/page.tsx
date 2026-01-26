@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
 import { Rocket, ChevronRight, ArrowRight, Server, Cloud, Container, Zap } from "lucide-react";
 
-const productionBuildExample = `# Build for production
-bun build ./src/index.ts --outdir ./dist --target bun --minify
+const productionBuildExample = `# Run directly with Bun (Recommended)
+bun run src/main.ts
 
-# Or use the CLI
-bunx canx build`;
+# Or build for production (Optional)
+bun build ./src/main.ts --outdir ./dist --target bun --minify
+bun run ./dist/main.js`;
 
 const envConfigExample = `// canx.config.ts
 export default {
@@ -50,30 +51,25 @@ CORS_ORIGIN=https://example.com
 LOG_LEVEL=info`;
 
 const dockerfileExample = `# Dockerfile
-FROM oven/bun:1 AS base
+FROM oven/bun:1.0 as base
 WORKDIR /app
 
 # Install dependencies
-FROM base AS deps
-COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile --production
+COPY package.json bun.lockb* ./
+RUN bun install --production
 
-# Build
-FROM base AS build
-COPY package.json bun.lockb ./
-RUN bun install --frozen-lockfile
-COPY . .
-RUN bun build ./src/index.ts --outdir ./dist --target bun --minify
+# Copy source
+COPY src ./src
+COPY public ./public
+COPY tsconfig.json ./
 
-# Production
-FROM base AS runner
+# Environment authentication
 ENV NODE_ENV=production
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/package.json ./
+ENV PORT=3000
 
 EXPOSE 3000
-CMD ["bun", "run", "./dist/index.js"]`;
+
+CMD ["bun", "run", "src/main.ts"]`;
 
 const dockerComposeExample = `# docker-compose.yml
 version: "3.8"
@@ -115,10 +111,11 @@ After=network.target
 Type=simple
 User=www-data
 WorkingDirectory=/var/www/myapp
-ExecStart=/root/.bun/bin/bun run dist/index.js
+ExecStart=/root/.bun/bin/bun run src/main.ts
 Restart=on-failure
 RestartSec=10
 Environment=NODE_ENV=production
+Environment=PORT=3000
 
 [Install]
 WantedBy=multi-user.target
