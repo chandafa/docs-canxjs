@@ -185,7 +185,7 @@ export default function ORMPage() {
         </Badge>
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Models & ORM</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Query and manage your database with CanxJS's elegant ORM. Zero-config setup with MySQL and PostgreSQL support.
+          Query and manage your database with CanxJS&apos;s elegant ORM. Zero-config setup with MySQL and PostgreSQL support.
         </p>
       </div>
 
@@ -235,6 +235,28 @@ export default function ORMPage() {
           Query Builder
         </h2>
         <CodePreview code={queryBuilderExample} filename="queries.ts" />
+      </section>
+
+      <section className="mb-16 animate-slide-up delay-450">
+        <h2 className="text-2xl font-semibold text-white mb-4">Pagination</h2>
+        <p className="text-zinc-400 mb-6">
+          Paginate results automatically with the <code>paginate()</code> method.
+        </p>
+        <CodePreview code={`// Get paginated results (page 1, 15 items per page)
+const result = await User.query()
+  .where("status", "=", "active")
+  .paginate(1, 15);
+
+console.log(result);
+/*
+{
+  data: [...],
+  total: 45,
+  perPage: 15,
+  currentPage: 1,
+  lastPage: 3
+}
+*/`} filename="pagination.ts" />
       </section>
 
       <section className="mb-16 animate-slide-up delay-500">

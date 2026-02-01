@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { LayoutDashboard, ChevronRight, ArrowRight, Activity, Server, Database, Zap } from "lucide-react";
+import { LayoutDashboard, ArrowRight, Activity, Server, Database, Zap } from "lucide-react";
 
 const studioCommand = `bun run canx studio`;
 

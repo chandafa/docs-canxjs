@@ -247,7 +247,7 @@ export default function RoutingPage() {
           <div className="p-2 rounded-lg bg-green-500/10">
             <Settings className="w-5 h-5 text-green-400" />
           </div>
-          Route Parameters
+          Dynamic Parameters
         </h2>
         <p className="text-zinc-400 mb-6">
           Capture dynamic values from URLs using colon syntax (<code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">:paramName</code>). 
@@ -263,7 +263,7 @@ export default function RoutingPage() {
           <div className="p-2 rounded-lg bg-purple-500/10">
             <Asterisk className="w-5 h-5 text-purple-400" />
           </div>
-          Wildcard Routes
+          Wildcard Matching
         </h2>
         <p className="text-zinc-400 mb-6">
           Use wildcards (<code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">*</code>) to match 
@@ -279,7 +279,7 @@ export default function RoutingPage() {
           <div className="p-2 rounded-lg bg-orange-500/10">
             <FolderTree className="w-5 h-5 text-orange-400" />
           </div>
-          Route Groups
+          Grouping Routes
         </h2>
         <p className="text-zinc-400 mb-6">
           Organize routes with common prefixes using <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">app.group()</code>. 

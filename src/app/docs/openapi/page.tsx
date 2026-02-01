@@ -90,6 +90,30 @@ export default function OpenApiPage() {
         <h2 className="text-2xl font-semibold text-white mb-4">Models (DTOs)</h2>
         <CodePreview code={dtoExample} filename="create-user.dto.ts" />
       </section>
+
+      <section className="mb-16 animate-slide-up delay-400">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-purple-500/10"><Settings className="w-5 h-5 text-purple-400" /></div>
+          AsyncAPI (Event-Driven)
+        </h2>
+        <p className="text-zinc-400 mb-6">
+          Document your event-driven microservices using AsyncAPI decorators.
+        </p>
+        <CodePreview code={`import { AsyncApiChannel, AsyncApiMessage } from "canxjs/features/AsyncApi";
+
+class NotificationController {
+
+  @AsyncApiChannel({ 
+    name: 'user/signedup', 
+    publish: true 
+  })
+  @AsyncApiMessage({ 
+    payload: UserSignedUpEvent,
+    summary: "User registration event"
+  })
+  handleUserSignup() {}
+}`} filename="notification.controller.ts" />
+      </section>
     </div>
   );
 }

@@ -9,6 +9,7 @@ const setupHotWireExample = `import { createApp, hotWire } from "canxjs";
 const app = createApp({ port: 3000 });
 
 // Create HotWire SSE endpoint
+// Create HotWire SSE endpoint
 app.get("/hotwire/connect", (req, res) => {
   return hotWire.createStream(req, res);
 });

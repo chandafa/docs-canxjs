@@ -57,6 +57,10 @@ const cliCommands = [
         command: "bun run lint", 
         description: "Run ESLint on your codebase" 
       },
+      { 
+        command: "bun run canx tinker", 
+        description: "Interact with your application in REPL mode" 
+      },
     ],
   },
   {
@@ -104,6 +108,14 @@ const cliCommands = [
       { 
         command: "bun run make:middleware Auth", 
         description: "Create a new middleware" 
+      },
+      { 
+        command: "bun run canx make:microservice PaymentService", 
+        description: "Generate a new microservice boilerplate" 
+      },
+      { 
+        command: "bun run canx make:cqrs-command CreateOrder", 
+        description: "Generate a new CQRS Command and Handler" 
       },
 
     ],

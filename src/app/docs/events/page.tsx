@@ -117,13 +117,14 @@ export class OrderController {
            <p className="text-zinc-400">
              To generate the spec file, use the <code>AsyncApiGenerator</code> in your bootstrap file:
            </p>
-           <CodeBlock language="typescript" code={`const document = AsyncApiGenerator.create(app, {
+           <CodeBlock language="typescript" code={`const document = AsyncApiGenerator.createDocument(app, {
   info: { title: 'Event API', version: '1.0.0' },
   servers: {
     dev: { url: 'ws://localhost:3000', protocol: 'ws' }
   }
 });
-await AsyncApiGenerator.save(document, './asyncapi.json');`} />
+// Save the document to your filesystem manually or serve it
+await Bun.write('./asyncapi.json', JSON.stringify(document, null, 2));`} />
         </section>
       </div>
     </div>
