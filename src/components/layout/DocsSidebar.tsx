@@ -140,6 +140,7 @@ const sidebarItems = [
       { title: "Dominion (RBAC)", href: "/docs/packages/dominion", icon: Key },
       { title: "Blocks (Modules)", href: "/docs/packages/blocks", icon: Box }, 
       { title: "Echo (Realtime)", href: "/docs/packages/echo", icon: Radio },
+      { title: "Payment (Midtrans)", href: "/docs/packages/payment", icon: CreditCard },
     ],
   },
   {
