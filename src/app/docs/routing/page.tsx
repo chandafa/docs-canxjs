@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
@@ -13,6 +14,15 @@ import {
   FolderTree,
   Asterisk
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Routing",
+  description: "Define and manage routes with CanxJS's radix tree-based router. Ultra-fast route matching with parameters, wildcards, and route groups.",
+  openGraph: {
+    title: "Routing in CanxJS",
+    description: "Ultra-fast radix tree routing with O(k) complexity. Support for dynamic parameters, wildcards, and nested route groups.",
+  },
+};
 
 const basicRoutesExample = `import { createApp } from "canxjs";
 

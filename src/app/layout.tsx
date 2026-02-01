@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -104,11 +106,14 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.variable} font-sans antialiased`}>
-        <Navbar />
-        <main className="min-h-screen pt-16">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScrollProvider>
+          <Navbar />
+          <main className="min-h-screen pt-16">
+            {children}
+          </main>
+          <Footer />
+          <BackToTop />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

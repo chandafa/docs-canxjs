@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 
 type PackageManager = "bun" | "npm" | "yarn";
@@ -39,15 +39,14 @@ interface PackageManagerTabsProps {
 }
 
 export function PackageManagerTabs({ showInstall = false, className = "" }: PackageManagerTabsProps) {
-  const [selected, setSelected] = useState<PackageManager>("bun");
-  const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("preferred-package-manager") as PackageManager;
-    if (saved && packageManagers[saved]) {
-      setSelected(saved);
+  const [selected, setSelected] = useState<PackageManager>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("preferred-package-manager") as PackageManager;
+      if (saved && packageManagers[saved]) return saved;
     }
-  }, []);
+    return "bun";
+  });
+  const [copied, setCopied] = useState(false);
 
   const handleSelect = (pm: PackageManager) => {
     setSelected(pm);
@@ -109,15 +108,14 @@ interface InstallCommandsProps {
 }
 
 export function InstallCommands({ className = "" }: InstallCommandsProps) {
-  const [selected, setSelected] = useState<PackageManager>("bun");
-  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("preferred-package-manager") as PackageManager;
-    if (saved && packageManagers[saved]) {
-      setSelected(saved);
+  const [selected, setSelected] = useState<PackageManager>(() => {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("preferred-package-manager") as PackageManager;
+      if (saved && packageManagers[saved]) return saved;
     }
-  }, []);
+    return "bun";
+  });
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   const handleSelect = (pm: PackageManager) => {
     setSelected(pm);

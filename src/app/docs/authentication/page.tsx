@@ -1,8 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
 import { Key, ChevronRight, ArrowRight, Shield, User } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Authentication",
+  description: "Built-in authentication system for CanxJS with JWT, session management, password hashing, and role-based access control (RBAC).",
+  openGraph: {
+    title: "Authentication in CanxJS",
+    description: "Secure authentication with JWT tokens, password hashing, protected routes, and role-based middleware.",
+  },
+};
 
 const authSetupExample = `import { auth } from "canxjs";
 

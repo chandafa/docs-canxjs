@@ -1,8 +1,18 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
 import { Database, ChevronRight, ArrowRight, Code2, Search, Layers, Zap } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Models & ORM",
+  description: "Query and manage your database with CanxJS's elegant ORM. Zero-config setup with MySQL and PostgreSQL support, fluent query builder, and type-safe models.",
+  openGraph: {
+    title: "ORM & Database in CanxJS",
+    description: "Elegant database ORM with query builder, relationships, eager loading, and multi-driver support for MySQL and PostgreSQL.",
+  },
+};
 
 const defineModelExample = `import { Model } from "canxjs";
 

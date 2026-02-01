@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { Search, FileText, Book, Terminal, Settings, X, ArrowRight, Layers, Rocket, TestTube, LayoutTemplate, Shield, Radio, Zap, Database, Users, CreditCard, Box, Puzzle } from "lucide-react";
+import { Search, FileText, Book, Terminal, Settings, X, ArrowRight, Layers, Rocket, TestTube, LayoutTemplate, Shield, Radio, Zap, Database, Box, Puzzle } from "lucide-react";
 
 interface SearchItem {
   title: string;
@@ -108,21 +108,29 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  useEffect(() => {
+  // Reset selected index when query changes - handled in the query change handler
+  const handleQueryChange = (newQuery: string) => {
+    setQuery(newQuery);
     setSelectedIndex(0);
-  }, [query]);
+  };
 
+  // Handle body overflow when dialog opens/closes
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      setQuery("");
     }
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  // Reset query when dialog closes
+  const handleClose = () => {
+    setQuery("");
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -131,7 +139,7 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={handleClose}
       />
 
       {/* Dialog */}
@@ -144,12 +152,12 @@ export function SearchDialog({ isOpen, onClose }: SearchDialogProps) {
               type="text"
               placeholder="Search documentation..."
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => handleQueryChange(e.target.value)}
               className="flex-1 bg-transparent text-foreground dark:text-white placeholder-muted-foreground dark:placeholder-zinc-500 outline-none text-lg"
               autoFocus
             />
             <button
-              onClick={onClose}
+              onClick={handleClose}
               className="p-1.5 rounded-lg hover:bg-accent dark:hover:bg-white/[0.05] transition-colors"
             >
               <X className="w-5 h-5 text-muted-foreground dark:text-zinc-500" />

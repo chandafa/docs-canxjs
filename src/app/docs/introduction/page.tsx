@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
@@ -16,6 +17,15 @@ import {
   Cpu,
   ChevronRight
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Introduction",
+  description: "Welcome to CanxJS, the ultra-fast async-first MVC backend framework for Bun. Learn why CanxJS is the best choice for building modern, high-performance APIs.",
+  openGraph: {
+    title: "Introduction to CanxJS",
+    description: "Discover CanxJS - the blazing fast backend framework built for Bun with 250,000+ requests per second performance.",
+  },
+};
 
 const highlights = [
   {

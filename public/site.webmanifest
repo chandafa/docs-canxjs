@@ -1,16 +1,30 @@
 {
   "name": "CanxJS Documentation",
   "short_name": "CanxJS",
-  "description": "Ultra-fast backend framework for Bun",
+  "description": "Ultra-fast async-first MVC backend framework for Bun. Build modern APIs with 250,000+ requests/sec performance.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#0a0a0a",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "categories": ["developer tools", "documentation", "web development"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/icon.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
 }

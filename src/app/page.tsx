@@ -24,7 +24,9 @@ import {
   Lock,
   Server,
   ChevronRight,
-  ExternalLink
+  ChevronDown,
+  ExternalLink,
+  HelpCircle
 } from "lucide-react";
 
 // What is CanxJS features
@@ -93,6 +95,34 @@ const showcaseProjects = [
   { title: "SaaS Starter", description: "Multi-tenant SaaS backend", tags: ["Auth", "Billing"] },
 ];
 
+// FAQ Questions for SEO
+const faqItems = [
+  {
+    question: "What is CanxJS?",
+    answer: "CanxJS is an ultra-fast, async-first MVC backend framework built specifically for Bun. It combines React-like developer experience with blazing performance, achieving 250,000+ requests per second."
+  },
+  {
+    question: "How does CanxJS compare to Express or Fastify?",
+    answer: "CanxJS is built for Bun runtime, making it 15x faster than Express and 3x faster than Fastify. It also includes features like ORM, authentication, and real-time support out of the box."
+  },
+  {
+    question: "Do I need to know TypeScript to use CanxJS?",
+    answer: "While CanxJS is TypeScript-first for the best developer experience, you can also use JavaScript. TypeScript is recommended for full type safety and better IDE support."
+  },
+  {
+    question: "Can I use CanxJS with existing databases?",
+    answer: "Yes! CanxJS supports MySQL and PostgreSQL with its built-in ORM. You can connect to existing databases and use the query builder or write raw SQL queries."
+  },
+  {
+    question: "Is CanxJS production-ready?",
+    answer: "Absolutely. CanxJS includes production essentials like error handling, logging, security middleware, rate limiting, and deployment guides for Docker, Kubernetes, and cloud platforms."
+  },
+  {
+    question: "How do I get support for CanxJS?",
+    answer: "Join our GitHub discussions, check the documentation, or open issues on GitHub. The community and core team actively help developers."
+  },
+];
+
 const codeExample = `import { createApp, logger, cors } from "canxjs";
 
 const app = createApp({ port: 3000 });
@@ -126,7 +156,7 @@ export default function Home() {
             {/* Version Badge */}
             <Badge variant="secondary" className="mb-8 px-4 py-2 bg-secondary/50 border-border text-muted-foreground hover:bg-secondary transition-colors">
               <Zap className="w-3.5 h-3.5 mr-2 text-yellow-500" />
-              <span className="text-muted-foreground">Version 1.4.1</span>
+              <span className="text-muted-foreground">Version 1.6.1</span>
               <span className="mx-2 text-muted-foreground/50">—</span>
               <span>WebSocket Support</span>
               <ChevronRight className="w-3.5 h-3.5 ml-1 text-muted-foreground/70" />
@@ -361,6 +391,43 @@ export default function Home() {
               View all showcases
               <ExternalLink className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section - SEO Optimized */}
+      <section className="relative py-24 sm:py-32 border-t border-border bg-accent/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16 animate-fade-in">
+            <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">FAQ</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Everything you need to know about CanxJS. Can&apos;t find the answer? Check our docs.
+            </p>
+          </div>
+
+          <div className="space-y-4 animate-slide-up">
+            {faqItems.map((item, index) => (
+              <details
+                key={index}
+                className="group rounded-2xl bg-card border border-border hover:border-accent transition-colors"
+              >
+                <summary className="flex items-center justify-between p-6 cursor-pointer list-none">
+                  <div className="flex items-center gap-4">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <HelpCircle className="w-5 h-5 text-primary" />
+                    </div>
+                    <span className="font-medium text-foreground">{item.question}</span>
+                  </div>
+                  <ChevronDown className="w-5 h-5 text-muted-foreground group-open:rotate-180 transition-transform" />
+                </summary>
+                <div className="px-6 pb-6 pt-0">
+                  <p className="text-muted-foreground pl-14">{item.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>
