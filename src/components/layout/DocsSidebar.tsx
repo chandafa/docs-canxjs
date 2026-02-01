@@ -138,8 +138,19 @@ const sidebarItems = [
     items: [
       { title: "Citadel (Admin)", href: "/docs/packages/citadel", icon: ShieldCheck },
       { title: "Dominion (RBAC)", href: "/docs/packages/dominion", icon: Key },
-      { title: "Blocks (Modules)", href: "/docs/packages/blocks", icon: Box }, // Fixed description
+      { title: "Blocks (Modules)", href: "/docs/packages/blocks", icon: Box }, 
       { title: "Echo (Realtime)", href: "/docs/packages/echo", icon: Radio },
+    ],
+  },
+  {
+    title: "Enterprise",
+    items: [
+      { title: "Cluster Mode", href: "/docs/enterprise/cluster", icon: Server },
+      { title: "Microservices", href: "/docs/enterprise/microservices", icon: Box },
+      { title: "Observability", href: "/docs/enterprise/observability", icon: Activity },
+      { title: "Security Layers", href: "/docs/enterprise/security", icon: ShieldCheck },
+      { title: "Universal Signals", href: "/docs/enterprise/universal-signals", icon: Zap },
+      { title: "Canx Flow", href: "/docs/enterprise/flow", icon: GitMerge },
     ],
   },
   {
