@@ -1,9 +1,7 @@
 
-import { DocsLayout } from "@/components/layout/DocsLayout";
-
 export default function MicroservicesDocs() {
   return (
-    <DocsLayout>
+    <div className="max-w-4xl">
       <h1>Microservices & Event Bus</h1>
       <p className="lead">
         Build scalable distributed systems with built-in Service Discovery and Event Bus.
@@ -55,6 +53,6 @@ const userService = await registry.discover('user-service');
 // Result: { host: '10.0.0.2', port: 4000 }`}
       </code></pre>
 
-    </DocsLayout>
+    </div>
   );
 }

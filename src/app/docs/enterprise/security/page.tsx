@@ -1,9 +1,7 @@
 
-import { DocsLayout } from "@/components/layout/DocsLayout";
-
 export default function SecurityDocs() {
   return (
-    <DocsLayout>
+    <div className="max-w-4xl">
       <h1>Enterprise Security</h1>
       <p className="lead">
         Bank-grade security features including Audit Logging, Secrets Management, and OAuth2.
@@ -56,6 +54,6 @@ const dbHost = await secrets.get('DB_HOST') || 'localhost';`}
         Turn your CanxJS application into an Identity Provider (IdP) with built-in OAuth2 Server support.
       </p>
 
-    </DocsLayout>
+    </div>
   );
 }

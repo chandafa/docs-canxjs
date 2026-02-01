@@ -1,9 +1,7 @@
 
-import { DocsLayout } from "@/components/layout/DocsLayout";
-
 export default function ClusterDocs() {
   return (
-    <DocsLayout>
+    <div className="max-w-4xl">
       <h1>Cluster Mode & High Availability</h1>
       <p className="lead">
         Scale your application across multiple CPU cores with zero-downtime reloads.
@@ -53,6 +51,6 @@ app.start();`}
   }
 });`}
       </code></pre>
-    </DocsLayout>
+    </div>
   );
 }

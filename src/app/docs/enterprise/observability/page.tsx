@@ -1,9 +1,7 @@
 
-import { DocsLayout } from "@/components/layout/DocsLayout";
-
 export default function ObservabilityDocs() {
   return (
-    <DocsLayout>
+    <div className="max-w-4xl">
       <h1>Observability: Metrics & Tracing</h1>
       <p className="lead">
         Gain deep insights into your application performance with Prometheus and OpenTelemetry.
@@ -48,6 +46,6 @@ class OrderController {
         The <code>@Trace</code> decorator automatically creates a Span for the method execution and tracks any errors.
       </p>
 
-    </DocsLayout>
+    </div>
   );
 }

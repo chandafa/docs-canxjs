@@ -1,9 +1,7 @@
 
-import { DocsLayout } from "@/components/layout/DocsLayout";
-
 export default function FlowDocs() {
   return (
-    <DocsLayout>
+    <div className="max-w-4xl">
       <h1>Canx Flow (Durable Execution)</h1>
       <p className="lead">
         Fault-tolerant workflow engine that survives server restarts and crashes.
@@ -41,6 +39,6 @@ const subscriptionFlow = workflow('subscription', async (ctx, userId) => {
 const id = await subscriptionFlow.start('user-123');`}
       </code></pre>
 
-    </DocsLayout>
+    </div>
   );
 }

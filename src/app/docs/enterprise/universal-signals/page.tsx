@@ -1,9 +1,7 @@
 
-import { DocsLayout } from "@/components/layout/DocsLayout";
-
 export default function SignalsDocs() {
   return (
-    <DocsLayout>
+    <div className="max-w-4xl">
       <h1>Universal Signals (Zero-API)</h1>
       <p className="lead">
         Revolutionary "Zero-API" architecture for real-time state synchronization.
@@ -48,6 +46,6 @@ export function StatsWidget() {
 }`}
       </code></pre>
 
-    </DocsLayout>
+    </div>
   );
 }
