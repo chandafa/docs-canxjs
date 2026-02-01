@@ -1,77 +1,104 @@
-import { DocsLayout } from '@/components/layout/DocsLayout';
-import { DocsTypography } from '@/components/ui/DocsTypography';
-
-const { H1, H2, H3, P, CodeBlock, Code } = DocsTypography;
+import { Badge } from "@/components/ui/badge";
+import { CodePreview } from "@/components/ui/TerminalPreview";
+import { Layers, FolderTree, Rocket } from "lucide-react";
 
 export default function BlocksDocs() {
-  return (
-    <DocsLayout>
-      <div className="space-y-6">
-        <div>
-          <H1>Blocks</H1>
-          <P>
-            <Code>@canxjs/blocks</Code> enables a modular architecture for your CanxJS applications. It allows you to organize your application code into separate "Modules" (Blocks), each with its own routes, controllers, and providers. This is often referred to as HMVC (Hierarchical Model-View-Controller).
-          </P>
-        </div>
+  const moduleJsonExample = `{
+    "name": "Blog",
+    "description": "Blog module",
+    "enabled": true,
+    "order": 1
+}`;
 
-        <section>
-          <H2>Installation</H2>
-          <CodeBlock language="bash">
-            {`npm install @canxjs/blocks`}
-          </CodeBlock>
-        </section>
-
-        <section>
-          <H2>Folder Structure</H2>
-          <P>
-            Blocks looks for a <Code>modules</Code> directory in your project root.
-          </P>
-          <CodeBlock language="text">
-            {`/modules
+  const folderStructureExample = `/modules
   /Blog
     module.json
     /src
       BlogServiceProvider.ts
       /controllers
     /routes
-      api.ts`}
-          </CodeBlock>
-        </section>
+      api.ts`;
 
-        <section>
-          <H2>Module Configuration</H2>
-          <P>
-            Each module requires a <Code>module.json</Code> file.
-          </P>
-          <CodeBlock language="json">
-            {`{
-    "name": "Blog",
-    "description": "Blog module",
-    "enabled": true,
-    "order": 1
-}`}
-          </CodeBlock>
-        </section>
-
-        <section>
-          <H2>Generating Modules</H2>
-          <P>
-            You can generate a new module using the CLI command:
-          </P>
-          <CodeBlock language="bash">
-            {`node canx make:module Blog`}
-          </CodeBlock>
-        </section>
-
-        <section>
-          <H2>Benefits</H2>
-          <ul className="list-disc pl-5 space-y-2 mt-4">
-            <li><strong>Separation of Concerns</strong>: Keep related features together.</li>
-            <li><strong>Reusability</strong>: Modules can be easily shared between projects.</li>
-            <li><strong>Organization</strong>: Prevents <Code>src/</Code> from becoming cluttered in large applications.</li>
-          </ul>
-        </section>
+  return (
+    <div className="max-w-4xl">
+      {/* Header */}
+      <div className="mb-12 animate-fade-in">
+        <Badge variant="secondary" className="mb-4 bg-secondary border-border text-muted-foreground">
+          <Layers className="w-3 h-3 mr-1.5" />
+          Official Package
+        </Badge>
+        <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Blocks</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          <code className="text-primary">@canxjs/blocks</code> enables modular architecture (HMVC) for large-scale CanxJS applications.
+        </p>
       </div>
-    </DocsLayout>
+
+      {/* Installation */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Installation</h2>
+        <CodePreview 
+          code={`npm install @canxjs/blocks`}
+          filename="terminal"
+        />
+      </section>
+
+      {/* Folder Structure */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <FolderTree className="w-5 h-5 text-primary" /> Folder Structure
+        </h2>
+        <p className="text-muted-foreground mb-4">
+          Blocks looks for a <code className="text-primary">modules</code> directory in your project root.
+        </p>
+        <CodePreview 
+          code={folderStructureExample}
+          filename="structure"
+        />
+      </section>
+
+      {/* Module Configuration */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Module Configuration</h2>
+        <p className="text-muted-foreground mb-4">
+          Each module requires a <code className="text-primary">module.json</code> file.
+        </p>
+        <CodePreview 
+          code={moduleJsonExample}
+          filename="module.json"
+        />
+      </section>
+
+      {/* Generating Modules */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <Rocket className="w-5 h-5 text-primary" /> Generating Modules
+        </h2>
+        <CodePreview 
+          code={`node canx make:module Blog`}
+          filename="terminal"
+        />
+      </section>
+
+      {/* Benefits */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-6">Benefits</h2>
+        <div className="rounded-2xl bg-card border border-border p-6">
+          <ul className="space-y-3 text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <span className="text-green-500 mt-1">✓</span>
+              <span><strong className="text-foreground">Separation of Concerns:</strong> Keep related features together.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-green-500 mt-1">✓</span>
+              <span><strong className="text-foreground">Reusability:</strong> Modules can be shared between projects.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-green-500 mt-1">✓</span>
+              <span><strong className="text-foreground">Organization:</strong> Prevents src/ clutter in large applications.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
   );
 }

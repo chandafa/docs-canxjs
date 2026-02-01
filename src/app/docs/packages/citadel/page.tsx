@@ -1,119 +1,100 @@
-import { DocsLayout } from '@/components/layout/DocsLayout';
-import { DocsTypography } from '@/components/ui/DocsTypography';
-
-const { H1, H2, H3, P, CodeBlock, Code } = DocsTypography;
+import { Badge } from "@/components/ui/badge";
+import { CodePreview } from "@/components/ui/TerminalPreview";
+import { Shield, Key, Lock } from "lucide-react";
 
 export default function CitadelDocs() {
-  return (
-    <DocsLayout>
-      <div className="space-y-6">
-        <div>
-          <H1>Citadel</H1>
-          <P>
-            <Code>@canxjs/citadel</Code> provides a featherweight authentication system for SPAs, mobile applications, and simple token-based APIs. It is inspired by Laravel Sanctum and allows each of your application's users to generate multiple API tokens for their account.
-          </P>
-        </div>
+  const createTokenExample = `import { User } from "./models/User";
 
-        <section>
-          <H2>Installation</H2>
-          <P>
-            Install the package via your package manager:
-          </P>
-          <CodeBlock language="bash">
-            {`npm install @canxjs/citadel
-# or
-bun add @canxjs/citadel`}
-          </CodeBlock>
-        </section>
+// User model must use HasApiTokens mixin
+const user = await User.find(1);
 
-        <section>
-          <H2>Configuration</H2>
-          <H3>1. Register Provider</H3>
-          <P>
-            Add the <Code>CitadelServiceProvider</Code> to your application's kernel or providers list.
-          </P>
-          <CodeBlock language="typescript">
-            {`// src/app/providers.ts
-import { CitadelServiceProvider } from '@canxjs/citadel';
+const { plainTextToken } = await user.createToken("my-app", ["*"]);
 
-export const providers = [
-  // ...
-  CitadelServiceProvider,
-];`}
-          </CodeBlock>
+return response.json({ token: plainTextToken });`;
 
-          <H3>2. Run Installer</H3>
-          <P>
-            Publish the migrations required for Citadel.
-          </P>
-          <CodeBlock language="bash">
-            {`node canx citadel:install`}
-          </CodeBlock>
-          <P>
-            Then run your migrations to create the <Code>personal_access_tokens</Code> table.
-          </P>
-          <CodeBlock language="bash">
-            {`node canx migrate`}
-          </CodeBlock>
-        </section>
-
-        <section>
-          <H2>Usage</H2>
-          
-          <H3>The HasApiTokens Mixin</H3>
-          <P>
-            To issue tokens for a user, add the <Code>HasApiTokens</Code> mixin to your User model.
-          </P>
-          <CodeBlock language="typescript">
-            {`import { Model } from 'canxjs';
-import { HasApiTokens } from '@canxjs/citadel';
-
-class User extends HasApiTokens(Model) {
-    // ...
-}`}
-          </CodeBlock>
-
-          <H3>Issuing Tokens</H3>
-          <P>
-            You can generate a token using the <Code>createToken</Code> method. This method returns an object containing the <Code>accessToken</Code> instance and the <Code>plainTextToken</Code>. The plain text token should be displayed to the user immediately, as it cannot be retrieved again.
-          </P>
-          <CodeBlock language="typescript">
-            {`const user = await User.find(1);
-
-const token = await user.createToken('my-phone', ['*']);
-
-return response.json({
-    token: token.plainTextToken
-});`}
-          </CodeBlock>
-
-          <H3>Token Abilities</H3>
-          <P>
-            Citadel allows you to specify abilities (scopes) for a token. You can check these abilities using the <Code>tokenCan</Code> method on the user instance.
-          </P>
-          <CodeBlock language="typescript">
-            {`// Create a token with specific abilities
-const token = await user.createToken('editor', ['server:create', 'server:update']);
+  const checkAbilityExample = `// Create a token with specific abilities
+const token = await user.createToken("editor", ["server:create", "server:update"]);
 
 // Check ability
-if (user.tokenCan('server:create')) {
-    // ...
-}`}
-          </CodeBlock>
+if (user.tokenCan("server:create")) {
+    // User can create servers
+}`;
 
-          <H3>Protecting Routes</H3>
-          <P>
-            To protect routes, use the <Code>auth:sanctum</Code> guard (or whichever guard you configure Citadel to use).
-          </P>
-          <CodeBlock language="typescript">
-            {`import { router } from 'canxjs';
-
-router.get('/user', (req) => {
-    return req.user;
-}).middleware('auth');`}
-          </CodeBlock>
-        </section>
+  return (
+    <div className="max-w-4xl">
+      {/* Header */}
+      <div className="mb-12 animate-fade-in">
+        <Badge variant="secondary" className="mb-4 bg-secondary border-border text-muted-foreground">
+          <Shield className="w-3 h-3 mr-1.5" />
+          Official Package
+        </Badge>
+        <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Citadel</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          <code className="text-primary">@canxjs/citadel</code> provides a featherweight authentication system for SPAs, mobile applications, and simple token-based APIs. Inspired by Laravel Sanctum.
+        </p>
       </div>
-    </DocsLayout>
+
+      {/* Installation */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Installation</h2>
+        <CodePreview 
+          code={`npm install @canxjs/citadel
+# or
+bun add @canxjs/citadel`}
+          filename="terminal"
+        />
+      </section>
+
+      {/* Configuration */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Configuration</h2>
+        <div className="rounded-2xl bg-card border border-border p-6 space-y-4">
+          <h3 className="text-lg font-medium text-foreground flex items-center gap-2">
+            <Key className="w-4 h-4 text-primary" /> Register Provider
+          </h3>
+          <CodePreview 
+            code={`// src/app/providers.ts
+import { CitadelServiceProvider } from "@canxjs/citadel";
+
+export const providers = [
+  CitadelServiceProvider,
+];`}
+            filename="providers.ts"
+          />
+          <h3 className="text-lg font-medium text-foreground flex items-center gap-2 mt-6">
+            <Lock className="w-4 h-4 text-primary" /> Run Migrations
+          </h3>
+          <CodePreview 
+            code={`node canx citadel:install
+node canx migrate`}
+            filename="terminal"
+          />
+        </div>
+      </section>
+
+      {/* Usage */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Issuing Tokens</h2>
+        <p className="text-muted-foreground mb-4">
+          Add the <code className="text-primary">HasApiTokens</code> mixin to your User model, then use <code className="text-primary">createToken()</code> to generate tokens.
+        </p>
+        <CodePreview 
+          code={createTokenExample}
+          filename="AuthController.ts"
+        />
+      </section>
+
+      {/* Token Abilities */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Token Abilities</h2>
+        <p className="text-muted-foreground mb-4">
+          Tokens can be scoped with specific abilities (permissions). Use <code className="text-primary">tokenCan()</code> to check.
+        </p>
+        <CodePreview 
+          code={checkAbilityExample}
+          filename="example.ts"
+        />
+      </section>
+    </div>
   );
 }

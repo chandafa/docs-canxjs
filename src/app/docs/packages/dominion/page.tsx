@@ -1,101 +1,103 @@
-import { DocsLayout } from '@/components/layout/DocsLayout';
-import { DocsTypography } from '@/components/ui/DocsTypography';
-
-const { H1, H2, H3, P, CodeBlock, Code } = DocsTypography;
+import { Badge } from "@/components/ui/badge";
+import { CodePreview } from "@/components/ui/TerminalPreview";
+import { Shield, Users, Key } from "lucide-react";
 
 export default function DominionDocs() {
-  return (
-    <DocsLayout>
-      <div className="space-y-6">
-        <div>
-          <H1>Dominion</H1>
-          <P>
-            <Code>@canxjs/dominion</Code> allows you to manage user roles and permissions easily. It supports direct permissions, role-based permissions, and multiple guards. It is heavily inspired by Spatie's Laravel Permission package.
-          </P>
-        </div>
-
-        <section>
-          <H2>Installation</H2>
-          <CodeBlock language="bash">
-            {`npm install @canxjs/dominion`}
-          </CodeBlock>
-          <P>
-            After installing, publish the migrations/configuration:
-          </P>
-          <CodeBlock language="bash">
-            {`node canx dominion:install
-node canx migrate`}
-          </CodeBlock>
-        </section>
-
-        <section>
-          <H2>Usage</H2>
-          
-          <H3>Setup User Model</H3>
-          <P>
-            Add the <Code>HasRoles</Code> mixin to your User model to enable role management capabilities.
-          </P>
-          <CodeBlock language="typescript">
-            {`import { Model } from 'canxjs';
-import { HasRoles } from '@canxjs/dominion';
+  const setupExample = `import { Model } from "canxjs";
+import { HasRoles } from "@canxjs/dominion";
 
 class User extends HasRoles(Model) {
-    // ...
-}`}
-          </CodeBlock>
+    // Your user model...
+}`;
 
-          <H3>Creating Roles & Permissions</H3>
-          <P>
-            You can create roles and permissions using the provided models.
-          </P>
-          <CodeBlock language="typescript">
-            {`import { Role, Permission } from '@canxjs/dominion';
+  const assignRoleExample = `import { Role, Permission } from "@canxjs/dominion";
 
-// Create a Permission
-await Permission.create({ name: 'create posts' });
+// Create roles and permissions
+await Permission.create({ name: "create posts" });
+const role = await Role.create({ name: "writer" });
 
-// Create a Role
-const role = await Role.create({ name: 'writer' });
-
-// Assign permission to role
-role.permissions().attach(permission);`}
-          </CodeBlock>
-
-          <H3>Assigning Roles to Users</H3>
-          <CodeBlock language="typescript">
-            {`const user = await User.find(1);
-
-// Assign a role
-await user.assignRole('writer');
+// Assign role to user
+const user = await User.find(1);
+await user.assignRole("writer");
 
 // Check role
-if (await user.hasRole('writer')) {
-    // ...
-}`}
-          </CodeBlock>
+if (await user.hasRole("writer")) {
+    // User is a writer
+}`;
 
-          <H3>Direct Permissions</H3>
-          <P>
-             You can also give permissions directly to a user, bypassing roles.
-          </P>
-          <CodeBlock language="typescript">
-            {`await user.givePermissionTo('delete posts');
+  const permissionExample = `// Direct permissions
+await user.givePermissionTo("delete posts");
 
-// Check permission (checks both direct and role-based)
-if (await user.hasPermissionTo('delete posts')) {
-    // ...
-}`}
-          </CodeBlock>
+// Check permission (both direct and role-based)
+if (await user.hasPermissionTo("delete posts")) {
+    // User can delete posts
+}
 
-          <H3>Syncing Roles</H3>
-          <P>
-            To replace all existing roles with a new set:
-          </P>
-          <CodeBlock language="typescript">
-            {`await user.syncRoles('admin', 'manager');`}
-          </CodeBlock>
-        </section>
+// Sync roles (replace all current roles)
+await user.syncRoles("admin", "manager");`;
+
+  return (
+    <div className="max-w-4xl">
+      {/* Header */}
+      <div className="mb-12 animate-fade-in">
+        <Badge variant="secondary" className="mb-4 bg-secondary border-border text-muted-foreground">
+          <Shield className="w-3 h-3 mr-1.5" />
+          Official Package
+        </Badge>
+        <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Dominion</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed">
+          <code className="text-primary">@canxjs/dominion</code> provides advanced role-based access control (RBAC) for your application. Inspired by Spatie Laravel Permission.
+        </p>
       </div>
-    </DocsLayout>
+
+      {/* Installation */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Installation</h2>
+        <CodePreview 
+          code={`npm install @canxjs/dominion
+
+node canx dominion:install
+node canx migrate`}
+          filename="terminal"
+        />
+      </section>
+
+      {/* Setup */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <Users className="w-5 h-5 text-primary" /> Setup User Model
+        </h2>
+        <p className="text-muted-foreground mb-4">
+          Add the <code className="text-primary">HasRoles</code> mixin to your User model.
+        </p>
+        <CodePreview 
+          code={setupExample}
+          filename="models/User.ts"
+        />
+      </section>
+
+      {/* Roles */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-2">
+          <Key className="w-5 h-5 text-primary" /> Creating & Assigning Roles
+        </h2>
+        <CodePreview 
+          code={assignRoleExample}
+          filename="example.ts"
+        />
+      </section>
+
+      {/* Permissions */}
+      <section className="mb-16 animate-slide-up">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Direct Permissions</h2>
+        <p className="text-muted-foreground mb-4">
+          Give permissions directly to users, or sync all roles at once.
+        </p>
+        <CodePreview 
+          code={permissionExample}
+          filename="example.ts"
+        />
+      </section>
+    </div>
   );
 }
