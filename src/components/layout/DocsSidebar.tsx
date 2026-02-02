@@ -102,9 +102,7 @@ const sidebarItems = [
   {
     title: "Architecture",
     items: [
-      { title: "Service Providers", href: "/docs/providers", icon: Box }, 
-      { title: "Aspect-Oriented (AOP)", href: "/docs/aop", icon: Scissors }, // Added
-      { title: "Middleware", href: "/docs/middleware", icon: Layers },
+      { title: "Aspect-Oriented (AOP)", href: "/docs/aop", icon: Scissors },
       { title: "Tracing", href: "/docs/tracing", icon: Activity },
       { title: "Health Checks", href: "/docs/health", icon: Heart },
     ],

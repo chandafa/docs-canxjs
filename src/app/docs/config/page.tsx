@@ -167,6 +167,33 @@ export default function ConfigPage() {
         />
       </section>
 
+      {/* Directory Structure Configuration */}
+      <section className="mb-16 animate-slide-up delay-150">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-orange-500/10">
+            <Settings className="w-5 h-5 text-orange-400" />
+          </div>
+          Directory Structure
+        </h2>
+        <p className="text-zinc-400 mb-6 leading-relaxed">
+          You can customize the directory structure of your application by creating a <code className="px-2 py-0.5 rounded bg-white/[0.05] text-zinc-300 font-mono text-sm">canx.config.ts</code> configuration file. This allows you to adopt different architectural patterns like NestJS or Express style structures.
+        </p>
+        <CodePreview 
+          code={`// canx.config.ts
+export default {
+  paths: {
+    controllers: 'src/http/controllers',
+    models: 'src/domain/models',
+    middlewares: 'src/http/middleware',
+    migrations: 'database/migrations',
+    services: 'src/domain/services',
+  }
+};`}
+          filename="canx.config.ts"
+          language="typescript"
+        />
+      </section>
+
       {/* Configuration Options */}
       <section className="mb-16 animate-slide-up delay-200">
         <h2 className="text-2xl font-semibold text-white mb-8">Configuration Options</h2>
