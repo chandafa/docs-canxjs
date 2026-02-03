@@ -383,7 +383,7 @@ export default function StarterKitsPage() {
             <span className="text-2xl mb-2 block">🏗️</span>
             <h3 className="font-semibold text-white mb-2">Basic</h3>
             <p className="text-sm text-zinc-400">
-              Choose this if you're building a <strong className="text-zinc-300">web application</strong> with 
+              Choose this if you&apos;re building a <strong className="text-zinc-300">web application</strong> with 
               user authentication, profile pages, and server-rendered views.
             </p>
           </div>
@@ -391,7 +391,7 @@ export default function StarterKitsPage() {
             <span className="text-2xl mb-2 block">⚡</span>
             <h3 className="font-semibold text-white mb-2">API</h3>
             <p className="text-sm text-zinc-400">
-              Choose this if you're building a <strong className="text-zinc-300">REST API</strong>, 
+              Choose this if you&apos;re building a <strong className="text-zinc-300">REST API</strong>, 
               mobile app backend, or microservice without any frontend.
             </p>
           </div>
@@ -399,7 +399,7 @@ export default function StarterKitsPage() {
             <span className="text-2xl mb-2 block">🛠️</span>
             <h3 className="font-semibold text-white mb-2">Admin</h3>
             <p className="text-sm text-zinc-400">
-              Choose this if you're building an <strong className="text-zinc-300">admin panel</strong>, 
+              Choose this if you&apos;re building an <strong className="text-zinc-300">admin panel</strong>, 
               internal tool, or back-office application with data management.
             </p>
           </div>
@@ -407,7 +407,7 @@ export default function StarterKitsPage() {
             <span className="text-2xl mb-2 block">💼</span>
             <h3 className="font-semibold text-white mb-2">SaaS</h3>
             <p className="text-sm text-zinc-400">
-              Choose this if you're building a <strong className="text-zinc-300">SaaS product</strong> with 
+              Choose this if you&apos;re building a <strong className="text-zinc-300">SaaS product</strong> with 
               multiple workspaces, team features, and subscription billing.
             </p>
           </div>

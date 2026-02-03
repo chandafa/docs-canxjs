@@ -1,0 +1,317 @@
+
+> docscanxjs@0.2.0 lint
+> eslint
+
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\cli\page.tsx
+  23:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\aop\page.tsx
+  5:20  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\api\page.tsx
+  13:3  warning  'Shield' is defined but never used  @typescript-eslint/no-unused-vars
+  16:3  warning  'Zap' is defined but never used     @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\authentication\page.tsx
+  6:15  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\broadcasting\page.tsx
+  5:29  warning  'Zap' is defined but never used    @typescript-eslint/no-unused-vars
+  5:34  warning  'Users' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\caching\page.tsx
+  19:7    warning  'manualCacheExample' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  46:42   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  46:52   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  56:209  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  56:219  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\core-concepts\page.tsx
+  10:3  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\cqrs\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:20  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:34  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\downgrade\page.tsx
+   3:19  warning  'AlertTriangle' is defined but never used                        @typescript-eslint/no-unused-vars
+  77:64  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  77:81  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\enterprise\cluster\page.tsx
+  134:129  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  134:134  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  174:60   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  174:65   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\enterprise\maintenance\page.tsx
+   46:63  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   46:81  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   48:62  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   48:76  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  164:59  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\enterprise\universal-signals\page.tsx
+  139:25  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  139:34  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\events\page.tsx
+  26:108  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\graphql\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:19  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:33  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\health\page.tsx
+   1:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+   3:10  warning  'Button' is defined but never used                               @typescript-eslint/no-unused-vars
+   5:17  warning  'ChevronRight' is defined but never used                         @typescript-eslint/no-unused-vars
+   5:31  warning  'ArrowRight' is defined but never used                           @typescript-eslint/no-unused-vars
+   5:63  warning  'HardDrive' is defined but never used                            @typescript-eslint/no-unused-vars
+  72:35  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\i18n\page.tsx
+  1:8   warning  'Link' is defined but never used        @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used      @typescript-eslint/no-unused-vars
+  5:17  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:50  warning  'Settings' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\installation\page.tsx
+   6:10  warning  'Button' is defined but never used      @typescript-eslint/no-unused-vars
+  16:3   warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\introduction\page.tsx
+  125:34  warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+  144:15  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  157:37  warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\microservices\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:18  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:32  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\notifications\sms\page.tsx
+  5:37  warning  'Settings' is defined but never used    @typescript-eslint/no-unused-vars
+  5:47  warning  'Smartphone' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\openapi\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:20  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:34  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\orm\observers\page.tsx
+  5:32  warning  'Eye' is defined but never used        @typescript-eslint/no-unused-vars
+  5:37  warning  'Milestone' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\packages\payment\page.tsx
+  137:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\page.tsx
+  105:38  warning  'sectionIndex' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\payment\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:22  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:36  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\performance\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:15  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:29  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\queue\page.tsx
+  16:3  warning  'AlertTriangle' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\release-notes\page.tsx
+    2:10   warning  'CodeBlock' is defined but never used                            @typescript-eslint/no-unused-vars
+  142:179  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\routing\page.tsx
+  212:59  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  380:52  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  380:59  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  380:63  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  380:71  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  380:75  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  380:82  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  381:52  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  381:59  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\scheduler\page.tsx
+  5:18  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\search\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:18  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:32  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\seeders\page.tsx
+  194:134  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  194:145  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  195:135  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  195:150  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\session\page.tsx
+  5:18  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\starters\page.tsx
+    7:10  warning  'TerminalPreview' is defined but never used                      @typescript-eslint/no-unused-vars
+    7:27  warning  'CodePreview' is defined but never used                          @typescript-eslint/no-unused-vars
+   10:3   warning  'Rocket' is defined but never used                               @typescript-eslint/no-unused-vars
+  386:33  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  394:33  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  402:33  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  410:33  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\storage\page.tsx
+  19:105  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  19:111  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\testing\browser\page.tsx
+  5:44  warning  'MousePointerClick' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\testing\page.tsx
+  13:3  warning  'Layers' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\tracing\page.tsx
+  5:34  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\ui\button\page.tsx
+  65:55   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:63   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:67   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:77   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:81   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:93   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:97   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:105  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:109  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:115  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:119  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  65:124  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  66:45   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  66:53   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:55   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:63   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:67   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:70   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:74   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:77   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:81   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  71:86   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  72:45   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  72:53   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\utilities\page.tsx
+    1:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+  114:48  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  114:54  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\validation\page.tsx
+    7:59  warning  'AlertCircle' is defined but never used                          @typescript-eslint/no-unused-vars
+    7:72  warning  'Code2' is defined but never used                                @typescript-eslint/no-unused-vars
+   88:7   warning  'manualFormRequestExample' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  133:44  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\views\page.tsx
+  1:8   warning  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  3:10  warning  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+  5:19  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:33  warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\vite\page.tsx
+  5:27  warning  'Code2' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\docs\websockets\page.tsx
+  5:17  warning  'ChevronRight' is defined but never used  @typescript-eslint/no-unused-vars
+  5:50  warning  'Send' is defined but never used          @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\extension\page.tsx
+    6:10   warning  'CodeBlock' is defined but never used                            @typescript-eslint/no-unused-vars
+  102:85   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  102:89   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  102:133  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  102:154  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\learn\[slug]\page.tsx
+  64:38   warning  'node' is defined but never used          @typescript-eslint/no-unused-vars
+  64:82   error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  65:38   warning  'node' is defined but never used          @typescript-eslint/no-unused-vars
+  65:127  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  66:37   warning  'node' is defined but never used          @typescript-eslint/no-unused-vars
+  66:104  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  67:38   warning  'node' is defined but never used          @typescript-eslint/no-unused-vars
+  67:138  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  68:38   warning  'node' is defined but never used          @typescript-eslint/no-unused-vars
+  68:92   error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\app\page.tsx
+  18:3  warning  'Layers' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\layout\Navbar.tsx
+    5:10  warning  'Badge' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  101:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\layout\Navbar.tsx:101:5
+   99 |     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  100 |     const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark) || savedTheme === null;
+> 101 |     setIsDark(shouldBeDark);
+      |     ^^^^^^^^^ Avoid calling setState() directly within an effect
+  102 |     if (shouldBeDark) document.documentElement.classList.add("dark");
+  103 |     else document.documentElement.classList.remove("dark");
+  104 |   }, []);  react-hooks/set-state-in-effect
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\layout\TableOfContents.tsx
+  37:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\layout\TableOfContents.tsx:37:5
+  35 |       }));
+  36 |
+> 37 |     setHeadings(items);
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  38 |
+  39 |     const observer = new IntersectionObserver(
+  40 |       (entries) => {  react-hooks/set-state-in-effect
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\ui\BentoGrid.tsx
+  147:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\ui\ComparisonTable.tsx
+  4:17  warning  'X' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\ui\TerminalPreview.tsx
+  131:3  warning  'language' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\ui\button.tsx
+  41:32  warning  'asChild' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\my-project\frameworkcanxjs\docscanxjs\src\components\ui\component-preview.tsx
+  3:17  warning  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+  4:10  warning  'Check' is defined but never used     @typescript-eslint/no-unused-vars
+  4:17  warning  'Copy' is defined but never used      @typescript-eslint/no-unused-vars
+  4:23  warning  'Terminal' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 172 problems (80 errors, 92 warnings)
+

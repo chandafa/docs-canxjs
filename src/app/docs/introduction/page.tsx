@@ -141,7 +141,7 @@ export default function IntroductionPage() {
       <section className="mb-16 animate-slide-up delay-200">
         <h2 className="text-2xl font-semibold text-foreground mb-6">Quick Example</h2>
         <p className="text-muted-foreground mb-4">
-          Here's what a basic CanxJS application looks like:
+          Here&apos;s what a basic CanxJS application looks like:
         </p>
         <CodePreview 
           code={quickStartExample}

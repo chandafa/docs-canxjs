@@ -7,8 +7,9 @@ export default function StoragePage() {
         <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 mb-4">
           File Storage
         </h1>
-        <p className="text-xl text-zinc-400">
-          CanxJS provides a powerful file system abstraction thanks to its flexible drivers. Easily swap between local storage and Amazon S3 without changing your application code.
+        <p className="text-lg text-zinc-400 leading-relaxed">
+          CanxJS provides a powerful file storage abstraction called &quot;Flydrive&quot;. 
+          Easily switch between local disk, S3, or R2 without changing your code.
         </p>
       </div>
 
@@ -16,7 +17,7 @@ export default function StoragePage() {
         <section className="space-y-4">
           <h2 id="configuration" className="text-2xl font-semibold text-white scroll-mt-24">Configuration</h2>
           <p className="text-zinc-400">
-            Storage configuration is located in <code>src/config/app.ts</code>. You can define multiple "disks" using different drivers.
+            Storage configuration is located in <code>src/config/app.ts</code>. You can define multiple &quot;disks&quot; using different drivers.
           </p>
           <CodeBlock language="typescript" code={`export const config = {
   storage: {

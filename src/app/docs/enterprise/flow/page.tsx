@@ -111,12 +111,12 @@ export default function FlowDocs() {
     <div className="max-w-4xl">
       {/* Header */}
       <div className="mb-12 animate-fade-in">
-        <Badge variant="secondary" className="mb-4 bg-white/[0.05] border-white/[0.1] text-zinc-400">
+        <Badge variant="secondary" className="mb-4 bg-secondary border-border text-muted-foreground">
           <Workflow className="w-3 h-3 mr-1.5" />
           Enterprise
         </Badge>
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Canx Flow</h1>
-        <p className="text-lg text-zinc-400 leading-relaxed">
+        <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Canx Flow</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed">
           Fault-tolerant workflow engine that survives server restarts and crashes. 
           Build long-running business processes that never lose state.
         </p>
@@ -128,13 +128,13 @@ export default function FlowDocs() {
           {features.map((item) => (
             <div 
               key={item.title} 
-              className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              className="rounded-2xl bg-card border border-border p-5 hover:bg-accent/50 transition-all duration-300"
             >
               <div className={`p-2 rounded-lg w-fit mb-3 ${colorClasses[item.color]}`}>
                 <item.icon className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-white mb-1">{item.title}</h3>
-              <p className="text-sm text-zinc-500">{item.desc}</p>
+              <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+              <p className="text-sm text-muted-foreground">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -142,11 +142,11 @@ export default function FlowDocs() {
 
       {/* Why Canx Flow */}
       <section className="mb-16 animate-slide-up delay-100">
-        <h2 className="text-2xl font-semibold text-white mb-4">Why Canx Flow?</h2>
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-6 mb-6">
-          <p className="text-zinc-400 leading-relaxed">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Why Canx Flow?</h2>
+        <div className="rounded-2xl bg-card border border-border p-6 mb-6">
+          <p className="text-muted-foreground leading-relaxed">
             Standard code fails if the server restarts in the middle of execution. 
-            <strong className="text-white"> Canx Flow</strong> persists the execution state to the database after every step.
+            <strong className="text-foreground"> Canx Flow</strong> persists the execution state to the database after every step.
             If the server crashes, it resumes automatically from the last successful step.
           </p>
         </div>
@@ -154,14 +154,14 @@ export default function FlowDocs() {
 
       {/* Defining a Workflow */}
       <section className="mb-16 animate-slide-up delay-200">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-blue-500/10">
             <Workflow className="w-5 h-5 text-blue-400" />
           </div>
           Defining a Workflow
         </h2>
-        <p className="text-zinc-400 mb-6">
-          Create workflows using the <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">workflow()</code> function. 
+        <p className="text-muted-foreground mb-6">
+          Create workflows using the <code className="text-primary bg-muted px-1.5 py-0.5 rounded">workflow()</code> function. 
           Each step is persisted and can be resumed if interrupted.
         </p>
         <CodePreview code={defineWorkflowCode} filename="workflows/subscription.ts" />
@@ -169,13 +169,13 @@ export default function FlowDocs() {
 
       {/* Starting a Workflow */}
       <section className="mb-16 animate-slide-up delay-300">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-green-500/10">
             <RefreshCw className="w-5 h-5 text-green-400" />
           </div>
           Starting & Managing Workflows
         </h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-muted-foreground mb-6">
           Start workflows asynchronously and manage their lifecycle. Check status, cancel, or retry as needed.
         </p>
         <CodePreview code={startWorkflowCode} filename="app.ts" />
@@ -183,32 +183,32 @@ export default function FlowDocs() {
 
       {/* Step Types */}
       <section className="mb-16 animate-slide-up delay-400">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-purple-500/10">
             <Database className="w-5 h-5 text-purple-400" />
           </div>
           Step Types
         </h2>
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-6 mb-6">
+        <div className="rounded-2xl bg-card border border-border p-6 mb-6">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-zinc-400 border-b border-white/[0.08]">
+              <tr className="text-left text-muted-foreground border-b border-border">
                 <th className="pb-3 font-medium">Method</th>
                 <th className="pb-3 font-medium">Purpose</th>
               </tr>
             </thead>
-            <tbody className="text-zinc-300">
-              <tr className="border-b border-white/[0.05]">
+            <tbody className="text-foreground">
+              <tr className="border-b border-border/50">
                 <td className="py-3 font-mono text-xs">ctx.step(name, fn)</td>
-                <td className="py-3 text-zinc-400">Execute once, cache result</td>
+                <td className="py-3 text-muted-foreground">Execute once, cache result</td>
               </tr>
-              <tr className="border-b border-white/[0.05]">
+              <tr className="border-b border-border/50">
                 <td className="py-3 font-mono text-xs">ctx.sleep(name, ms)</td>
-                <td className="py-3 text-zinc-400">Durable timer that survives restarts</td>
+                <td className="py-3 text-muted-foreground">Durable timer that survives restarts</td>
               </tr>
               <tr>
                 <td className="py-3 font-mono text-xs">ctx.waitFor(name, event)</td>
-                <td className="py-3 text-zinc-400">Wait for external event</td>
+                <td className="py-3 text-muted-foreground">Wait for external event</td>
               </tr>
             </tbody>
           </table>
@@ -218,20 +218,20 @@ export default function FlowDocs() {
 
       {/* Next Steps */}
       <section className="animate-slide-up delay-500">
-        <div className="rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.08] p-8">
-          <h3 className="text-xl font-semibold text-white mb-4">Next Steps</h3>
-          <p className="text-zinc-400 mb-6">
+        <div className="rounded-2xl bg-gradient-to-br from-card to-background border border-border p-8">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Next Steps</h3>
+          <p className="text-muted-foreground mb-6">
             Explore other enterprise features to build scalable distributed systems.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/docs/enterprise/microservices">
-              <Button className="rounded-full bg-white text-black hover:bg-zinc-200">
+              <Button className="rounded-full">
                 Microservices
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
             <Link href="/docs/queue">
-              <Button variant="outline" className="rounded-full border-white/[0.15] hover:bg-white/[0.05]">
+              <Button variant="outline" className="rounded-full">
                 Queue System
                 <ChevronRight className="w-4 h-4 ml-1" />
               </Button>

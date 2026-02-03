@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { Radio, ChevronRight, ArrowRight, Users, Send, MessageSquare, Zap } from "lucide-react";
+import { Radio, ArrowRight, Users, MessageSquare, Zap } from "lucide-react";
 
 const gatewayExample = `import { WebSocketGateway, SubscribeMessage, MessageBody, ConnectedSocket } from 'canxjs';
 

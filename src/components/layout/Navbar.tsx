@@ -2,7 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
@@ -74,6 +73,17 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDark, setIsDark] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [version, setVersion] = useState("1.6.2"); // Default fallback
+
+  // Fetch npm version
+  useEffect(() => {
+    fetch("/api/version")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.version) setVersion(data.version);
+      })
+      .catch(() => {}); // Keep default on error
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +97,7 @@ export function Navbar() {
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldBeDark = savedTheme === "dark" || (!savedTheme && prefersDark) || savedTheme === null;
-    setIsDark(shouldBeDark);
+    setTimeout(() => setIsDark(shouldBeDark), 0);
     if (shouldBeDark) document.documentElement.classList.add("dark");
     else document.documentElement.classList.remove("dark");
   }, []);
@@ -135,7 +145,7 @@ export function Navbar() {
             href="/docs"
             className="hidden md:flex items-center px-2.5 py-0.5 rounded-full bg-muted dark:bg-white/[0.05] border border-border dark:border-white/[0.1] text-xs text-muted-foreground dark:text-zinc-400 hover:bg-accent dark:hover:bg-white/[0.1] hover:text-foreground dark:hover:text-zinc-300 transition-colors"
           >
-            v1.6.0
+            v{version}
           </Link>
         </div>
 

@@ -1,6 +1,14 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { Layers, FolderTree, Rocket } from "lucide-react";
+import { Layers, FolderTree, Rocket, ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blocks - CanxJS",
+  description: "Modular architecture (HMVC) for large-scale CanxJS applications.",
+};
 
 export default function BlocksDocs() {
   const moduleJsonExample = `{
@@ -97,6 +105,30 @@ export default function BlocksDocs() {
               <span><strong className="text-foreground">Organization:</strong> Prevents src/ clutter in large applications.</span>
             </li>
           </ul>
+        </div>
+      </section>
+
+      {/* Next Steps */}
+      <section className="animate-slide-up">
+        <div className="rounded-2xl bg-gradient-to-br from-card to-background border border-border p-8">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Next Steps</h3>
+          <p className="text-muted-foreground mb-6">
+            Explore more packages for building full-featured applications.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/docs/packages/echo">
+              <Button className="rounded-full">
+                Echo (Real-time)
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/docs/service-providers">
+              <Button variant="outline" className="rounded-full">
+                Service Providers
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

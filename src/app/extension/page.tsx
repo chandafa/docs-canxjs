@@ -3,7 +3,6 @@
 import { Download, Terminal, Command, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CodeBlock } from "@/components/ui/code-block";
 import Link from "next/link";
 
 export default function ExtensionPage() {
@@ -99,7 +98,7 @@ export default function ExtensionPage() {
               <div className="space-y-2 flex-1">
                 <h3 className="text-xl font-semibold text-white">Open VS Code Extensions</h3>
                 <p className="text-zinc-400">
-                  Open VS Code, go to the Extensions view (Ctrl+Shift+X), click the "..." menu at the top right, and select <strong>"Install from VSIX..."</strong>.
+                  Open VS Code, go to the Extensions view (Ctrl+Shift+X), click the &quot;...&quot; menu at the top right, and select <strong>&quot;Install from VSIX...&quot;</strong>. Or search for <code className="text-primary bg-muted px-1.5 py-0.5 rounded">&quot;canxjs&quot;</code> in the VS Code Marketplace.
                 </p>
               </div>
             </div>

@@ -43,7 +43,7 @@ export default function CachingPage() {
         </Badge>
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">AutoCache</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          CanxJS includes an intelligent "AutoCache" system that learns from traffic patterns and automatically caches slow, frequent GET requests.
+          CanxJS includes an intelligent &quot;AutoCache&quot; system that learns from traffic patterns and automatically caches slow, frequent GET requests.
         </p>
       </div>
 
@@ -53,7 +53,7 @@ export default function CachingPage() {
           How it Works
         </h2>
         <p className="text-zinc-400 mb-6 leading-relaxed">
-           The <code>PatternAnalyzer</code> monitors your incoming requests. If a specific GET route is accessed frequently (high hits) and has a high average response time (&gt;100ms), AutoCache marks it as "cacheable" and begins serving it from memory.
+           The <code>PatternAnalyzer</code> monitors your incoming requests. If a specific GET route is accessed frequently (high hits) and has a high average response time (&gt;100ms), AutoCache marks it as &quot;cacheable&quot; and begins serving it from memory.
         </p>
       </section>
 

@@ -1,6 +1,14 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { Shield, Key, Lock } from "lucide-react";
+import { Shield, Key, Lock, ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Citadel - CanxJS",
+  description: "Featherweight authentication system for SPAs, mobile apps, and token-based APIs. Inspired by Laravel Sanctum.",
+};
 
 export default function CitadelDocs() {
   const createTokenExample = `import { User } from "./models/User";
@@ -94,6 +102,30 @@ node canx migrate`}
           code={checkAbilityExample}
           filename="example.ts"
         />
+      </section>
+
+      {/* Next Steps */}
+      <section className="animate-slide-up">
+        <div className="rounded-2xl bg-gradient-to-br from-card to-background border border-border p-8">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Next Steps</h3>
+          <p className="text-muted-foreground mb-6">
+            Explore more authentication and authorization options.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/docs/packages/dominion">
+              <Button className="rounded-full">
+                Dominion (RBAC)
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/docs/authentication">
+              <Button variant="outline" className="rounded-full">
+                Core Authentication
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

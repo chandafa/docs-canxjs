@@ -34,7 +34,7 @@ export function TableOfContents() {
         level: Number(elem.tagName.substring(1)),
       }));
 
-    setHeadings(items);
+    setTimeout(() => setHeadings(items), 0);
 
     const observer = new IntersectionObserver(
       (entries) => {

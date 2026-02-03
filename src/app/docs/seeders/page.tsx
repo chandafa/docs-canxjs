@@ -173,6 +173,14 @@ export default function SeedersPage() {
             </div>
           ))}
         </div>
+        <div className="flex font-mono text-sm leading-relaxed">
+            <div className="text-muted-foreground mr-6">2026-02-01 10:00:00</div>
+            <div className="text-green-400">Seeded: &quot;DatabaseSeeder&quot; (20ms)</div>
+          </div>
+          <div className="flex font-mono text-sm leading-relaxed">
+            <div className="text-muted-foreground mr-6">2026-02-01 10:00:00</div>
+            <div className="text-green-400">Seeded: &quot;UserSeeder&quot; (45ms)</div>
+          </div>
       </section>
 
       <section className="mb-16 animate-slide-up delay-100">
@@ -191,8 +199,8 @@ export default function SeedersPage() {
               <th className="pb-3">Method</th><th className="pb-3">Output</th>
             </tr></thead>
             <tbody className="text-zinc-300">
-              <tr className="border-b border-white/[0.05]"><td className="py-2 font-mono text-xs text-green-400">fake.name()</td><td>"John Smith"</td></tr>
-              <tr className="border-b border-white/[0.05]"><td className="py-2 font-mono text-xs text-green-400">fake.email()</td><td>"user@gmail.com"</td></tr>
+              <tr className="border-b border-white/[0.05]"><td className="py-2 font-mono text-xs text-green-400">fake.name()</td><td>&quot;John Smith&quot;</td></tr>
+              <tr className="border-b border-white/[0.05]"><td className="py-2 font-mono text-xs text-green-400">fake.email()</td><td>&quot;user@gmail.com&quot;</td></tr>
               <tr className="border-b border-white/[0.05]"><td className="py-2 font-mono text-xs text-green-400">fake.uuid()</td><td>UUID v4 string</td></tr>
               <tr className="border-b border-white/[0.05]"><td className="py-2 font-mono text-xs text-green-400">fake.number(min, max)</td><td>Random number in range</td></tr>
               <tr className="border-b border-white/[0.05]"><td className="py-2 font-mono text-xs text-green-400">fake.boolean()</td><td>true or false</td></tr>

@@ -8,7 +8,7 @@ export default function EventsPage() {
           Events
         </h1>
         <p className="text-xl text-zinc-400">
-          CanxJS provides a simple observer pattern implementation, allowing you to subscribe and listen for various events that occur in your application.
+          CanxJS&apos;s event system provides a simple observer implementation, allowing you to subscribe and listen to various events that occur in your application.
         </p>
       </div>
 

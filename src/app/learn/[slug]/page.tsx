@@ -61,11 +61,11 @@ export default function TutorialPage({ params }: { params: Promise<{ slug: strin
                     return (
                         <div key={index} className="whitespace-pre-wrap font-sans text-zinc-300 leading-relaxed child-p:mb-4 child-h2:text-2xl child-h2:font-bold child-h2:mt-8 child-h2:mb-4 child-h2:text-white">
                            <ReactMarkdown components={{
-                               h1: ({node, ...props}) => <h1 hidden {...props as any} />,
-                               h2: ({node, ...props}) => <h2 className="text-2xl font-bold text-white mt-8 mb-4" {...props as any} />,
-                               p: ({node, ...props}) => <p className="mb-4 text-zinc-300" {...props as any} />,
-                               ul: ({node, ...props}) => <ul className="list-disc list-inside space-y-2 mb-4 text-zinc-300" {...props as any} />,
-                               li: ({node, ...props}) => <li className="ml-4" {...props as any} />,
+                               h1: ({node, ...props}) => <h1 hidden {...props as any} />, // eslint-disable-line @typescript-eslint/no-explicit-any
+                               h2: ({node, ...props}) => <h2 className="text-2xl font-bold text-white mt-8 mb-4" {...props as any} />, // eslint-disable-line @typescript-eslint/no-explicit-any
+                               p: ({node, ...props}) => <p className="mb-4 text-zinc-300" {...props as any} />, // eslint-disable-line @typescript-eslint/no-explicit-any
+                               ul: ({node, ...props}) => <ul className="list-disc list-inside space-y-2 mb-4 text-zinc-300" {...props as any} />, // eslint-disable-line @typescript-eslint/no-explicit-any
+                               li: ({node, ...props}) => <li className="ml-4" {...props as any} />, // eslint-disable-line @typescript-eslint/no-explicit-any
                            }}>
                                {part}
                            </ReactMarkdown>

@@ -1,6 +1,14 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { Radio, Wifi, WifiOff } from "lucide-react";
+import { Radio, Wifi, WifiOff, ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Echo - CanxJS",
+  description: "Client-side library for subscribing to channels and listening to events broadcasted by your CanxJS server.",
+};
 
 export default function EchoDocs() {
   const setupExample = `import Echo from "@canxjs/echo";
@@ -91,6 +99,30 @@ echo.private("user.1")
           code={`echo.leave("orders");`}
           filename="app.js"
         />
+      </section>
+
+      {/* Next Steps */}
+      <section className="animate-slide-up">
+        <div className="rounded-2xl bg-gradient-to-br from-card to-background border border-border p-8">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Next Steps</h3>
+          <p className="text-muted-foreground mb-6">
+            Explore more real-time and enterprise features.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/docs/websockets">
+              <Button className="rounded-full">
+                WebSockets Server
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/docs/enterprise/universal-signals">
+              <Button variant="outline" className="rounded-full">
+                Universal Signals
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

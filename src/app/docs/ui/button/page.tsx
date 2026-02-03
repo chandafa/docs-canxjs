@@ -62,15 +62,19 @@ export default function Demo() {
               <tbody className="divide-y divide-zinc-800">
                 <tr className="hover:bg-zinc-900/20">
                   <td className="px-4 py-3 font-mono text-blue-400">variant</td>
-                  <td className="px-4 py-3 font-mono">"primary" | "secondary" | "destructive" | "outline" | "ghost" | "link"</td>
-                  <td className="px-4 py-3">"default"</td>
-                  <td className="px-4 py-3">Visual style of the button.</td>
+                  <td className="px-4 py-3 font-mono">&quot;primary&quot; | &quot;secondary&quot; | &quot;destructive&quot; | &quot;outline&quot; | &quot;ghost&quot; | &quot;link&quot;</td>
+                  <td className="px-4 py-3">&quot;default&quot;</td>
+                  <td className="px-4 py-3">
+                    Use the <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;default&quot;</code>, <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;destructive&quot;</code>, <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;outline&quot;</code>, <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;secondary&quot;</code>, <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;ghost&quot;</code>, or <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;link&quot;</code> variant.
+                  </td>
                 </tr>
                 <tr className="hover:bg-zinc-900/20">
                   <td className="px-4 py-3 font-mono text-blue-400">size</td>
-                  <td className="px-4 py-3 font-mono">"default" | "sm" | "lg" | "icon"</td>
-                  <td className="px-4 py-3">"default"</td>
-                  <td className="px-4 py-3">Size of the button.</td>
+                  <td className="px-4 py-3 font-mono">&quot;default&quot; | &quot;sm&quot; | &quot;lg&quot; | &quot;icon&quot;</td>
+                  <td className="px-4 py-3">&quot;default&quot;</td>
+                  <td className="px-4 py-3">
+                    Use <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;default&quot;</code>, <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;sm&quot;</code>, <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;lg&quot;</code>, or <code className="text-primary bg-muted px-1 py-0.5 rounded">&quot;icon&quot;</code> sizes.
+                  </td>
                 </tr>
                 <tr className="hover:bg-zinc-900/20">
                   <td className="px-4 py-3 font-mono text-blue-400">asChild</td>

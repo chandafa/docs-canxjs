@@ -1,6 +1,14 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { Shield, Users, Key } from "lucide-react";
+import { Shield, Users, Key, ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dominion - CanxJS",
+  description: "Advanced role-based access control (RBAC) for CanxJS applications. Inspired by Spatie Laravel Permission.",
+};
 
 export default function DominionDocs() {
   const setupExample = `import { Model } from "canxjs";
@@ -97,6 +105,30 @@ node canx migrate`}
           code={permissionExample}
           filename="example.ts"
         />
+      </section>
+
+      {/* Next Steps */}
+      <section className="animate-slide-up">
+        <div className="rounded-2xl bg-gradient-to-br from-card to-background border border-border p-8">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Next Steps</h3>
+          <p className="text-muted-foreground mb-6">
+            Explore related packages and core features.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/docs/packages/citadel">
+              <Button className="rounded-full">
+                Citadel (Tokens)
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </Link>
+            <Link href="/docs/middleware">
+              <Button variant="outline" className="rounded-full">
+                Middleware
+                <ChevronRight className="w-4 h-4 ml-1" />
+              </Button>
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

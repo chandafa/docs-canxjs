@@ -209,7 +209,7 @@ export default function RoutingPage() {
         </Badge>
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Routing</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Define and manage application routes with CanxJS's powerful, intuitive API. 
+          Define and manage application routes with CanxJS&apos;s powerful, intuitive API. 
           Built on a Radix Tree for ultra-fast route matching with support for parameters, 
           wildcards, and route groups.
         </p>
@@ -377,8 +377,8 @@ return res.redirect(route("users.show", { id: 1 }));`} filename="named-routes.ts
               </tr>
               <tr className="border-b border-white/[0.05]">
                 <td className="py-3 font-mono text-xs">trailingSlash</td>
-                <td className="py-3 text-zinc-500">'ignore' | 'require' | 'remove'</td>
-                <td className="py-3 text-zinc-500">'ignore'</td>
+                <td className="py-3 text-zinc-500">&apos;ignore&apos; | &apos;require&apos; | &apos;remove&apos;</td>
+                <td className="py-3 text-zinc-500">&apos;ignore&apos;</td>
                 <td className="py-3 text-zinc-400">How to handle trailing slashes</td>
               </tr>
               <tr>

@@ -69,7 +69,7 @@ export default function HealthPage() {
         </Badge>
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Health Checks</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Monitor your application's state with built-in health indicators. Perfect for Kubernetes readiness/liveness probes.
+          Monitor your application&apos;s state with built-in health indicators. Perfect for Kubernetes readiness/liveness probes.
         </p>
       </div>
 

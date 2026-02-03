@@ -147,12 +147,12 @@ export default function SecurityDocs() {
     <div className="max-w-4xl">
       {/* Header */}
       <div className="mb-12 animate-fade-in">
-        <Badge variant="secondary" className="mb-4 bg-white/[0.05] border-white/[0.1] text-zinc-400">
+        <Badge variant="secondary" className="mb-4 bg-secondary border-border text-muted-foreground">
           <Shield className="w-3 h-3 mr-1.5" />
           Enterprise
         </Badge>
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Enterprise Security</h1>
-        <p className="text-lg text-zinc-400 leading-relaxed">
+        <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Enterprise Security</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed">
           Bank-grade security features including Audit Logging, Secrets Management, and OAuth2 Provider. 
           Build compliant applications with SOC2, HIPAA, and GDPR support.
         </p>
@@ -164,13 +164,13 @@ export default function SecurityDocs() {
           {features.map((item) => (
             <div 
               key={item.title} 
-              className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              className="rounded-2xl bg-card border border-border p-5 hover:bg-accent/50 transition-all duration-300"
             >
               <div className={`p-2 rounded-lg w-fit mb-3 ${colorClasses[item.color]}`}>
                 <item.icon className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-white mb-1">{item.title}</h3>
-              <p className="text-sm text-zinc-500">{item.desc}</p>
+              <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+              <p className="text-sm text-muted-foreground">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -178,28 +178,28 @@ export default function SecurityDocs() {
 
       {/* Audit Logging */}
       <section className="mb-16 animate-slide-up delay-100">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-blue-500/10">
             <FileText className="w-5 h-5 text-blue-400" />
           </div>
           Audit Logging
         </h2>
-        <p className="text-zinc-400 mb-6">
-          Create immutable audit trails for compliance. Use the <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">@Audit</code> decorator 
-          or <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">auditLogger()</code> for manual logging.
+        <p className="text-muted-foreground mb-6">
+          Create immutable audit trails for compliance. Use the <code className="text-primary bg-muted px-1.5 py-0.5 rounded">@Audit</code> decorator 
+          or <code className="text-primary bg-muted px-1.5 py-0.5 rounded">auditLogger()</code> for manual logging.
         </p>
         <CodePreview code={auditLoggingCode} filename="controllers/PaymentController.ts" />
       </section>
 
       {/* Secrets Manager */}
       <section className="mb-16 animate-slide-up delay-200">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-green-500/10">
             <Key className="w-5 h-5 text-green-400" />
           </div>
           Secrets Manager
         </h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-muted-foreground mb-6">
           Unified interface to access secrets from Environment, HashiCorp Vault, or AWS Secrets Manager.
         </p>
         <CodePreview code={secretsManagerCode} filename="config/secrets.ts" />
@@ -207,13 +207,13 @@ export default function SecurityDocs() {
 
       {/* OAuth2 Provider */}
       <section className="mb-16 animate-slide-up delay-300">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-purple-500/10">
             <Lock className="w-5 h-5 text-purple-400" />
           </div>
           OAuth2 Provider
         </h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-muted-foreground mb-6">
           Turn your CanxJS application into an Identity Provider (IdP) with built-in OAuth2 Server support.
         </p>
         <CodePreview code={oauth2ProviderCode} filename="auth/oauth-server.ts" />
@@ -221,13 +221,13 @@ export default function SecurityDocs() {
 
       {/* Rate Limiting */}
       <section className="mb-16 animate-slide-up delay-400">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-orange-500/10">
             <Eye className="w-5 h-5 text-orange-400" />
           </div>
           Rate Limiting
         </h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-muted-foreground mb-6">
           Protect your API from abuse with configurable rate limiting at global or route level.
         </p>
         <CodePreview code={rateLimitCode} filename="app.ts" />
@@ -235,20 +235,20 @@ export default function SecurityDocs() {
 
       {/* Next Steps */}
       <section className="animate-slide-up delay-500">
-        <div className="rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.08] p-8">
-          <h3 className="text-xl font-semibold text-white mb-4">Next Steps</h3>
-          <p className="text-zinc-400 mb-6">
+        <div className="rounded-2xl bg-gradient-to-br from-card to-background border border-border p-8">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Next Steps</h3>
+          <p className="text-muted-foreground mb-6">
             Explore other enterprise features for building production-ready applications.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/docs/enterprise/microservices">
-              <Button className="rounded-full bg-white text-black hover:bg-zinc-200">
+              <Button className="rounded-full">
                 Microservices
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
             <Link href="/docs/authentication">
-              <Button variant="outline" className="rounded-full border-white/[0.15] hover:bg-white/[0.05]">
+              <Button variant="outline" className="rounded-full">
                 Authentication
                 <ChevronRight className="w-4 h-4 ml-1" />
               </Button>

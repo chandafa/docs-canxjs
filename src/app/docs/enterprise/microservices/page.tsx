@@ -136,12 +136,12 @@ export default function MicroservicesDocs() {
     <div className="max-w-4xl">
       {/* Header */}
       <div className="mb-12 animate-fade-in">
-        <Badge variant="secondary" className="mb-4 bg-white/[0.05] border-white/[0.1] text-zinc-400">
+        <Badge variant="secondary" className="mb-4 bg-secondary border-border text-muted-foreground">
           <Server className="w-3 h-3 mr-1.5" />
           Enterprise
         </Badge>
-        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Microservices & Event Bus</h1>
-        <p className="text-lg text-zinc-400 leading-relaxed">
+        <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">Microservices & Event Bus</h1>
+        <p className="text-lg text-muted-foreground leading-relaxed">
           Build scalable distributed systems with built-in Service Discovery and Event Bus. 
           Supports Redis for production and in-memory for development.
         </p>
@@ -153,13 +153,13 @@ export default function MicroservicesDocs() {
           {features.map((item) => (
             <div 
               key={item.title} 
-              className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-5 hover:bg-white/[0.04] hover:border-white/[0.12] transition-all duration-300"
+              className="rounded-2xl bg-card border border-border p-5 hover:bg-accent/50 transition-all duration-300"
             >
               <div className={`p-2 rounded-lg w-fit mb-3 ${colorClasses[item.color]}`}>
                 <item.icon className="w-5 h-5" />
               </div>
-              <h3 className="font-semibold text-white mb-1">{item.title}</h3>
-              <p className="text-sm text-zinc-500">{item.desc}</p>
+              <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+              <p className="text-sm text-muted-foreground">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -167,29 +167,29 @@ export default function MicroservicesDocs() {
 
       {/* Publishing Events */}
       <section className="mb-16 animate-slide-up delay-100">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-blue-500/10">
             <Radio className="w-5 h-5 text-blue-400" />
           </div>
           Publishing Events
         </h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-muted-foreground mb-6">
           The Event Bus allows your services to communicate asynchronously without tight coupling. 
-          Use <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">eventBus().publish()</code> to emit events.
+          Use <code className="text-primary bg-muted px-1.5 py-0.5 rounded">eventBus().publish()</code> to emit events.
         </p>
         <CodePreview code={publishEventCode} filename="services/order.service.ts" />
       </section>
 
       {/* Subscribing to Events */}
       <section className="mb-16 animate-slide-up delay-200">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-green-500/10">
             <GitBranch className="w-5 h-5 text-green-400" />
           </div>
           Subscribing to Events
         </h2>
-        <p className="text-zinc-400 mb-6">
-          Use the <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">@Subscribe</code> decorator 
+        <p className="text-muted-foreground mb-6">
+          Use the <code className="text-primary bg-muted px-1.5 py-0.5 rounded">@Subscribe</code> decorator 
           or subscribe programmatically to handle events from other services.
         </p>
         <CodePreview code={subscribeEventCode} filename="services/email.service.ts" />
@@ -197,13 +197,13 @@ export default function MicroservicesDocs() {
 
       {/* Service Registry */}
       <section className="mb-16 animate-slide-up delay-300">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-purple-500/10">
             <Network className="w-5 h-5 text-purple-400" />
           </div>
           Service Registry
         </h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-muted-foreground mb-6">
           Automatic service discovery and load balancing. Services register themselves upon startup 
           and can discover other services by name.
         </p>
@@ -212,13 +212,13 @@ export default function MicroservicesDocs() {
 
       {/* RPC Client */}
       <section className="mb-16 animate-slide-up delay-400">
-        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+        <h2 className="text-2xl font-semibold text-foreground mb-4 flex items-center gap-3">
           <div className="p-2 rounded-lg bg-orange-500/10">
             <Zap className="w-5 h-5 text-orange-400" />
           </div>
           RPC Framework
         </h2>
-        <p className="text-zinc-400 mb-6">
+        <p className="text-muted-foreground mb-6">
           Type-safe remote procedure calls with automatic service discovery and circuit breaker support.
         </p>
         <CodePreview code={rpcClientCode} filename="clients/user.client.ts" />
@@ -226,31 +226,31 @@ export default function MicroservicesDocs() {
 
       {/* Configuration */}
       <section className="mb-16 animate-slide-up delay-450">
-        <h2 className="text-2xl font-semibold text-white mb-4">Configuration</h2>
-        <div className="rounded-2xl bg-white/[0.02] border border-white/[0.08] p-6 mb-6">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Configuration</h2>
+        <div className="rounded-2xl bg-card border border-border p-6 mb-6">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-zinc-400 border-b border-white/[0.08]">
+              <tr className="text-left text-muted-foreground border-b border-border">
                 <th className="pb-3 font-medium">Driver</th>
                 <th className="pb-3 font-medium">Use Case</th>
                 <th className="pb-3 font-medium">Config</th>
               </tr>
             </thead>
-            <tbody className="text-zinc-300">
-              <tr className="border-b border-white/[0.05]">
+            <tbody className="text-foreground">
+              <tr className="border-b border-border/50">
                 <td className="py-3 font-mono text-xs">memory</td>
-                <td className="py-3 text-zinc-400">Development, testing</td>
-                <td className="py-3 text-zinc-400">None required</td>
+                <td className="py-3 text-muted-foreground">Development, testing</td>
+                <td className="py-3 text-muted-foreground">None required</td>
               </tr>
-              <tr className="border-b border-white/[0.05]">
+              <tr className="border-b border-border/50">
                 <td className="py-3 font-mono text-xs">redis</td>
-                <td className="py-3 text-zinc-400">Production</td>
-                <td className="py-3 font-mono text-xs text-zinc-400">REDIS_URL</td>
+                <td className="py-3 text-muted-foreground">Production</td>
+                <td className="py-3 font-mono text-xs text-muted-foreground">REDIS_URL</td>
               </tr>
               <tr>
                 <td className="py-3 font-mono text-xs">consul</td>
-                <td className="py-3 text-zinc-400">Enterprise</td>
-                <td className="py-3 font-mono text-xs text-zinc-400">CONSUL_URL</td>
+                <td className="py-3 text-muted-foreground">Enterprise</td>
+                <td className="py-3 font-mono text-xs text-muted-foreground">CONSUL_URL</td>
               </tr>
             </tbody>
           </table>
@@ -259,20 +259,20 @@ export default function MicroservicesDocs() {
 
       {/* Next Steps */}
       <section className="animate-slide-up delay-500">
-        <div className="rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.08] p-8">
-          <h3 className="text-xl font-semibold text-white mb-4">Next Steps</h3>
-          <p className="text-zinc-400 mb-6">
+        <div className="rounded-2xl bg-gradient-to-br from-card to-background border border-border p-8">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Next Steps</h3>
+          <p className="text-muted-foreground mb-6">
             Explore durable workflows and other enterprise features.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/docs/enterprise/flow">
-              <Button className="rounded-full bg-white text-black hover:bg-zinc-200">
+              <Button className="rounded-full">
                 Canx Flow
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
             <Link href="/docs/queue">
-              <Button variant="outline" className="rounded-full border-white/[0.15] hover:bg-white/[0.05]">
+              <Button variant="outline" className="rounded-full">
                 Queue System
                 <ChevronRight className="w-4 h-4 ml-1" />
               </Button>

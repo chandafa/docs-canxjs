@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { ShieldCheck, ArrowRight, ChevronRight, FileText, AlertCircle, Code2, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, ArrowRight, ChevronRight, FileText, CheckCircle2 } from "lucide-react";
 
 const basicValidationExample = `import { validate } from "canxjs";
 
@@ -130,7 +130,7 @@ export default function ValidationPage() {
         </Badge>
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">Validation</h1>
         <p className="text-lg text-zinc-400 leading-relaxed">
-          Ensure data integrity with CanxJS's powerful validation system. Use simple inline validation or dedicate FormRequest classes for complex logic.
+          Ensure data integrity with CanxJS&apos;s powerful validation system. Use simple inline validation or dedicate FormRequest classes for complex logic.
         </p>
       </div>
 

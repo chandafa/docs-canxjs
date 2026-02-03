@@ -80,7 +80,6 @@ export default function UtilitiesPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="space-y-4">
-              <h3 className="text-lg font-medium text-white">Hashing</h3>
               <p className="text-zinc-400 text-sm">Use Bcrypt for secure password hashing.</p>
               <CodePreview code={hashingExample} filename="hash.ts" />
             </div>
@@ -111,7 +110,7 @@ export default function UtilitiesPage() {
             <h2 className="text-2xl font-semibold text-white">Pipelines</h2>
           </div>
           <p className="text-zinc-400">
-            Send an object through a series of "pipes" (middleware/actions).
+            Send an object through a series of &quot;pipes&quot; (middleware/actions).
           </p>
           <CodePreview code={pipelineExample} filename="pipeline.ts" />
         </section>

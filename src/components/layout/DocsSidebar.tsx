@@ -33,7 +33,9 @@ import {
   Scissors,
   CreditCard,
   Globe,
-  FileJson
+  FileJson,
+  Eye,
+  MessageSquare,
 } from "lucide-react";
 
 const sidebarItems = [
@@ -68,9 +70,17 @@ const sidebarItems = [
       { title: "Authentication", href: "/docs/authentication", icon: Key },
       { title: "Validation", href: "/docs/validation", icon: ShieldCheck },
       { title: "Session", href: "/docs/session", icon: Shield },
-      { title: "Views (JSX)", href: "/docs/views", icon: Monitor },
       { title: "I18n", href: "/docs/i18n", icon: Globe },
       { title: "Utilities", href: "/docs/utilities", icon: Wrench },
+    ],
+  },
+  {
+    title: "Frontend Integration",
+    items: [
+      { title: "Vite Integration", href: "/docs/vite", icon: Zap },
+      { title: "Inertia.js", href: "/docs/inertia", icon: Layers },
+      { title: "HotWire Protocol", href: "/docs/hotwire", icon: Zap },
+      { title: "Views (JSX)", href: "/docs/views", icon: Monitor },
     ],
   },
   {
@@ -79,17 +89,21 @@ const sidebarItems = [
       { title: "Models & ORM", href: "/docs/orm", icon: Database },
       { title: "Migrations", href: "/docs/migrations", icon: Layers },
       { title: "Seeders", href: "/docs/seeders", icon: Database },
+      { title: "Observers", href: "/docs/orm/observers", icon: Eye },
     ],
   },
   {
     title: "Advanced",
     items: [
-      { title: "HotWire Protocol", href: "/docs/hotwire", icon: Zap },
       { title: "WebSockets", href: "/docs/websockets", icon: Radio },
       { title: "Task Scheduling", href: "/docs/scheduler", icon: Layers },
+      { title: "Queues", href: "/docs/queue", icon: Layers },
+      { title: "Job Batches", href: "/docs/queue/batches", icon: Layers },
       { title: "Caching", href: "/docs/caching", icon: Database },
       { title: "Events", href: "/docs/events", icon: Zap }, 
+      { title: "Broadcasting", href: "/docs/broadcasting", icon: Radio },
       { title: "Notifications", href: "/docs/notifications", icon: Radio },
+      { title: "SMS Channels", href: "/docs/notifications/sms", icon: MessageSquare },
       { title: "File Storage", href: "/docs/storage", icon: Database }, 
       { title: "Payment", href: "/docs/payment", icon: CreditCard },
       { title: "Search", href: "/docs/search", icon: Search },
@@ -112,6 +126,7 @@ const sidebarItems = [
     items: [
       { title: "Installation", href: "/docs/testing/installation", icon: Terminal },
       { title: "Writing Tests", href: "/docs/testing/usage", icon: TestTube },
+      { title: "Browser Testing", href: "/docs/testing/browser", icon: Monitor },
     ],
   },
   {
