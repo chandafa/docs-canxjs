@@ -106,15 +106,16 @@ export default function IntroductionPage() {
         <h2 className="text-2xl font-semibold text-foreground mb-4">What is CanxJS?</h2>
         <div className="rounded-2xl bg-card border border-border p-6 space-y-4">
           <p className="text-muted-foreground leading-relaxed">
-            CanxJS is a modern backend framework that combines the best ideas from React and Next.js 
-            with the raw performance of Bun. It provides an elegant, type-safe API for building 
-            production-ready applications at unprecedented speed.
+            Think of CanxJS as a "super-powered" framework for building websites and APIs. It combines the ease of use of tools like React/Next.js (for the frontend) with the incredible speed of a new technology called Bun (for the backend).
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            Unlike traditional Node.js frameworks, CanxJS is built from the ground up for Bun, 
-            leveraging its native performance to achieve <span className="text-foreground font-medium">250,000+ requests per second</span> while 
-            maintaining an intuitive developer experience.
+            If you are new to backend development, CanxJS is designed to be:
           </p>
+          <ul className="list-disc list-inside text-muted-foreground space-y-2 ml-2">
+            <li><strong>Simple</strong>: Easy to learn syntax that uses standard TypeScript.</li>
+            <li><strong>Fast</strong>: Your apps remain fast even as they grow large (handling 250k+ requests/sec).</li>
+            <li><strong>Complete</strong>: Comes with everything you need included (Database tools, Security, etc.) so you don't have to glue 20 different packages together.</li>
+          </ul>
         </div>
       </section>
 

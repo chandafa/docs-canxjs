@@ -121,7 +121,21 @@ export default function Counter() {
         Increment
       </button>
       
-      {/* Load AlpineJS */}
+      {/* Alternatives */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold text-foreground mb-4">Alternative View Engines</h2>
+        <div className="rounded-2xl bg-card border border-border p-6 space-y-4">
+          <p className="text-muted-foreground leading-relaxed">
+            CanxJS uses <strong>JSX/TSX</strong> as its native first-class view engine because it provides the best performance (compiled directly by Bun) and developer experience (full type safety).
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            <strong>Can I use other engines like EJS or Handlebars?</strong><br />
+            Yes! While JSX is the default, CanxJS is just JavaScript. You can install any template engine (like <code className="text-primary">ejs</code> or <code className="text-primary">handlebars</code>) from npm and use it in your controllers, just like you would in Express. However, you will miss out on the performance benefits of the native JSX renderer.
+          </p>
+        </div>
+      </section>
+
+      {/* Next Steps */}
       <script src="//unpkg.com/alpinejs" defer></script>
     </div>
   );

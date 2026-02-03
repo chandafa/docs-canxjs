@@ -1,12 +1,14 @@
 "use client";
 
+import React from "react";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { 
-  BookOpen, 
-  Terminal, 
-  Settings, 
+import {
+  BookOpen,
+  Terminal,
+  Settings,
   Code2,
   Route,
   Layers,
@@ -45,7 +47,11 @@ const sidebarItems = [
       { title: "Release Notes", href: "/docs/release-notes", icon: FileCode },
       { title: "Upgrade Guide", href: "/docs/upgrade", icon: Rocket },
       { title: "Downgrade Guide", href: "/docs/downgrade", icon: HistoryIcon },
-      { title: "Contribution Guide", href: "/docs/contribution", icon: ShieldCheck },
+      {
+        title: "Contribution Guide",
+        href: "/docs/contribution",
+        icon: ShieldCheck,
+      },
     ],
   },
   {
@@ -63,10 +69,14 @@ const sidebarItems = [
       { title: "Routing", href: "/docs/routing", icon: Route },
       { title: "Controllers", href: "/docs/controllers", icon: FileCode },
       { title: "API Resources", href: "/docs/resources", icon: FileJson },
-      { title: "Dependency Injection", href: "/docs/container", icon: Box }, 
+      { title: "Dependency Injection", href: "/docs/container", icon: Box },
       { title: "Service Providers", href: "/docs/providers", icon: Box }, // Added
       { title: "Middleware", href: "/docs/middleware", icon: Box }, // Icon changed
-      { title: "Request & Response", href: "/docs/request-response", icon: Code2 },
+      {
+        title: "Request & Response",
+        href: "/docs/request-response",
+        icon: Code2,
+      },
       { title: "Authentication", href: "/docs/authentication", icon: Key },
       { title: "Validation", href: "/docs/validation", icon: ShieldCheck },
       { title: "Session", href: "/docs/session", icon: Shield },
@@ -100,14 +110,19 @@ const sidebarItems = [
       { title: "Queues", href: "/docs/queue", icon: Layers },
       { title: "Job Batches", href: "/docs/queue/batches", icon: Layers },
       { title: "Caching", href: "/docs/caching", icon: Database },
-      { title: "Events", href: "/docs/events", icon: Zap }, 
+      { title: "Events", href: "/docs/events", icon: Zap },
       { title: "Broadcasting", href: "/docs/broadcasting", icon: Radio },
       { title: "Notifications", href: "/docs/notifications", icon: Radio },
-      { title: "SMS Channels", href: "/docs/notifications/sms", icon: MessageSquare },
-      { title: "File Storage", href: "/docs/storage", icon: Database }, 
+      {
+        title: "SMS Channels",
+        href: "/docs/notifications/sms",
+        icon: MessageSquare,
+      },
+      { title: "File Storage", href: "/docs/storage", icon: Database },
       { title: "Payment", href: "/docs/payment", icon: CreditCard },
       { title: "Search", href: "/docs/search", icon: Search },
       { title: "Security", href: "/docs/security", icon: Shield },
+      { title: "Security Comparison", href: "/docs/security/comparison", icon: ShieldCheck },
       { title: "Performance", href: "/docs/performance", icon: Zap },
       { title: "HTTP/2 Support", href: "/docs/http2", icon: Globe },
       { title: "Deployment", href: "/docs/deployment", icon: Rocket },
@@ -117,6 +132,8 @@ const sidebarItems = [
     title: "Architecture",
     items: [
       { title: "Aspect-Oriented (AOP)", href: "/docs/aop", icon: Scissors },
+      { title: "CQRS Architecture", href: "/docs/cqrs", icon: Layers },
+      { title: "GraphQL API", href: "/docs/graphql", icon: Box },
       { title: "Tracing", href: "/docs/tracing", icon: Activity },
       { title: "Health Checks", href: "/docs/health", icon: Heart },
     ],
@@ -124,9 +141,17 @@ const sidebarItems = [
   {
     title: "Testing",
     items: [
-      { title: "Installation", href: "/docs/testing/installation", icon: Terminal },
+      {
+        title: "Installation",
+        href: "/docs/testing/installation",
+        icon: Terminal,
+      },
       { title: "Writing Tests", href: "/docs/testing/usage", icon: TestTube },
-      { title: "Browser Testing", href: "/docs/testing/browser", icon: Monitor },
+      {
+        title: "Browser Testing",
+        href: "/docs/testing/browser",
+        icon: Monitor,
+      },
     ],
   },
   {
@@ -141,7 +166,11 @@ const sidebarItems = [
     title: "Ecosystem",
     items: [
       { title: "Starter Kits", href: "/docs/starters", icon: Rocket },
-      { title: "Canx Studio", href: "/docs/cli/dashboard", icon: LayoutDashboard },
+      {
+        title: "Canx Studio",
+        href: "/docs/cli/dashboard",
+        icon: LayoutDashboard,
+      },
       { title: "Queue Dashboard", href: "/docs/queue", icon: Layers },
       { title: "Canx Admin", href: "/docs/admin", icon: Settings },
     ],
@@ -149,22 +178,52 @@ const sidebarItems = [
   {
     title: "Official Packages",
     items: [
-      { title: "Citadel (Admin)", href: "/docs/packages/citadel", icon: ShieldCheck },
+      {
+        title: "Citadel (Admin)",
+        href: "/docs/packages/citadel",
+        icon: ShieldCheck,
+      },
       { title: "Dominion (RBAC)", href: "/docs/packages/dominion", icon: Key },
-      { title: "Blocks (Modules)", href: "/docs/packages/blocks", icon: Box }, 
+      { title: "Blocks (Modules)", href: "/docs/packages/blocks", icon: Box },
       { title: "Echo (Realtime)", href: "/docs/packages/echo", icon: Radio },
-      { title: "Payment (Midtrans)", href: "/docs/packages/payment", icon: CreditCard },
+      {
+        title: "Telescope (Debug)",
+        href: "/docs/packages/telescope",
+        icon: Search,
+      },
+      {
+        title: "Payment (Midtrans)",
+        href: "/docs/packages/payment",
+        icon: CreditCard,
+      },
     ],
   },
   {
     title: "Enterprise",
     items: [
       { title: "Cluster Mode", href: "/docs/enterprise/cluster", icon: Server },
-      { title: "Microservices", href: "/docs/enterprise/microservices", icon: Box },
-      { title: "Observability", href: "/docs/enterprise/observability", icon: Activity },
-      { title: "Security Layers", href: "/docs/enterprise/security", icon: ShieldCheck },
-      { title: "Universal Signals", href: "/docs/enterprise/universal-signals", icon: Zap },
+      {
+        title: "Microservices",
+        href: "/docs/enterprise/microservices",
+        icon: Box,
+      },
+      {
+        title: "Observability",
+        href: "/docs/enterprise/observability",
+        icon: Activity,
+      },
+      {
+        title: "Security Layers",
+        href: "/docs/enterprise/security",
+        icon: ShieldCheck,
+      },
+      {
+        title: "Universal Signals",
+        href: "/docs/enterprise/universal-signals",
+        icon: Zap,
+      },
       { title: "Canx Flow", href: "/docs/enterprise/flow", icon: GitMerge },
+      { title: "Maintenance", href: "/docs/enterprise/maintenance", icon: Wrench },
     ],
   },
   {
@@ -185,42 +244,72 @@ const sidebarItems = [
 
 export function DocsSidebar() {
   const pathname = usePathname();
+  // Initialize only the active section as open
+  const [openSections, setOpenSections] = React.useState<Record<string, boolean>>(() => {
+    const initialState: Record<string, boolean> = {};
+    sidebarItems.forEach((section) => {
+      // Check if any item in this section is currently active
+      const isActive = section.items.some(item => item.href === pathname);
+      initialState[section.title] = isActive;
+    });
+    return initialState;
+  });
+
+  const toggleSection = (title: string) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
 
   return (
-    <aside className="hidden lg:block w-64 shrink-0 sticky top-24 self-start h-[calc(100vh-6rem)] overflow-y-auto pr-4 pb-10 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
-      <nav className="space-y-8">
+    <aside className="hidden lg:block w-64 shrink-0 sticky top-24 self-start max-h-[calc(100vh-6rem)] overflow-y-auto pr-4 pb-10 scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-transparent">
+      <nav className="space-y-6">
         {sidebarItems.map((section) => (
-          <div key={section.title}>
-            <h4 className="text-sm font-semibold text-muted-foreground mb-3 px-3">
+          <div key={section.title} className="select-none">
+            <button
+              onClick={() => toggleSection(section.title)}
+              className="flex items-center justify-between w-full text-sm font-semibold text-muted-foreground mb-2 px-3 hover:text-foreground transition-colors group"
+            >
               {section.title}
-            </h4>
-            <ul className="space-y-1">
-              {section.items.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={cn(
-                        "flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200",
-                        isActive
-                          ? "bg-accent text-accent-foreground font-medium"
-                          : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
-                      )}
-                    >
-                      <item.icon className={cn(
-                        "w-4 h-4",
-                        isActive ? "text-primary" : "text-muted-foreground"
-                      )} />
-                      {item.title}
-                      {isActive && (
-                        <ChevronRight className="w-3 h-3 ml-auto text-zinc-500" />
-                      )}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+              <ChevronRight
+                className={cn(
+                  "w-3 h-3 transition-transform duration-200",
+                  openSections[section.title] ? "rotate-90" : "",
+                )}
+              />
+            </button>
+
+            {openSections[section.title] && (
+              <ul className="space-y-0.5 animate-slide-down origin-top">
+                {section.items.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "flex items-center gap-3 px-3 py-2 text-sm rounded-lg transition-all duration-200 border border-transparent",
+                          isActive
+                            ? "bg-accent/50 text-accent-foreground font-medium border-accent/50"
+                            : "text-muted-foreground hover:text-foreground hover:bg-accent/30",
+                        )}
+                      >
+                        <item.icon
+                          className={cn(
+                            "w-4 h-4 shrink-0",
+                            isActive
+                              ? "text-primary"
+                              : "text-muted-foreground/70",
+                          )}
+                        />
+                        <span className="truncate">{item.title}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </div>
         ))}
       </nav>
@@ -244,20 +333,22 @@ export function MobileDocsSidebar({ onClose }: { onClose?: () => void }) {
               const isActive = pathname === item.href;
               return (
                 <li key={item.href}>
-                   <Link
+                  <Link
                     href={item.href}
                     onClick={onClose}
                     className={cn(
                       "flex items-center gap-3 px-3 py-2.5 text-sm rounded-lg transition-colors",
                       isActive
                         ? "bg-accent text-accent-foreground font-medium"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent/50",
                     )}
                   >
-                    <item.icon className={cn(
-                      "w-4 h-4",
-                      isActive ? "text-primary" : "text-muted-foreground"
-                    )} />
+                    <item.icon
+                      className={cn(
+                        "w-4 h-4",
+                        isActive ? "text-primary" : "text-muted-foreground",
+                      )}
+                    />
                     {item.title}
                   </Link>
                 </li>
