@@ -32,7 +32,11 @@ app.get("/admin", authMiddleware, adminHandler);
 app.group("/api", (router) => {
   router.middleware(authMiddleware);
   router.get("/profile", profileHandler);
-});`;
+  router.get("/profile", profileHandler);
+});
+
+// Post-Middleware (runs after route handlers)
+app.usePost(performanceLogger); // Logs request duration after response sent`;
 
 const authMiddlewareExample = `export const authMiddleware = async (req, res, next) => {
   const token = req.header("authorization")?.replace("Bearer ", "");
@@ -141,12 +145,14 @@ export default function MiddlewarePage() {
           <table className="w-full text-sm">
             <thead><tr className="text-left text-zinc-400 border-b border-white/[0.08]">
               <th className="pb-3">Middleware</th><th className="pb-3">Description</th>
+              <th className="pb-3">Type</th>
             </tr></thead>
             <tbody className="text-zinc-300">
-              <tr className="border-b border-white/[0.05]"><td className="py-3 font-mono text-xs text-purple-400">logger()</td><td className="py-3 text-zinc-400">Logs request details</td></tr>
-              <tr className="border-b border-white/[0.05]"><td className="py-3 font-mono text-xs text-purple-400">cors(opts)</td><td className="py-3 text-zinc-400">CORS configuration</td></tr>
-              <tr className="border-b border-white/[0.05]"><td className="py-3 font-mono text-xs text-purple-400">rateLimit(opts)</td><td className="py-3 text-zinc-400">Rate limit by IP</td></tr>
-              <tr><td className="py-3 font-mono text-xs text-purple-400">compress()</td><td className="py-3 text-zinc-400">Gzip compression</td></tr>
+              <tr className="border-b border-white/[0.05]"><td className="py-3 font-mono text-xs text-purple-400">logger()</td><td className="py-3 text-zinc-400">Logs request details</td><td className="py-3"><Badge variant="outline" className="text-xs border-purple-500/30 text-purple-400">Pre</Badge></td></tr>
+              <tr className="border-b border-white/[0.05]"><td className="py-3 font-mono text-xs text-purple-400">cors(opts)</td><td className="py-3 text-zinc-400">CORS configuration</td><td className="py-3"><Badge variant="outline" className="text-xs border-purple-500/30 text-purple-400">Pre</Badge></td></tr>
+              <tr className="border-b border-white/[0.05]"><td className="py-3 font-mono text-xs text-purple-400">rateLimit(opts)</td><td className="py-3 text-zinc-400">Rate limit by IP</td><td className="py-3"><Badge variant="outline" className="text-xs border-purple-500/30 text-purple-400">Pre</Badge></td></tr>
+              <tr className="border-b border-white/[0.05]"><td className="py-3 font-mono text-xs text-purple-400">compress()</td><td className="py-3 text-zinc-400">Gzip compression</td><td className="py-3"><Badge variant="outline" className="text-xs border-purple-500/30 text-purple-400">Pre</Badge></td></tr>
+              <tr><td className="py-3 font-mono text-xs text-pink-400">usePost(fn)</td><td className="py-3 text-zinc-400">Post-processing</td><td className="py-3"><Badge variant="outline" className="text-xs border-pink-500/30 text-pink-400">Post</Badge></td></tr>
             </tbody>
           </table>
         </div>

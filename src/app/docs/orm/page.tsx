@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CodePreview } from "@/components/ui/TerminalPreview";
-import { Database, ChevronRight, ArrowRight, Code2, Search, Layers, Zap } from "lucide-react";
+import { Database, ChevronRight, ArrowRight, Code2, Search, Layers, Zap, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Models & ORM",
@@ -224,6 +224,23 @@ export default function ORMPage() {
           Defining Models
         </h2>
         <CodePreview code={defineModelExample} filename="models/User.ts" />
+      </section>
+
+      <section className="mb-16 animate-slide-up delay-250">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-red-500/10"><Shield className="w-5 h-5 text-red-400" /></div>
+          Mass Assignment Protection
+        </h2>
+        <p className="text-zinc-400 mb-6">
+          To prevent unauthorized modifications, define <code>$fillable</code> (whitelist) or <code>$guarded</code> (blacklist) properties.
+        </p>
+        <CodePreview code={`export class User extends Model {
+  // Allow only these fields to be mass-assigned
+  protected static fillable = ["name", "email", "password"];
+  
+  // OR block these fields (everything else is allowed)
+  protected static guarded = ["id", "is_admin", "balance"];
+}`} filename="models/User.ts" />
       </section>
 
       <section className="mb-16 animate-slide-up delay-300">
