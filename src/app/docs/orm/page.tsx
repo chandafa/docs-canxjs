@@ -29,7 +29,6 @@ export class User extends Model {
   role!: string;
   created_at!: Date;
   updated_at!: Date;
-  updated_at!: Date;
 
   // Relations
   posts() {
@@ -160,6 +159,123 @@ const results = await User.query().raw(
   ["2024-01-01"]
 );`;
 
+const advancedRelationsExample = `import { Model } from "canxjs";
+
+export class User extends Model {
+  static tableName = "users";
+
+  // One-to-many
+  posts() { return this.hasMany(Post, "user_id"); }
+
+  // Polymorphic one-to-one: the related row stores
+  // imageable_id + imageable_type columns.
+  image() { return this.morphOne(Image, "imageable"); }
+
+  // Has-many-through: comments on all of this user's posts.
+  // (Comment -> Post -> User)
+  comments() {
+    return this.hasManyThrough(Comment, Post, "user_id", "post_id");
+  }
+}
+
+export class Post extends Model {
+  static tableName = "posts";
+
+  // Polymorphic one-to-many
+  tags() { return this.morphMany(Tag, "taggable"); }
+}
+
+export class Image extends Model {
+  static tableName = "images";
+  // Inverse of a polymorphic relation
+  imageable() { return this.morphTo(); }
+}
+
+// Eager-load exactly like normal relations
+const user = await User.with("image", "comments")
+  .where("id", "=", 1)
+  .first();
+
+console.log(user.relations.image);    // Image | null
+console.log(user.relations.comments); // Comment[]`;
+
+const pivotExample = `import { Model } from "canxjs";
+
+export class User extends Model {
+  static tableName = "users";
+
+  // Many-to-many via the "role_user" pivot table
+  roles() {
+    return this.belongsToMany(Role, "role_user", "user_id", "role_id");
+  }
+}
+
+const user = await User.find(1);
+
+// Attach one or many related ids (skips duplicate pivot rows)
+await user.roles().attach(5);
+await user.roles().attach([2, 3], { assigned_by: "admin" }); // extra pivot columns
+
+// Detach specific ids, or all when called without arguments
+await user.roles().detach(5);
+await user.roles().detach();          // remove every role
+
+// Replace the entire set in one call
+await user.roles().sync([1, 2, 3]);
+
+// Read the related records
+const roles = await user.roles().get();`;
+
+const softDeleteExample = `import { Model } from "canxjs";
+
+export class Post extends Model {
+  static tableName = "posts";
+  static softDeletes = true;          // enables the deleted_at column
+}
+
+const post = await Post.find(1);
+
+// Soft delete: sets deleted_at instead of removing the row
+await post.delete();
+
+// Default queries automatically exclude soft-deleted rows
+await Post.find(1);                    // => null
+
+// Include trashed rows explicitly
+const trashed = await Post.query()
+  .withTrashedResults()
+  .where("id", "=", 1)
+  .first();
+
+// Restore a soft-deleted model
+await trashed.restore();
+
+// Permanently remove (ignores soft-delete scope)
+await Post.query().where("id", "=", 1).forceDelete();`;
+
+const castingExample = `import { Model } from "canxjs";
+
+export class User extends Model {
+  static tableName = "users";
+
+  // Values are cast on read and serialized on write
+  protected casts = {
+    is_admin: "boolean",   // 1/0  <-> true/false
+    meta: "json",          // TEXT column <-> object/array
+    settings: "array",
+    last_login: "datetime" // string <-> Date
+  } as any;
+}
+
+const user = await User.create({
+  name: "Ada",
+  is_admin: true,
+  meta: { theme: "dark" }
+});
+
+typeof user.is_admin; // "boolean"
+typeof user.meta;     // "object"`;
+
 const dbConfigExample = `import { initDatabase, closeDatabase } from "canxjs";
 
 // Initialize database connection
@@ -254,6 +370,48 @@ export default function ORMPage() {
           Define relationships as methods on your model class using <code>hasOne</code>, <code>hasMany</code>, <code>belongsTo</code>, and <code>belongsToMany</code>.
         </p>
         <CodePreview code={defineModelExample} filename="models/User.ts" />
+      </section>
+
+      <section className="mb-16 animate-slide-up delay-350">
+        <h2 className="text-2xl font-semibold text-white mb-4">Advanced Relationships</h2>
+        <p className="text-zinc-400 mb-6">
+          Beyond the basics, models support polymorphic relations (<code>morphOne</code>, <code>morphMany</code>,
+          <code>morphTo</code>, <code>morphToMany</code>) and <code>hasManyThrough</code>. All of them work with
+          eager loading via <code>with()</code>.
+        </p>
+        <CodePreview code={advancedRelationsExample} filename="models/relations.ts" />
+      </section>
+
+      <section className="mb-16 animate-slide-up delay-350">
+        <h2 className="text-2xl font-semibold text-white mb-4">Many-to-Many &amp; Pivot Operations</h2>
+        <p className="text-zinc-400 mb-6">
+          <code>belongsToMany</code> (and <code>morphToMany</code>) relations expose pivot helpers
+          <code>attach()</code>, <code>detach()</code>, and <code>sync()</code> to manage the join table.
+          Duplicate pivot rows are skipped automatically, and extra pivot columns can be passed as a second argument.
+        </p>
+        <CodePreview code={pivotExample} filename="pivot.ts" />
+      </section>
+
+      <section className="mb-16 animate-slide-up delay-350">
+        <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-3">
+          <div className="p-2 rounded-lg bg-red-500/10"><Shield className="w-5 h-5 text-red-400" /></div>
+          Soft Deletes
+        </h2>
+        <p className="text-zinc-400 mb-6">
+          Set <code>static softDeletes = true</code> to keep rows in the database and mark them with a
+          <code>deleted_at</code> timestamp instead of removing them. Default queries hide trashed rows; use
+          <code>withTrashedResults()</code>, <code>restore()</code>, and <code>forceDelete()</code> to manage them.
+        </p>
+        <CodePreview code={softDeleteExample} filename="soft-deletes.ts" />
+      </section>
+
+      <section className="mb-16 animate-slide-up delay-350">
+        <h2 className="text-2xl font-semibold text-white mb-4">Attribute Casting</h2>
+        <p className="text-zinc-400 mb-6">
+          Declare a <code>casts</code> map to convert attributes to native types on read and serialize them on write —
+          e.g. <code>boolean</code>, <code>json</code>, <code>array</code>, <code>integer</code>, <code>datetime</code>.
+        </p>
+        <CodePreview code={castingExample} filename="casting.ts" />
       </section>
 
       <section className="mb-16 animate-slide-up delay-400">
