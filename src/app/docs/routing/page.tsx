@@ -310,16 +310,21 @@ export default function RoutingPage() {
           Give your routes a name for easier referencing. Use the <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">name()</code> method 
           chain and the global <code className="text-zinc-300 bg-zinc-800 px-1.5 py-0.5 rounded">route()</code> helper to generate URLs.
         </p>
-        <CodePreview code={`// Define named route
-app.get("/users/:id", (req, res) => {
-  // ...
-}).name("users.show");
+        <CodePreview code={`import { route } from "canxjs";
 
-// In your controller or view:
+// Name routes on the router (inside app.routes). The name() call
+// chains off the router, naming the most recently defined route.
+app.routes((r) => {
+  r.get("/users/:id", (req, res) => {
+    // ...
+  }).name("users.show");
+});
+
+// In your controller or view, build the URL from its name:
 const url = route("users.show", { id: 123 });
 // Output: /users/123
 
-// Redirect using named route
+// Redirect using a named route
 return res.redirect(route("users.show", { id: 1 }));`} filename="named-routes.ts" />
       </section>
 

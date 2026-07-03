@@ -20,9 +20,9 @@ import {
 } from "lucide-react";
 
 const projectTemplates = [
-  { name: "MVC Project", flag: "", desc: "Full MVC structure with views", icon: "🏗️" },
-  { name: "API Only", flag: "--api", desc: "REST API without views", icon: "⚡" },
-  { name: "Microservice", flag: "--micro", desc: "Minimal microservice setup", icon: "🔧" },
+  { name: "MVC Project", flag: "--type=mvc", desc: "Full MVC structure with views", icon: "🏗️" },
+  { name: "API Only", flag: "--type=api", desc: "REST API without views", icon: "⚡" },
+  { name: "Microservice", flag: "--type=microservice", desc: "Minimal microservice setup", icon: "🔧" },
 ];
 
 const packageManagers = [
@@ -40,7 +40,7 @@ const projectStructure = `my-app/
 │   ├── routes/          # Route definitions
 │   ├── middlewares/     # Custom middlewares
 │   ├── config/          # Configuration files
-│   └── main.ts          # Application entry
+│   └── app.ts           # Application entry
 ├── public/              # Static assets
 ├── storage/             # File storage
 ├── .env                 # Environment variables

@@ -23,17 +23,17 @@ const cliCommands = [
         command: "bunx create-canx my-app", 
         description: "Create a new CanxJS project with the default MVC template" 
       },
-      { 
-        command: "bunx create-canx my-app --api", 
-        description: "Create an API-only project without views" 
+      {
+        command: "bunx create-canx my-app --type=api",
+        description: "Create an API-only project without views"
       },
-      { 
-        command: "bunx create-canx my-app --micro", 
-        description: "Create a minimal microservice setup" 
+      {
+        command: "bunx create-canx my-app --type=microservice",
+        description: "Create a minimal microservice setup"
       },
-      { 
-        command: "bunx create-canx my-app --ts", 
-        description: "Create project with strict TypeScript configuration" 
+      {
+        command: "bunx create-canx my-app --language=typescript",
+        description: "Create project with TypeScript (default)"
       },
     ],
   },
@@ -49,17 +49,17 @@ const cliCommands = [
         command: "bun run build", 
         description: "Build for production" 
       },
-      { 
-        command: "bun run start", 
-        description: "Start production server" 
+      {
+        command: "bun run start",
+        description: "Start production server (NODE_ENV=production)"
       },
-      { 
-        command: "bun run lint", 
-        description: "Run ESLint on your codebase" 
+      {
+        command: "bun test",
+        description: "Run the test suite with Bun's test runner"
       },
-      { 
-        command: "bun run canx tinker", 
-        description: "Interact with your application in REPL mode" 
+      {
+        command: "bunx canx tinker",
+        description: "Interact with your application in REPL mode"
       },
     ],
   },
@@ -79,17 +79,17 @@ const cliCommands = [
         command: "bun run migrate:fresh", 
         description: "Drop all tables and re-run all migrations" 
       },
-      { 
-        command: "bun run canx seed", 
-        description: "Run database seeders" 
+      {
+        command: "bun run migrate:status",
+        description: "Show the status of each migration"
       },
-      { 
-        command: "bun run make:migration create_users", 
-        description: "Create a new migration file" 
+      {
+        command: "bunx canx make:migration CreateUsersTable",
+        description: "Create a new migration file (PascalCase name)"
       },
-      { 
-        command: "bun run make:seeder UserSeeder", 
-        description: "Create a new seeder file" 
+      {
+        command: "bunx canx make:seeder UserSeeder",
+        description: "Create a new seeder file"
       },
     ],
   },
@@ -105,9 +105,9 @@ const cliCommands = [
         command: "bun run make:model User", 
         description: "Create a new model" 
       },
-      { 
-        command: "bun run make:middleware Auth", 
-        description: "Create a new middleware" 
+      {
+        command: "bunx canx make:middleware Auth",
+        description: "Create a new middleware"
       },
       { 
         command: "bun run canx make:microservice PaymentService", 
@@ -124,25 +124,25 @@ const cliCommands = [
     category: "Utilities",
     icon: <RefreshCw className="w-4 h-4 text-cyan-400" />,
     commands: [
-      { 
-        command: "bun run canx cache:clear", 
-        description: "Clear application cache" 
+      {
+        command: "bunx canx list",
+        description: "List all available CLI commands"
       },
-      { 
-        command: "bun run canx optimize", 
-        description: "Optimize framework for production (clear caches, etc)" 
+      {
+        command: "bunx canx optimize",
+        description: "Optimize framework for production (clear caches, etc)"
       },
-      { 
-        command: "bun run canx schedule:run", 
-        description: "Run scheduled tasks manually" 
+      {
+        command: "bunx canx schedule:run",
+        description: "Run scheduled tasks manually"
       },
-      { 
-        command: "bun run canx routes", 
-        description: "List all registered routes" 
+      {
+        command: "bunx canx route:list",
+        description: "List all registered routes"
       },
-      { 
-        command: "bun run canx env", 
-        description: "Display current environment configuration" 
+      {
+        command: "bunx canx down",
+        description: "Put the application into maintenance mode (canx up to restore)"
       },
     ],
   },
